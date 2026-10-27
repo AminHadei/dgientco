@@ -5,7 +5,7 @@
 
     <section class="bg-white">
       <div class="mx-auto max-w-7xl space-y-4 px-4 pb-2 md:px-6">
-        <p v-if="article?.excerpt" class="text-pretty text-xl">{{ article.excerpt }}</p>
+        <p v-if="article?.summary" class="text-pretty text-xl">{{ article.summary }}</p>
         <p class="text-muted-foreground">
           منتشر شده در {{ article?.date ? formatJalaliDate(article.date) : "" }}
         </p>
@@ -80,7 +80,7 @@ const { data: relatedArticles } = await useAsyncData(`related-${slug}`, () =>
 
 usePageSeo({
   title: article.value?.title || "خبر",
-  description: asText(article.value?.excerpt) || "خبر دجینت‌کو",
+  description: asText(article.value?.summary) || "خبر دجینت‌کو",
   image: asText(article.value?.image),
   type: "article",
 });
