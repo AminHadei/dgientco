@@ -17,6 +17,7 @@
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
     "spellcheck": "cspell --no-progress --no-summary \"**/*.{ts,js,vue,mjs,cjs,md,css,json,yml,yaml}\"",
+    "links": "node tools/ci/check-links.mjs",
     "check": "pnpm typecheck && pnpm lint && pnpm format && pnpm spellcheck",
     "check:fix": "pnpm lint:fix && pnpm format:fix && pnpm check",
     "changeset": "changeset",

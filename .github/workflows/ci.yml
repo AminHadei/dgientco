@@ -63,3 +63,8 @@ jobs:
         env:
           NUXT_APP_BASE_URL: /dgientco/
           PUPPETEER_SKIP_DOWNLOAD: "true"
+
+      - name: Check internal links
+        run: node tools/ci/check-links.mjs
+        env:
+          NUXT_APP_BASE_URL: /dgientco/
