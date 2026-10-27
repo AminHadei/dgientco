@@ -57,16 +57,21 @@
     <!-- Success Stories -->
     <section class="section-padding bg-muted">
       <div class="container-custom">
-        <div class="text-center mb-16">
-          <div class="inline-block mb-4">
-            <span class="badge badge-primary">استارت‌آپ‌های موفق</span>
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-16 gap-6">
+          <div class="max-w-3xl text-center md:text-start">
+            <div class="inline-block mb-4">
+              <span class="badge badge-primary">استارت‌آپ‌های موفق</span>
+            </div>
+            <h2 class="text-display text-display-lg mb-6">
+              با افتخار ساخته شده در دجینت‌کو
+            </h2>
+            <p class="text-xl text-muted-foreground">
+              از پردیس ما به صحنه جهانی - آشنایی با برخی از موفق‌ترین استارت‌آپ‌های دجینت‌کو
+            </p>
           </div>
-          <h2 class="text-display text-display-lg mb-6">
-            با افتخار ساخته شده در دجینت‌کو
-          </h2>
-          <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-            از پردیس ما به صحنه جهانی - آشنایی با برخی از موفق‌ترین استارت‌آپ‌های دجینت‌کو
-          </p>
+          <NuxtLink to="/startups" class="btn-primary shrink-0">
+            همه استارت‌آپ‌ها
+          </NuxtLink>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -93,16 +98,21 @@
     <!-- Programs -->
     <section class="section-padding bg-white">
       <div class="container-custom">
-        <div class="text-center mb-16">
-          <div class="inline-block mb-4">
-            <span class="badge badge-primary">برنامه‌ها</span>
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-16 gap-6">
+          <div class="max-w-3xl text-center md:text-start">
+            <div class="inline-block mb-4">
+              <span class="badge badge-primary">برنامه‌ها</span>
+            </div>
+            <h2 class="text-display text-display-lg mb-6">
+              به یکی از بیش از ۳۰ برنامه استارت‌آپی دجینت‌کو بپیوندید
+            </h2>
+            <p class="text-xl text-muted-foreground">
+              پردیس ما میزبان بیش از ۳۰ برنامه استارت‌آپی است که توسط دجینت‌کو و شرکای برتر اجرا می‌شود
+            </p>
           </div>
-          <h2 class="text-display text-display-lg mb-6">
-            به یکی از بیش از ۳۰ برنامه استارت‌آپی دجینت‌کو بپیوندید
-          </h2>
-          <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-            پردیس ما میزبان بیش از ۳۰ برنامه استارت‌آپی است که توسط دجینت‌کو و شرکای برتر اجرا می‌شود
-          </p>
+          <NuxtLink to="/programs" class="btn-primary shrink-0">
+            همه برنامه‌ها
+          </NuxtLink>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">

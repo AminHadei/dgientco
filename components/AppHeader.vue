@@ -74,6 +74,9 @@ const mobileMenuOpen = ref(false)
 
 const navLinks = [
   { path: '/', label: 'صفحه اصلی' },
+  { path: '/startups', label: 'استارت‌آپ‌ها' },
+  { path: '/programs', label: 'برنامه‌ها' },
+  { path: '/events', label: 'رویدادها' },
   { path: '/about', label: 'درباره ما' },
   { path: '/news', label: 'اخبار' },
   { path: '/contact', label: 'تماس با ما' },
