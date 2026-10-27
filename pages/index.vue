@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section class="relative min-h-screen flex items-center overflow-hidden">
       <!-- Background -->
       <div class="absolute inset-0 z-0">
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 z-10"></div>
@@ -13,43 +13,35 @@
       </div>
 
       <!-- Content -->
-      <div class="container-custom relative z-20 text-center text-white py-32">
-        <h1 class="text-display text-display-xl mb-8 max-w-5xl mx-auto">
-          بزرگترین پردیس استارت‌آپی خاورمیانه
-        </h1>
-        
-        <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
-          از ایده تا مقیاس‌پذیری: دجینت‌کو به بیش از ۱۰۰۰ استارت‌آپ دسترسی به اکوسیستم پرتاثیر، شبکه شرکای برتر و سرمایه‌گذاران برجسته را فراهم می‌کند
-        </p>
+      <div class="container-custom relative z-20 text-white py-32">
+        <div class="max-w-4xl">
+          <h1 class="text-display text-display-xl mb-8 leading-[0.95]" style="background: linear-gradient(90deg, #7bf1a8 0%, #ffd7a8 25%, #fafaf9 50%, #fb64b6 75%, #a685ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            بزرگترین پردیس استارت‌آپی خاورمیانه
+          </h1>
+          
+          <p class="text-xl md:text-2xl mb-12 max-w-3xl leading-relaxed font-medium">
+            از ایده تا مقیاس‌پذیری: دجینت‌کو به بیش از ۱۰۰۰ استارت‌آپ دسترسی به اکوسیستم پرتاثیر، شبکه شرکای برتر و سرمایه‌گذاران برجسته را فراهم می‌کند
+          </p>
 
-        <div class="flex flex-wrap gap-4 justify-center mb-16">
-          <NuxtLink to="/contact" class="btn-primary">
-            شروع همکاری
+          <NuxtLink to="/contact" class="inline-flex items-center px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wider bg-white text-primary hover:bg-white/90 transition-colors">
+            عضویت
           </NuxtLink>
-          <NuxtLink to="/about" class="btn-secondary">
-            بیشتر بدانید
-          </NuxtLink>
-        </div>
-
-        <!-- Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-4xl mx-auto mt-20">
-          <div v-for="stat in stats" :key="stat.label" class="text-center">
-            <div class="text-4xl md:text-5xl lg:text-6xl font-black mb-2">
-              {{ stat.value }}
-            </div>
-            <div class="text-sm md:text-base font-medium opacity-90 uppercase tracking-wider">
-              {{ stat.label }}
-            </div>
-          </div>
         </div>
       </div>
 
-      <!-- Scroll indicator -->
-      <div class="absolute bottom-8 start-1/2 -translate-x-1/2 z-20">
-        <div class="animate-bounce">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+      <!-- Stats Bar -->
+      <div class="absolute bottom-8 start-1/2 -translate-x-1/2 z-20 w-full max-w-4xl px-4">
+        <div class="backdrop-blur-md bg-white/10 rounded-2xl border border-white/20 px-8 py-6">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div v-for="stat in stats" :key="stat.label" class="text-center text-white">
+              <div class="text-3xl md:text-4xl font-black mb-1">
+                {{ stat.value }}
+              </div>
+              <div class="text-xs md:text-sm font-medium opacity-90 uppercase tracking-wider">
+                {{ stat.label }}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
