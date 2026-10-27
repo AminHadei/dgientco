@@ -1,4 +1,4 @@
-import { siteName, themeColor } from "../../app/utils/site";
+import { siteFullName, siteName, themeColor } from "../../app/utils/site";
 
 function scopePath(): string {
   const base = process.env.NUXT_APP_BASE_URL || "/";
@@ -10,7 +10,7 @@ export default defineEventHandler((event) => {
   const scope = scopePath();
   setHeader(event, "content-type", "application/manifest+json; charset=utf-8");
   return {
-    name: siteName,
+    name: siteFullName,
     short_name: siteName,
     lang: "fa",
     dir: "rtl",

@@ -6,17 +6,17 @@ Claude Code reads `CLAUDE.md`, which points here. Other agents read this file di
 
 ## Project snapshot
 
-| Item     | Value                                                                 |
-| -------- | --------------------------------------------------------------------- |
-| Stack    | Nuxt 4, Vue 3, TypeScript, Tailwind CSS 3 (`@nuxtjs/tailwindcss`)     |
-| Content  | `@nuxt/content` collections. Lists live in `app/data/*.ts`.           |
-| Images   | `AppImage`, with width, height, and lazy loading                      |
-| Output   | Static only — `pnpm generate` → `.output/public`                      |
-| Language | Persian, `dir="rtl"`, `lang="fa"`                                     |
-| App dir  | `app/` (`pages/`, `components/`, `composables/`, `layouts/`, `data/`) |
-| Content  | `content/` and `content.config.ts`                                    |
-| Dev      | `pnpm dev`                                                            |
-| Package  | pnpm. Checks: `pnpm check`, `pnpm test`. Changelog: Changesets        |
+| Item     | Value                                                                                                           |
+| -------- | --------------------------------------------------------------------------------------------------------------- |
+| Stack    | Nuxt 4, Vue 3, TypeScript, Tailwind CSS 3 (`@nuxtjs/tailwindcss`)                                               |
+| Content  | `@nuxt/content` for news, legal pages, and projects. Partners, management, and contact live in `app/data/*.ts`. |
+| Images   | `AppImage`, with width, height, and lazy loading                                                                |
+| Output   | Static only — `pnpm generate` → `.output/public`                                                                |
+| Language | Persian, `dir="rtl"`, `lang="fa"`                                                                               |
+| App dir  | `app/` (`pages/`, `components/`, `composables/`, `layouts/`, `data/`)                                           |
+| Content  | `content/` and `content.config.ts`                                                                              |
+| Dev      | `pnpm dev`                                                                                                      |
+| Package  | pnpm. Checks: `pnpm check`, `pnpm test`. Changelog: Changesets                                                  |
 
 **Hard constraint:** production is a static host. Prerender every route. Do not add runtime server routes for content that belongs in `content/` or `app/data/`. `server/routes/sitemap.xml.ts`, `server/routes/robots.txt.ts`, and `server/routes/site.webmanifest.ts` are the exceptions.
 
@@ -28,7 +28,7 @@ Tests live in `tests/`. `pnpm test:unit` is Vitest. `pnpm test:e2e` is Playwrigh
 
 ## Design
 
-Campus layout, mirrored for RTL. Tokens and component rules are in the `design-system` skill: Vazirmatn, pill buttons, a start-aligned gradient hero, and a glass stats bar.
+Campus layout, mirrored for RTL. Tokens and component rules are in the `design-system` skill: Vazirmatn, the logo mark on a light plate, a start-aligned gradient hero, and a glass stats bar.
 
 ## Skills (load on demand)
 

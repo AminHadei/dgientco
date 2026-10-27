@@ -38,6 +38,12 @@
                 <div class="font-medium">درباره ما</div>
               </NuxtLink>
               <NuxtLink
+                to="/projects"
+                class="rounded-lg border border-border p-4 transition-colors hover:border-primary"
+              >
+                <div class="font-medium">پروژه‌ها</div>
+              </NuxtLink>
+              <NuxtLink
                 to="/news"
                 class="rounded-lg border border-border p-4 transition-colors hover:border-primary"
               >

@@ -9,7 +9,7 @@ describe("toPersianDigits", () => {
   it("replaces ASCII digits and keeps other characters", () => {
     expect(toPersianDigits(1403)).toBe("۱۴۰۳");
     expect(toPersianDigits("2024-10")).toBe("۲۰۲۴-۱۰");
-    expect(toPersianDigits("دجینت‌کو")).toBe("دجینت‌کو");
+    expect(toPersianDigits("فنصاد")).toBe("فنصاد");
   });
 });
 

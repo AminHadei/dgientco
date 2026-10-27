@@ -42,9 +42,7 @@ describe("pageTitle", () => {
     expect(pageTitle("درباره")).toBe(`درباره | ${siteName}`);
     expect(pageTitle(" اخبار ")).toBe(`اخبار | ${siteName}`);
     expect(pageTitle(siteName)).toBe(siteName);
-    expect(pageTitle(`${siteName} | بزرگترین پردیس استارت‌آپی خاورمیانه`)).toBe(
-      `${siteName} | بزرگترین پردیس استارت‌آپی خاورمیانه`,
-    );
+    expect(pageTitle(`${siteName} | نمونه`)).toBe(`${siteName} | نمونه`);
     expect(pageTitle("  ")).toBe(siteName);
   });
 });

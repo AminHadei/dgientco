@@ -5,12 +5,8 @@
     <div
       class="mx-auto flex h-full max-w-7xl items-center justify-between p-4 text-sm md:p-6"
     >
-      <NuxtLink
-        to="/"
-        class="text-2xl font-black tracking-tight lg:text-[2rem] lg:leading-none"
-        aria-label="دجینت‌کو"
-      >
-        دجینت‌کو
+      <NuxtLink to="/" class="inline-flex items-center">
+        <BrandLogo variant="mark" eager />
       </NuxtLink>
 
       <nav
@@ -114,7 +110,7 @@ const mobileMenuOpen = ref(false);
 const route = useRoute();
 
 const navLinks = [
-  { path: "/startups", label: "استارت‌آپ‌ها" },
+  { path: "/projects", label: "پروژه‌ها" },
   { path: "/news", label: "اخبار" },
   { path: "/about", label: "درباره ما" },
 ];

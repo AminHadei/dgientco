@@ -1,4 +1,8 @@
 export const imageSize: Record<string, [number, number]> = {
+  "/brand/logo-full.png": [498, 156],
+  "/brand/logo-full.webp": [498, 156],
+  "/brand/logo-mark.png": [422, 480],
+  "/brand/logo-mark.webp": [422, 480],
   "/images/unsplash/award-celebration.webp": [800, 1200],
   "/images/unsplash/building-exterior.webp": [1200, 802],
   "/images/unsplash/collaboration.webp": [800, 600],

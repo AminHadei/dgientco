@@ -20,7 +20,7 @@ describe("publicPaths", () => {
     expect(paths).toEqual([
       "/",
       "/about",
-      "/startups",
+      "/projects",
       "/news",
       "/news/page/2",
       ...articleSlugs.map((slug) => `/news/${slug}`),

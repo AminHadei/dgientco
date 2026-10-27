@@ -34,7 +34,8 @@ nuxt.config.ts
 ## Data
 
 - News and legal pages use `queryCollection` (`news` and `legal` in `content.config.ts`).
-- Lists that are not markdown live in `app/data/*.ts`.
+- Projects are a data collection: `content/projects/*.yml`.
+- Partners, management, and contact details live in `app/data/*.ts`.
 - Images go through `AppImage`.
 - Every page calls `usePageSeo` (Persian title, description, `ogLocale: fa_IR`).
 

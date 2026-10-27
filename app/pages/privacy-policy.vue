@@ -18,6 +18,7 @@
 
 <script setup lang="ts">
 import { formatJalaliDate } from "~/utils/jalali";
+import { siteName } from "~/utils/site";
 
 const { data: page } = await useAsyncData("privacy-policy", () =>
   queryCollection("legal").path("/legal/privacy-policy").first(),
@@ -32,7 +33,7 @@ if (!page.value) {
 
 usePageSeo({
   title: page.value?.title || "حریم خصوصی",
-  description: "سیاست حریم خصوصی دجینت‌کو.",
+  description: `سیاست حریم خصوصی ${siteName}.`,
   breadcrumbs: [
     { name: "خانه", path: "/" },
     { name: page.value?.title || "حریم خصوصی", path: "/privacy-policy" },

@@ -1,6 +1,6 @@
 # Image Credits
 
-All images used in this project are from Unsplash and are free to use under the [Unsplash License](https://unsplash.com/license).
+Photographs are from Unsplash and are free to use under the [Unsplash License](https://unsplash.com/license). The logo files in `public/brand/` and the icons made from the mark are company artwork.
 
 ## Hero & Main Images
 

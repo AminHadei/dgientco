@@ -70,6 +70,12 @@ function toLocalDate(date: Date | string): Date {
   return new Date(date);
 }
 
+export function jalaliYear(date: Date | string = new Date()): number {
+  const d = toLocalDate(date);
+  const [year] = gregorianToJalali(d.getFullYear(), d.getMonth() + 1, d.getDate());
+  return year;
+}
+
 export function formatJalaliDate(date: Date | string, includeYear = true): string {
   const d = toLocalDate(date);
   const [jy, jm, jd] = gregorianToJalali(

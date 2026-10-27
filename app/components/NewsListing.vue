@@ -2,7 +2,7 @@
   <div>
     <PageHero
       title="اخبار"
-      subtitle="تازه‌ترین خبرها، رویدادها و داستان‌های جامعه دجینت‌کو"
+      subtitle="این خبرها نمونه هستند و به‌زودی با اخبار فنصاد جایگزین می‌شوند."
     />
 
     <section>
@@ -24,23 +24,12 @@
         />
       </div>
     </section>
-
-    <section class="py-8">
-      <div
-        class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-y-6 p-4 text-center md:p-6"
-      >
-        <h2 class="section-title">رسانه‌های همکار</h2>
-        <p class="text-muted-foreground">دجینت‌کو در رسانه‌های معتبر دیده می‌شود.</p>
-        <LogoGrid :logos="pressLogos" />
-      </div>
-    </section>
   </div>
 </template>
 
 <script setup lang="ts">
 import { toNewsCard } from "~/utils/text";
-import { pressLogos } from "~/data/logos";
-import { newsPageSize } from "~/utils/site";
+import { newsDescription, newsPageSize } from "~/utils/site";
 
 const route = useRoute();
 const currentPage = computed(() => {
@@ -70,7 +59,7 @@ if (firstImage) useLcpImage(firstImage);
 
 usePageSeo({
   title: currentPage.value > 1 ? `اخبار - صفحه ${currentPage.value}` : "اخبار",
-  description: "آخرین اخبار، رویدادها و داستان‌های موفقیت دجینت‌کو.",
+  description: newsDescription,
   breadcrumbs: [
     { name: "خانه", path: "/" },
     { name: "اخبار", path: "/news" },

@@ -1,3 +1,10 @@
+import {
+  companyAddress,
+  companyBale,
+  companyEmail,
+  companyPhoneTel,
+  companyTelegram,
+} from "~/data/contact";
 import { sizeOf } from "~/utils/images";
 import {
   absoluteUrl,
@@ -5,6 +12,8 @@ import {
   defaultOgImage,
   normalizeSiteUrl,
   pageTitle,
+  siteAlternateName,
+  siteLegalName,
   siteName,
 } from "~/utils/site";
 
@@ -33,8 +42,19 @@ function organizationNode(siteUrl: string, description: string): JsonLdNode {
     "@type": "Organization",
     "@id": `${url}#organization`,
     name: siteName,
+    legalName: siteLegalName,
+    alternateName: siteAlternateName,
     url,
     description,
+    email: companyEmail,
+    telephone: companyPhoneTel,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: companyAddress,
+      addressLocality: "تهران",
+      addressCountry: "IR",
+    },
+    sameAs: [companyTelegram, companyBale],
     logo: {
       "@type": "ImageObject",
       url: absoluteUrl(siteUrl, "/icon-512.png"),
