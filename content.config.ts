@@ -7,7 +7,7 @@ export default defineContentConfig({
       source: "news/*.md",
       schema: z.object({
         date: z.string(),
-        excerpt: z.string(),
+        summary: z.string(),
         image: z.string(),
       }),
     }),

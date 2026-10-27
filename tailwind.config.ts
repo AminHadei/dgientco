@@ -30,8 +30,9 @@ export default {
         },
       },
       borderRadius: {
-        DEFAULT: "0.625rem",
-        lg: "1rem",
+        lg: "1.125rem",
+        xl: "1.575rem",
+        md: "0.9rem",
       },
       maxWidth: {
         content: "80rem",

@@ -1,42 +1,33 @@
 <template>
-  <NuxtLink :to="`/news/${article.slug}`" class="group flex gap-3">
-    <div class="h-20 w-20 flex-shrink-0 overflow-hidden rounded bg-muted">
-      <img
+  <NuxtLink :to="`/news/${article.slug}`" class="group flex items-start gap-x-4">
+    <div class="size-24 shrink-0 overflow-hidden rounded-xl bg-muted">
+      <AppImage
         v-if="article.image"
-        :src="withBase(baseURL, article.image || '')"
+        :src="article.image"
         :alt="article.title"
-        class="h-full w-full object-cover"
+        class="size-full object-cover"
       />
     </div>
-    <div class="min-w-0 flex-1">
-      <h4
-        class="mb-1 line-clamp-2 text-sm font-medium transition-colors group-hover:text-primary"
-      >
-        {{ article.title }}
-      </h4>
-      <div v-if="article.date" class="text-xs text-muted-foreground">
+    <div class="min-w-0 flex-1 space-y-2">
+      <div v-if="article.date" class="text-sm text-foreground">
         {{ formatJalaliDate(article.date) }}
       </div>
+      <h4 class="line-clamp-2 text-sm font-bold leading-snug group-hover:underline">
+        {{ article.title }}
+      </h4>
     </div>
   </NuxtLink>
 </template>
 
 <script setup lang="ts">
 import { formatJalaliDate } from "~/utils/jalali";
-import { withBase } from "~/utils/withBase";
 
-const baseURL = useRuntimeConfig().app.baseURL;
-
-interface Article {
-  slug: string;
-  title: string;
-  image?: string;
-  date?: Date | string;
-}
-
-interface Props {
-  article: Article;
-}
-
-defineProps<Props>();
+defineProps<{
+  article: {
+    slug: string;
+    title: string;
+    image?: string;
+    date?: Date | string;
+  };
+}>();
 </script>

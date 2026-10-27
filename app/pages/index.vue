@@ -1,7 +1,7 @@
 <template>
   <div>
     <section
-      class="relative flex min-h-[calc(100vh-6rem)] w-full flex-col overflow-hidden text-primary-foreground"
+      class="relative flex min-h-[max(52rem,calc(100vh-6rem))] w-full flex-col overflow-hidden text-primary-foreground lg:min-h-[max(60rem,calc(100vh-6rem))]"
     >
       <AppImage
         src="/images/unsplash/hero-coworking.webp"
@@ -15,31 +15,28 @@
         class="relative z-10 mx-auto flex w-full max-w-7xl grow flex-col gap-y-10 p-4 md:p-6"
       >
         <div
-          class="flex grow flex-col justify-center gap-y-8 max-lg:items-center max-lg:text-center lg:max-w-4xl"
+          class="flex shrink-0 grow flex-col justify-center gap-y-10 max-lg:items-center max-lg:text-center lg:max-w-4xl"
         >
           <h1
-            class="hero-gradient w-fit max-w-full text-pretty text-5xl font-black uppercase leading-[0.95] md:text-6xl lg:text-8xl"
+            class="hero-gradient max-w-full text-pretty text-6xl font-black uppercase leading-[1.25] max-lg:text-center md:text-5xl lg:text-8xl lg:leading-[1.2]"
           >
             بزرگترین پردیس استارت‌آپی خاورمیانه
           </h1>
-          <div class="flex flex-col gap-y-8 max-lg:items-center">
-            <p class="text-xl font-semibold leading-8">
-              از ایده تا مقیاس‌پذیری: دجینت‌کو به بیش از ۱۰۰۰ استارت‌آپ دسترسی به
-              اکوسیستم پرتاثیر، شبکه شرکای برتر و سرمایه‌گذاران برجسته را فراهم می‌کند.
-            </p>
-            <NuxtLink to="/contact" class="btn-light w-fit self-start">عضویت</NuxtLink>
-          </div>
+          <p class="text-xl font-semibold leading-8">
+            از ایده تا مقیاس‌پذیری: دجینت‌کو به بیش از ۱۰۰۰ استارت‌آپ دسترسی به اکوسیستم
+            پرتاثیر، شبکه شرکای برتر و سرمایه‌گذاران برجسته را فراهم می‌کند.
+          </p>
         </div>
 
-        <div class="space-y-6">
+        <div class="shrink-0 space-y-10">
           <div class="flex justify-center">
             <div
-              class="flex w-full max-w-3xl items-center justify-between gap-x-4 rounded-xl border border-white/40 bg-white/20 px-6 py-4 backdrop-blur-md lg:px-12 lg:py-6"
+              class="flex w-full max-w-3xl items-center justify-between gap-x-6 rounded-xl border border-border/40 bg-white/20 px-6 py-4 backdrop-blur-md lg:px-12 lg:py-6"
             >
               <div
                 v-for="stat in stats"
                 :key="stat.label"
-                class="flex flex-col items-center gap-y-2"
+                class="flex min-w-0 flex-col items-center gap-y-2"
               >
                 <span class="text-center text-2xl font-bold lg:text-4xl">{{
                   stat.value
@@ -121,7 +118,7 @@
           <div
             v-for="logo in partnerLogos"
             :key="logo.id"
-            class="flex h-16 max-w-40 items-center justify-center p-2"
+            class="flex h-16 max-w-40 items-center justify-center p-4"
           >
             <span class="text-center text-xs font-bold text-foreground/80">{{
               logo.name
@@ -140,7 +137,7 @@
         <p class="text-muted-foreground">
           هیچ روزی در پردیس شبیه روز قبل نیست. تازه‌ترین خبرها را بخوانید.
         </p>
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <NewsCard
             v-for="article in latestNews"
             :key="article.path"

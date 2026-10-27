@@ -15,9 +15,8 @@ description: Use when writing or editing Persian copy in content/ or app/data/. 
 | Home features   | `app/data/features.ts`                   | Campus benefit cards              |
 | Logos and stats | `app/data/logos.ts`, `app/data/stats.ts` | Partner names and hero stats      |
 | Timeline        | `app/data/timeline.ts`                   | About-page history                |
-| Contact         | `app/data/contact-cards.ts`              | Contact hub cards                 |
 
-Interface strings that are not in those files are written in the Vue page, in Persian.
+Interface strings that are not in those files are written in the Vue page, in Persian. Contact details live on the contact page.
 
 ## Voice
 

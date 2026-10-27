@@ -1,8 +1,8 @@
 <template>
   <div>
-    <section class="bg-white py-12 md:py-20">
+    <section class="bg-white py-8">
       <article class="container-custom max-w-4xl">
-        <h1 class="mb-4 text-3xl font-bold md:text-4xl">{{ page?.title }}</h1>
+        <h1 class="page-title mb-4">{{ page?.title }}</h1>
         <div v-if="page?.lastUpdated" class="mb-8 text-muted-foreground">
           آخرین به‌روزرسانی: {{ formatJalaliDate(page.lastUpdated) }}
         </div>

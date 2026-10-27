@@ -17,13 +17,13 @@ Static corporate website for dgientco, a digital technology and innovation compa
 - `/startups` startup profiles
 - `/about` timeline and founding principles
 - `/news` and `/news/[slug]`
-- `/contact`, `/contact/visits`, `/contact/sales`, and `/contact/press`
+- `/contact`
 - `/legal-information`, `/privacy-policy`, and `/terms`
 - Custom 404 page
 
 ## Design
 
-The layout follows a campus-site pattern, mirrored for RTL: a start-aligned hero with a gradient title, one white pill button, and a glass stats bar. The header uses a wordmark, compact uppercase navigation, and a contact pill. Sections use a tight rhythm, pill buttons, and a footer with link columns, a newsletter field, and a legal bar.
+The layout follows a campus-site pattern, mirrored for RTL: a start-aligned hero with a gradient title and a glass stats bar. The header uses a wordmark, compact uppercase navigation, and a contact button. Sections use a tight rhythm, rounded buttons, and a footer with a newsletter field and a legal bar.
 
 ## Quality
 

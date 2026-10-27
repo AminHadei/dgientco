@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <div class="mx-auto max-w-7xl space-y-4 px-4 py-6 md:px-6">
+      <div class="mx-auto max-w-7xl space-y-4 p-4 md:p-6">
         <h1 class="page-title">درباره</h1>
         <p class="text-muted-foreground">
           مدت‌ها قبل از اینکه خانه استارت‌آپ‌ها باشد، دجینت‌کو محلی برای نوآوری بود.
@@ -14,7 +14,7 @@
         <h2 class="section-title">دجینت‌کو؛ نوآوری از سال ۱۳۹۵</h2>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
           <template v-for="(item, index) in timeline" :key="item.year">
-            <article class="space-y-4 rounded-xl bg-secondary p-8 md:p-12">
+            <article class="space-y-4 rounded-xl bg-secondary p-12">
               <div class="space-y-2">
                 <h3 class="text-pretty text-3xl font-bold">{{ item.title }}</h3>
                 <p class="text-muted-foreground">{{ item.year }}</p>
@@ -47,21 +47,36 @@
       </div>
     </section>
 
-    <section class="bg-accent-orange">
-      <div class="mx-auto max-w-7xl space-y-4 px-4 py-12 md:px-6 md:py-16">
-        <h2 class="section-title">اصول بنیادی</h2>
-        <div class="max-w-3xl space-y-4 text-lg leading-relaxed">
-          <p>
+    <section class="relative overflow-hidden">
+      <AppImage
+        src="/images/unsplash/team-working.webp"
+        alt="اصول بنیادی دجینت‌کو"
+        class="absolute inset-0 size-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/40"></div>
+      <div
+        class="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-y-4 px-4 py-8 md:gap-y-8 md:px-6 md:py-12"
+      >
+        <h2 class="section-title text-primary-foreground">اصول بنیادی</h2>
+        <div class="flex w-full max-w-4xl flex-col gap-y-4 font-semibold text-white">
+          <p
+            class="flex min-h-30 w-full max-w-3xl items-center justify-center rounded-xl bg-white/30 p-6 text-center backdrop-blur-md"
+          >
             ایده‌های عالی به‌تنهایی کافی نیستند. اجرا، سرعت و محیط مناسب تفاوت را
             می‌سازند.
           </p>
-          <p>
+          <p
+            class="flex min-h-30 w-full max-w-3xl items-center justify-center self-end rounded-xl bg-white/30 p-6 text-center backdrop-blur-md"
+          >
             در دجینت‌کو شرط‌های جسورانه را زود حمایت می‌کنیم، موانع را کنار می‌زنیم و به
             بنیان‌گذاران کمک می‌کنیم روی آنچه مهم است تمرکز کنند.
           </p>
-          <p>این فقط یک پردیس نیست؛ سکوی پرتاب کسانی است که آینده را می‌سازند.</p>
+          <p
+            class="flex min-h-30 w-full max-w-3xl items-center justify-center rounded-xl bg-white/30 p-6 text-center backdrop-blur-md"
+          >
+            این فقط یک پردیس نیست؛ سکوی پرتاب کسانی است که آینده را می‌سازند.
+          </p>
         </div>
-        <NuxtLink to="/contact" class="btn-primary mt-4">شروع کنید</NuxtLink>
       </div>
     </section>
   </div>

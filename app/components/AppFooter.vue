@@ -1,8 +1,8 @@
 <template>
   <footer class="bg-primary text-primary-foreground">
-    <div class="mx-auto max-w-7xl space-y-4 divide-y divide-white/15 p-4 md:p-6">
+    <div class="mx-auto max-w-7xl space-y-4 divide-y divide-white/20 p-4 md:p-6">
       <div
-        class="flex justify-between gap-x-8 pb-12 text-sm max-lg:flex-col max-lg:gap-y-10"
+        class="flex justify-between gap-x-4 pb-12 text-sm max-lg:flex-col max-lg:gap-y-4"
       >
         <div class="space-y-6">
           <div class="flex flex-col items-start gap-y-4 max-lg:items-center">
@@ -95,23 +95,8 @@
 
         <div class="flex flex-col gap-y-2 max-lg:items-center">
           <h2 class="text-lg font-bold">
-            <NuxtLink to="/news" class="hover:underline">اخبار</NuxtLink>
-          </h2>
-          <h2 class="text-lg font-bold">
-            <NuxtLink to="/about" class="hover:underline">درباره ما</NuxtLink>
-          </h2>
-          <h2 class="text-lg font-bold">
-            <NuxtLink to="/startups" class="hover:underline">استارت‌آپ‌ها</NuxtLink>
-          </h2>
-        </div>
-
-        <div class="flex flex-col gap-y-2 max-lg:items-center">
-          <h2 class="text-lg font-bold">
             <NuxtLink to="/contact" class="hover:underline">تماس</NuxtLink>
           </h2>
-          <NuxtLink to="/contact/visits" class="hover:underline">بازدید</NuxtLink>
-          <NuxtLink to="/contact/sales" class="hover:underline">فروش</NuxtLink>
-          <NuxtLink to="/contact/press" class="hover:underline">رسانه</NuxtLink>
         </div>
 
         <div
@@ -128,7 +113,7 @@
               required
               placeholder="ایمیل"
               autocomplete="email"
-              class="h-9 w-full rounded-full border border-white/30 bg-transparent px-4 text-sm text-primary-foreground placeholder:text-primary-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              class="h-8 w-full rounded-lg border border-white/30 bg-transparent px-2.5 text-sm text-primary-foreground placeholder:text-primary-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             />
             <label class="flex items-start gap-2 text-xs text-primary-foreground/80">
               <input
@@ -139,7 +124,10 @@
               />
               <span>با دریافت خبرنامه موافقم</span>
             </label>
-            <button type="submit" class="btn bg-white text-primary hover:bg-white/90">
+            <button
+              type="submit"
+              class="btn w-full bg-secondary text-primary hover:bg-secondary/80"
+            >
               عضویت
             </button>
             <p v-if="newsletterMessage" role="status" class="text-xs">
@@ -150,7 +138,7 @@
       </div>
 
       <div
-        class="flex items-center justify-between pt-4 text-xs uppercase max-lg:flex-col max-lg:gap-y-2"
+        class="flex items-center justify-between text-xs uppercase max-lg:flex-col max-lg:gap-y-2"
       >
         <div class="flex items-center gap-x-4 max-lg:flex-col max-lg:gap-y-2">
           <NuxtLink to="/legal-information" class="hover:underline"

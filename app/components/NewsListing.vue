@@ -3,13 +3,11 @@
     <PageHero
       title="اخبار"
       subtitle="تازه‌ترین خبرها، رویدادها و داستان‌های جامعه دجینت‌کو"
-    >
-      <NuxtLink to="/contact/press" class="btn-secondary"> کیت رسانه </NuxtLink>
-    </PageHero>
+    />
 
-    <section class="bg-white">
-      <div class="container-custom pb-12">
-        <div class="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <section>
+      <div class="mx-auto max-w-7xl space-y-6 p-4 md:p-6">
+        <div class="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <NewsCard
             v-for="article in articles"
             :key="article.path"
@@ -25,12 +23,12 @@
       </div>
     </section>
 
-    <section class="bg-secondary py-8">
-      <div class="container-custom">
-        <div class="mb-8 text-center">
-          <h2 class="section-title mb-2">رسانه‌های همکار</h2>
-          <p class="text-lg text-muted-foreground">دجینت‌کو در رسانه‌ها</p>
-        </div>
+    <section class="py-8">
+      <div
+        class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-y-6 p-4 text-center md:p-6"
+      >
+        <h2 class="section-title">رسانه‌های همکار</h2>
+        <p class="text-muted-foreground">دجینت‌کو در رسانه‌های معتبر دیده می‌شود.</p>
         <LogoGrid :logos="pressLogos" />
       </div>
     </section>
