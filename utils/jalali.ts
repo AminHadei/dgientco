@@ -42,8 +42,15 @@ const jalaliMonthNames = [
   'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'
 ]
 
+function toLocalDate(date: Date | string): Date {
+  if (date instanceof Date) return date
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(date)
+  if (match) return new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]))
+  return new Date(date)
+}
+
 export function formatJalaliDate(date: Date | string, includeYear = true): string {
-  const d = typeof date === 'string' ? new Date(date) : date
+  const d = toLocalDate(date)
   const [jy, jm, jd] = gregorianToJalali(d.getFullYear(), d.getMonth() + 1, d.getDate())
   
   const day = toPersianDigits(jd)
@@ -54,7 +61,7 @@ export function formatJalaliDate(date: Date | string, includeYear = true): strin
 }
 
 export function formatJalaliDateShort(date: Date | string): string {
-  const d = typeof date === 'string' ? new Date(date) : date
+  const d = toLocalDate(date)
   const [jy, jm, jd] = gregorianToJalali(d.getFullYear(), d.getMonth() + 1, d.getDate())
   
   return toPersianDigits(`${jy}/${jm.toString().padStart(2, '0')}/${jd.toString().padStart(2, '0')}`)
