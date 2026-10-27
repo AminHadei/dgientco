@@ -49,5 +49,9 @@
 usePageSeo({
   title: "تماس",
   description: "تلفن، ایمیل و نشانی دفتر دجینت‌کو.",
+  breadcrumbs: [
+    { name: "خانه", path: "/" },
+    { name: "تماس", path: "/contact" },
+  ],
 });
 </script>

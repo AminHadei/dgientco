@@ -4,6 +4,8 @@
     :alt="alt"
     :width="width"
     :height="height"
+    :srcset="resolvedSrcset"
+    :sizes="sizes"
     :loading="eager ? 'eager' : 'lazy'"
     :fetchpriority="eager ? 'high' : 'auto'"
     decoding="async"
@@ -18,8 +20,23 @@ const props = defineProps<{
   src: string;
   alt: string;
   eager?: boolean;
+  srcset?: string;
+  sizes?: string;
 }>();
 
-const resolvedSrc = computed(() => withBase(useRuntimeConfig().app.baseURL, props.src));
+const baseURL = useRuntimeConfig().app.baseURL;
+const resolvedSrc = computed(() => withBase(baseURL, props.src));
+const resolvedSrcset = computed(() => {
+  if (!props.srcset) return undefined;
+  return props.srcset
+    .split(",")
+    .map((part) => {
+      const [url, descriptor] = part.trim().split(/\s+/);
+      if (!url) return "";
+      return `${withBase(baseURL, url)}${descriptor ? ` ${descriptor}` : ""}`;
+    })
+    .filter(Boolean)
+    .join(", ");
+});
 const [width, height] = sizeOf(props.src);
 </script>

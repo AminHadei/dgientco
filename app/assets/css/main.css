@@ -66,6 +66,11 @@
     @apply text-sm font-bold uppercase underline-offset-4 hover:underline;
   }
 
+  .below-fold {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 32rem;
+  }
+
   .card-hover {
     @apply transition-shadow duration-300 hover:shadow-md;
   }

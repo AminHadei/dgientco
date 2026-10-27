@@ -5,6 +5,8 @@
     >
       <AppImage
         src="/images/unsplash/hero-coworking.webp"
+        :srcset="heroSrcset"
+        sizes="100vw"
         alt="فضای کاری دجینت‌کو"
         eager
         class="absolute inset-0 h-full w-full object-cover"
@@ -64,7 +66,7 @@
       </div>
     </section>
 
-    <section class="py-8">
+    <section class="below-fold py-8">
       <div class="mx-auto flex max-w-7xl flex-col gap-y-6 p-4 md:p-6">
         <div class="flex items-center justify-between gap-4">
           <h2 class="section-title">با افتخار ساخته شده در دجینت‌کو</h2>
@@ -77,7 +79,7 @@
       </div>
     </section>
 
-    <section class="bg-secondary py-8">
+    <section class="below-fold bg-secondary py-8">
       <div class="mx-auto flex max-w-7xl flex-col gap-y-6 p-4 md:p-6">
         <h2 class="section-title">در دجینت‌کو چه به دست می‌آورید</h2>
         <p class="text-muted-foreground">دجینت‌کو یک فضای کار معمولی نیست.</p>
@@ -104,7 +106,7 @@
       </div>
     </section>
 
-    <section class="py-8">
+    <section class="below-fold py-8">
       <div
         class="mx-auto flex max-w-7xl flex-col items-center gap-y-6 p-4 text-center md:p-6"
       >
@@ -128,7 +130,7 @@
       </div>
     </section>
 
-    <section class="bg-secondary py-8">
+    <section class="below-fold bg-secondary py-8">
       <div class="mx-auto max-w-7xl space-y-6 p-4 md:p-6">
         <div class="flex items-center justify-between gap-4">
           <h2 class="section-title">در دجینت‌کو چه می‌گذرد</h2>
@@ -168,10 +170,17 @@ const { data: latestNews } = await useAsyncData("home-news", () =>
   queryCollection("news").order("date", "DESC").limit(4).all(),
 );
 
+const heroSrcset =
+  "/images/unsplash/hero-coworking-960.webp 960w, /images/unsplash/hero-coworking.webp 1920w";
+
+useLcpImage("/images/unsplash/hero-coworking-960.webp", heroSrcset);
+
 usePageSeo({
-  title: "دجینت‌کو",
+  title: "دجینت‌کو | بزرگترین پردیس استارت‌آپی خاورمیانه",
   description:
     "بزرگترین پردیس استارت‌آپی خاورمیانه. از ایده تا مقیاس‌پذیری در کنار دجینت‌کو.",
-  image: "/images/og.webp",
+  image: "/images/og.png",
+  imageAlt: "دجینت‌کو",
+  home: true,
 });
 </script>

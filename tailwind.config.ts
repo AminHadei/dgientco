@@ -19,7 +19,7 @@ export default {
         foreground: "#0c0a09",
         muted: {
           DEFAULT: "#f5f5f4",
-          foreground: "#79716b",
+          foreground: "#6b6560",
         },
         secondary: "#f5f5f4",
         border: "#e7e5e4",

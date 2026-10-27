@@ -33,5 +33,9 @@ if (!page.value) {
 usePageSeo({
   title: page.value?.title || "اطلاعات قانونی",
   description: "اطلاعات قانونی دجینت‌کو.",
+  breadcrumbs: [
+    { name: "خانه", path: "/" },
+    { name: page.value?.title || "اطلاعات قانونی", path: "/legal-information" },
+  ],
 });
 </script>
