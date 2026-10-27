@@ -29,9 +29,13 @@ jobs:
         env:
           HUSKY: "0"
           PUPPETEER_SKIP_DOWNLOAD: "true"
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "true"
 
       - name: Lint, format, spellcheck, typecheck
         run: pnpm lint && pnpm format && pnpm spellcheck && pnpm typecheck
+
+      - name: Unit tests
+        run: pnpm test:unit
 
       - name: Check changeset
         if: github.event_name == 'pull_request'
@@ -57,6 +61,7 @@ jobs:
         env:
           HUSKY: "0"
           PUPPETEER_SKIP_DOWNLOAD: "true"
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "true"
 
       - name: Generate static site
         run: pnpm generate
@@ -68,3 +73,18 @@ jobs:
         run: node tools/ci/check-links.mjs
         env:
           NUXT_APP_BASE_URL: /dgientco/
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: End-to-end tests
+        run: pnpm test:e2e
+        env:
+          NUXT_APP_BASE_URL: /dgientco/
+          CI: "true"
