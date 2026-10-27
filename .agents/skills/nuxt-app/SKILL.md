@@ -44,6 +44,12 @@ nuxt.config.ts
 - Static output is `nuxt generate` (`nitro.prerender.crawlLinks` plus the explicit route list).
 - New routes must be linked from a crawled page and added to `server/utils/publicRoutes.ts`. That list feeds prerender and `server/routes/sitemap.xml.ts`. News slugs are read from `content/news`.
 
+## Tests
+
+- `tests/unit/` — Node tests for `app/utils` and `server/utils`.
+- `tests/nuxt/` — Vitest in the Nuxt environment for composables and components.
+- `tests/e2e/` — Playwright against the generated site. Commands are in the README.
+
 ## Don't
 
 - Don't add server routes for content that belongs in `content/` or `app/data/`.

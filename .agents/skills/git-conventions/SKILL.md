@@ -39,7 +39,7 @@ description: Use when creating branches, writing commit messages, or splitting w
 
 - `pre-commit`: lint-staged, `pnpm lint`, `pnpm spellcheck`
 - `commit-msg`: commitlint, and any `Co-authored-by` line is removed
-- `pre-push`: `pnpm typecheck`
+- `pre-push`: `pnpm typecheck`, `pnpm test:unit`
 
 Never `--no-verify`. Never commit unless the user asks. Never force-push or amend a pushed commit without explicit approval. Do not change `git user.name` or `user.email`.
 

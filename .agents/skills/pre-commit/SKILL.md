@@ -17,7 +17,11 @@ If lint or format failed on something auto-fixable:
 pnpm check:fix
 ```
 
-Also run `pnpm generate` when the change touches `app/`, `content/`, `content.config.ts`, `nuxt.config.ts`, or `.github/workflows/`.
+Also run `pnpm test:unit`.
+
+Also run `pnpm generate` when the change touches `app/`, `content/`, `content.config.ts`, `nuxt.config.ts`, or `.github/workflows/`. Use `NUXT_APP_BASE_URL=/dgientco/`, then `pnpm links` and `pnpm test:e2e`.
+
+`pre-push` runs `pnpm typecheck` and `pnpm test:unit`. Do not add the end-to-end suite to `pre-commit`.
 
 ## Report
 
