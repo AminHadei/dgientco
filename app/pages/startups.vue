@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <div class="mx-auto max-w-7xl space-y-4 px-4 py-6 md:px-6">
+      <div class="mx-auto max-w-7xl space-y-4 p-4 md:p-6">
         <h1 class="page-title">استارت‌آپ‌ها</h1>
         <p class="max-w-3xl text-muted-foreground">
           جامعه استارت‌آپی دجینت‌کو را ببینید؛ از داستان‌های جهانی تا نام‌های در حال
@@ -25,7 +25,7 @@
             class="flex w-full flex-wrap items-center gap-2.5 rounded-xl border border-border px-3 py-2.5 text-sm transition-colors hover:bg-muted"
           >
             <div
-              class="flex h-16 w-28 shrink-0 items-center justify-center self-center overflow-hidden rounded-sm bg-muted text-xl font-black lg:w-24 xl:w-20"
+              class="flex h-16 w-36 shrink-0 items-center justify-center self-center overflow-hidden rounded-sm bg-muted text-xl font-black lg:w-32 xl:w-24"
             >
               {{ startup.name.charAt(0) }}
             </div>
@@ -63,7 +63,7 @@
           <div
             v-for="investor in investors"
             :key="investor"
-            class="flex h-16 max-w-40 items-center justify-center p-2"
+            class="flex h-16 max-w-40 items-center justify-center p-4"
           >
             <span class="text-center text-xs font-bold text-foreground/80">{{
               investor

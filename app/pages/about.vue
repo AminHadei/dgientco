@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <div class="mx-auto max-w-7xl space-y-4 px-4 py-6 md:px-6">
+      <div class="mx-auto max-w-7xl space-y-4 p-4 md:p-6">
         <h1 class="page-title">درباره</h1>
         <p class="text-muted-foreground">
           مدت‌ها قبل از اینکه خانه استارت‌آپ‌ها باشد، دجینت‌کو محلی برای نوآوری بود.

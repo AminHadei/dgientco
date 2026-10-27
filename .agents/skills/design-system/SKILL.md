@@ -28,7 +28,7 @@ Defined in `tailwind.config.ts` and `app/assets/css/main.css`.
 
 ## Hero
 
-Start-aligned on large screens, centered below `lg`. The `h1` uses `.hero-gradient` (green at the start, then warm, then violet). The section uses `min-height`, not a fixed height, so the Persian title can grow without overlapping the stats. Stats sit in a glass bar: `rounded-xl border border-border/40 bg-white/20 backdrop-blur-md`.
+Start-aligned on large screens, centered below `lg`. The `h1` uses `.hero-gradient` (green at the start, then warm, then violet) with relaxed leading so Vazirmatn lines do not collide. The section uses `min-height`, not a fixed height, so the Persian title can grow without overlapping the stats. Stats sit in a glass bar: `rounded-xl border border-border/40 bg-white/20 backdrop-blur-md`. Logo carousel cards use `rounded-xl ring-1 ring-foreground/10` and a square frame.
 
 ## Header and footer
 

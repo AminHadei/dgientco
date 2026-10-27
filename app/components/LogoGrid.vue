@@ -5,7 +5,7 @@
     <div
       v-for="logo in logos"
       :key="logo.id"
-      class="flex h-16 max-w-40 items-center justify-center p-2"
+      class="flex h-16 max-w-40 items-center justify-center p-4"
     >
       <span class="text-center text-xs font-bold text-foreground/80">{{
         logo.name

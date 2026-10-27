@@ -18,7 +18,7 @@
           class="flex shrink-0 grow flex-col justify-center gap-y-10 max-lg:items-center max-lg:text-center lg:max-w-4xl"
         >
           <h1
-            class="hero-gradient max-w-full text-pretty text-6xl font-black uppercase leading-[1.12] max-lg:text-center md:text-5xl lg:text-8xl lg:leading-[1.08]"
+            class="hero-gradient max-w-full text-pretty text-6xl font-black uppercase leading-[1.25] max-lg:text-center md:text-5xl lg:text-8xl lg:leading-[1.2]"
           >
             بزرگترین پردیس استارت‌آپی خاورمیانه
           </h1>
@@ -118,7 +118,7 @@
           <div
             v-for="logo in partnerLogos"
             :key="logo.id"
-            class="flex h-16 max-w-40 items-center justify-center p-2"
+            class="flex h-16 max-w-40 items-center justify-center p-4"
           >
             <span class="text-center text-xs font-bold text-foreground/80">{{
               logo.name

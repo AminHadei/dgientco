@@ -2,11 +2,11 @@
   <div>
     <PageHero title="تماس" subtitle="چطور می‌توانیم کمک کنیم؟" />
 
-    <section class="py-8">
+    <section>
       <div
-        class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 md:grid-cols-3 md:gap-8 md:px-6"
+        class="mx-auto grid max-w-7xl grid-cols-1 gap-4 p-4 md:grid-cols-2 md:gap-8 md:p-6 lg:grid-cols-3"
       >
-        <article class="rounded-xl bg-secondary p-6">
+        <article class="rounded-xl bg-secondary p-6 ring-1 ring-foreground/10">
           <h2 class="mb-2 text-base font-semibold">تلفن</h2>
           <a
             href="tel:+982112345678"
@@ -17,7 +17,7 @@
           </a>
         </article>
 
-        <article class="rounded-xl bg-secondary p-6">
+        <article class="rounded-xl bg-secondary p-6 ring-1 ring-foreground/10">
           <h2 class="mb-2 text-base font-semibold">ایمیل</h2>
           <a
             href="mailto:info@dgientco.com"
@@ -33,7 +33,7 @@
           </a>
         </article>
 
-        <article class="rounded-xl bg-secondary p-6">
+        <article class="rounded-xl bg-secondary p-6 ring-1 ring-foreground/10">
           <h2 class="mb-2 text-base font-semibold">آدرس</h2>
           <address class="not-italic text-muted-foreground">
             تهران، خیابان ولیعصر<br />

@@ -15,21 +15,20 @@
           aria-roledescription="اسلاید"
           :aria-label="`${index + 1} از ${logos.length}: ${logo.name}`"
         >
-          <div class="rounded-xl border bg-white p-2 shadow-sm">
+          <div
+            class="overflow-hidden rounded-xl bg-white text-sm ring-1 ring-foreground/10"
+          >
             <div
-              class="flex aspect-square flex-col items-center justify-center gap-2 px-2"
+              class="flex aspect-square flex-col items-center justify-center gap-2 px-4"
             >
               <div
-                class="flex size-16 items-center justify-center rounded-full bg-muted text-2xl font-black text-foreground"
+                class="flex size-24 items-center justify-center rounded-full bg-muted text-3xl font-black text-foreground"
               >
                 {{ logo.name.charAt(0) }}
               </div>
-              <span class="text-center text-sm font-bold">{{ logo.name }}</span>
-              <span
-                v-if="logo.badge"
-                class="line-clamp-2 text-center text-sm text-muted-foreground"
-                >{{ logo.badge }}</span
-              >
+              <span class="line-clamp-2 text-center text-muted-foreground">{{
+                logo.name
+              }}</span>
             </div>
           </div>
         </div>
