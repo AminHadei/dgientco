@@ -30,7 +30,7 @@ The site is fully right-to-left (`lang=fa` and `dir=rtl` on `html`). Logical pro
 
 Campus layout mirrored for RTL. Do not invent a second visual system.
 
-- Header is `bg-primary`, height `h-24`, wordmark, uppercase nav, contact as a white pill.
+- Header is `bg-primary`, height `h-24`, logo mark on a light plate, uppercase nav, contact as a secondary button.
 - Hero is start-aligned from `lg`, centered below that. The title uses `.hero-gradient`. Stats sit in a glass bar. The hero uses `min-height` so the title does not overlap the stats.
 - Header contact is a secondary `rounded-lg` button. Buttons are `rounded-lg`, not pills.
 - Section rhythm is `py-8`. Titles use `.section-title` and `.page-title`. Container is `max-w-7xl`.

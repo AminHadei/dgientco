@@ -4,7 +4,7 @@ Checklist for the real deployment. Do this work when a domain is registered, a V
 
 The site today is a static GitHub Pages build of `pnpm generate`. Public URLs use `NUXT_PUBLIC_SITE_URL` (default `https://aminhadei.github.io/dgientco`, no trailing slash, in `app/utils/site.ts`). The Pages prefix is `NUXT_APP_BASE_URL=/dgientco/` in CI and the deploy workflow. Canonical URLs, Open Graph URLs, the sitemap, and `robots.txt` are the site URL plus the page path.
 
-The items below are tasks, not decisions already taken. Each note says why it matters and how to approach it. Do not treat the copy in the repo as company facts. It is sample content.
+The items below are tasks, not decisions already taken. Each note says why it matters and how to approach it. The company profile, projects, partners, managers, and contact details in the repo are the approved facts. News articles and the stock photographs are still placeholders.
 
 ## Domain and DNS
 
@@ -50,19 +50,20 @@ The items below are tasks, not decisions already taken. Each note says why it ma
 
 ## Real content
 
-- [ ] Replace the sample company text, address, phone, and email with approved copy. Do not invent the missing facts in the repo.
-- [ ] Replace the wordmark and logo files, and check the header, the footer, and the manifest icons.
-- [ ] Replace photographs. Keep width and height on `AppImage`, and update [CREDITS.md](../CREDITS.md) for every new source.
-- [ ] Replace news articles and startup profiles. News dates stay ISO in frontmatter. The site renders them as Jalali with Persian digits.
-- [ ] Have the legal pages reviewed by someone who can approve them before launch: legal information, privacy, and terms.
-- [ ] Remove sample registration numbers, phone numbers, and street addresses wherever they still appear, including the footer.
+- [x] Replace the sample company text, address, phone, and email with approved copy. Do not invent the missing facts in the repo.
+- [x] Replace the wordmark and logo files, and check the header, the footer, and the manifest icons. The mark is `public/brand/logo-mark.png`. The full lockup is `public/brand/logo-full.png`.
+- [ ] Replace photographs. Keep width and height on `AppImage`, and update [CREDITS.md](../CREDITS.md) for every new source. The hero and news images are still stock photos.
+- [x] Replace startup profiles with the projects page. News dates stay ISO in frontmatter. The site renders them as Jalali with Persian digits.
+- [ ] Replace placeholder news. The current articles are labeled samples and do not state company events.
+- [ ] Have the legal pages reviewed by someone who can approve them before launch: legal information, privacy, and terms. The name and contact details are updated. The privacy and terms text still needs that review.
+- [x] Remove sample registration numbers, phone numbers, and street addresses wherever they still appear, including the footer.
 
 ## Contact
 
 - [ ] Create the mailboxes the contact page will show, on the production domain.
 - [ ] Publish SPF, DKIM, and DMARC so those addresses cannot be spoofed easily.
-- [ ] The contact page is phone, email, and address only. There is no contact form. The footer newsletter control does not send mail. If a real form is required, add a separate backend or form service, with spam protection, and keep page content static. Keep secrets out of the repository.
-- [ ] Either wire the newsletter control to that service or remove it, so it does not tell people they have subscribed when nothing was stored.
+- [x] The contact page is phone, email, address, and messengers. There is no contact form. The footer newsletter control was removed, so the site does not tell people they have subscribed.
+- [ ] If a real form is required, add a separate backend or form service, with spam protection, and keep page content static. Keep secrets out of the repository.
 
 ## Performance and accessibility
 

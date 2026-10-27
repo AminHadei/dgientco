@@ -1,21 +1,20 @@
 # dgientco
 
-Static corporate website for dgientco, a digital technology and innovation company. The site is written in Persian and laid out right to left.
+Static corporate website for فناوری‌های نوین صنعت و انرژی دانش‌گستر. The public short name is فنصاد. DGIENT is the Latin mark on the logo. The site is written in Persian and laid out right to left.
 
 ## Stack
 
 - **Nuxt 4** for a statically generated Vue site
 - **Tailwind CSS** with logical properties for RTL layout
-- **Nuxt Content** for news articles and legal pages
-- **Embla Carousel** with RTL support
+- **Nuxt Content** for news, legal pages, and projects
 - **Vazirmatn** for Persian typography
 - Jalali dates rendered with Persian digits
 
 ## Pages
 
-- `/` home: hero, stats, startup logos, partners, and news
-- `/startups` startup profiles
-- `/about` timeline and founding principles
+- `/` home: hero, project counts, projects, partners, managers, and news
+- `/projects` current and upcoming projects
+- `/about` mission, managers, and partners
 - `/news` and `/news/[slug]`
 - `/contact`
 - `/legal-information`, `/privacy-policy`, and `/terms`
@@ -23,7 +22,7 @@ Static corporate website for dgientco, a digital technology and innovation compa
 
 ## Design
 
-The layout follows a campus-site pattern, mirrored for RTL: a start-aligned hero with a gradient title and a glass stats bar. The header uses a wordmark, compact uppercase navigation, and a contact button. Sections use a tight rhythm, rounded buttons, and a footer with a newsletter field and a legal bar.
+The layout follows a campus-site pattern, mirrored for RTL: a start-aligned hero with a gradient title and a glass stats bar. The header uses the logo mark on a light plate, compact uppercase navigation, and a contact button. Sections use a tight rhythm and rounded buttons. The footer shows the full logo, the contact details, and a legal bar.
 
 ## Quality
 
@@ -85,7 +84,7 @@ pnpm test
 ```
 .
 ├── app/             # Pages, components, data, and CSS
-├── content/         # Markdown news and legal pages
+├── content/         # News, legal pages, and projects
 ├── public/          # Fonts, images, and static files
 ├── server/          # Sitemap, robots, and web manifest
 ├── content.config.ts

@@ -28,11 +28,11 @@ Defined in `tailwind.config.ts` and `app/assets/css/main.css`.
 
 ## Hero
 
-Start-aligned on large screens, centered below `lg`. The `h1` uses `.hero-gradient` (green at the start, then warm, then violet) with relaxed leading so Vazirmatn lines do not collide. The section uses `min-height`, not a fixed height, so the Persian title can grow without overlapping the stats. Stats sit in a glass bar: `rounded-xl border border-border/40 bg-white/20 backdrop-blur-md`. Logo carousel cards use `rounded-xl ring-1 ring-foreground/10` and a square frame.
+Start-aligned on large screens, centered below `lg`. The `h1` uses `.hero-gradient` (green at the start, then warm, then violet) with relaxed leading so Vazirmatn lines do not collide. The section uses `min-height`, not a fixed height, so the Persian title can grow without overlapping the stats. Stats sit in a glass bar: `rounded-xl border border-border/40 bg-white/20 backdrop-blur-md`.
 
 ## Header and footer
 
-Fixed `h-24` bar, wordmark, compact uppercase nav, contact as a secondary rounded button. The footer is a newsletter field, a contact link, and a legal bar.
+Fixed `h-24` bar, the mark on a white plate, compact uppercase nav, contact as a secondary rounded button. The footer shows the full logo, the contact details, and a legal bar. There is no newsletter field.
 
 ## RTL
 
@@ -42,4 +42,4 @@ The hero gradient runs `to left` so the green stop sits on the start edge in RTL
 
 ## Homepage shape
 
-Hero, startup logo carousel, feature cards, partner names, news. Do not add a programs or events block.
+Hero, projects, partners, a short management list, and news. Do not add a programs or events block.
