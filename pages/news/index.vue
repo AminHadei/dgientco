@@ -5,9 +5,7 @@
       title="اخبار"
       subtitle="تازه‌ترین خبرها، رویدادها و داستان‌های جامعه دجینت‌کو"
     >
-      <NuxtLink to="/contact/press" class="btn-secondary">
-        کیت رسانه
-      </NuxtLink>
+      <NuxtLink to="/contact/press" class="btn-secondary"> کیت رسانه </NuxtLink>
     </PageHero>
 
     <section class="bg-white">
@@ -16,13 +14,7 @@
           <NewsCard
             v-for="article in articles"
             :key="article._path"
-            :article="{
-              slug: article._path?.split('/').pop() || '',
-              title: article.title,
-              excerpt: article.excerpt,
-              image: article.image,
-              date: article.date,
-            }"
+            :article="toNewsCard(article)"
           />
         </div>
 
@@ -40,7 +32,7 @@
       <div class="container-custom">
         <div class="mb-8 text-center">
           <h2 class="section-title mb-2">رسانه‌های همکار</h2>
-          <p class="text-muted-foreground text-lg">دجینت‌کو در رسانه‌ها</p>
+          <p class="text-lg text-muted-foreground">دجینت‌کو در رسانه‌ها</p>
         </div>
         <LogoGrid :logos="pressLogos" />
       </div>
@@ -49,35 +41,34 @@
 </template>
 
 <script setup lang="ts">
-import { pressLogos } from '~/data/logos'
+import { toNewsCard } from "~/utils/text";
+import { pressLogos } from "~/data/logos";
 
-const route = useRoute()
+const route = useRoute();
 const currentPage = computed(() => {
-  const page = route.params.page
-  return page ? parseInt(page as string) : 1
-})
+  const page = route.params.page;
+  return page ? parseInt(page as string) : 1;
+});
 
-const itemsPerPage = 6
+const itemsPerPage = 6;
 
-const { data: allArticles } = await useAsyncData('news-all', () =>
-  queryContent('/news')
-    .sort({ date: -1 })
-    .find()
-)
+const { data: allArticles } = await useAsyncData("news-all", () =>
+  queryContent("/news").sort({ date: -1 }).find(),
+);
 
-const totalPages = computed(() => 
-  Math.ceil((allArticles.value?.length || 0) / itemsPerPage)
-)
+const totalPages = computed(() =>
+  Math.ceil((allArticles.value?.length || 0) / itemsPerPage),
+);
 
 const articles = computed(() => {
-  if (!allArticles.value) return []
-  const start = (currentPage.value - 1) * itemsPerPage
-  const end = start + itemsPerPage
-  return allArticles.value.slice(start, end)
-})
+  if (!allArticles.value) return [];
+  const start = (currentPage.value - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  return allArticles.value.slice(start, end);
+});
 
 usePageSeo({
-  title: currentPage.value > 1 ? `اخبار - صفحه ${currentPage.value}` : 'اخبار',
-  description: 'آخرین اخبار، رویدادها و داستان‌های موفقیت دجینت‌کو.',
-})
+  title: currentPage.value > 1 ? `اخبار - صفحه ${currentPage.value}` : "اخبار",
+  description: "آخرین اخبار، رویدادها و داستان‌های موفقیت دجینت‌کو.",
+});
 </script>

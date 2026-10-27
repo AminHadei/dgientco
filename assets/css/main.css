@@ -1,4 +1,4 @@
-@import './fonts.css';
+@import "./fonts.css";
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base {
   html {
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: "Vazirmatn", sans-serif;
     scroll-behavior: smooth;
   }
 
@@ -14,7 +14,12 @@
     @apply bg-white text-foreground antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-black;
   }
 
@@ -82,13 +87,24 @@
   }
 
   .hero-gradient {
-    background-image: linear-gradient(to left, #7bf1a8, #ffd7a8, #f5f5f4, #fb64b6, #a685ff);
+    background-image: linear-gradient(
+      to left,
+      #7bf1a8,
+      #ffd7a8,
+      #f5f5f4,
+      #fb64b6,
+      #a685ff
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .gradient-radial {
-    background: radial-gradient(circle at center, rgba(2, 74, 112, 0.1) 0%, transparent 70%);
+    background: radial-gradient(
+      circle at center,
+      rgba(2, 74, 112, 0.1) 0%,
+      transparent 70%
+    );
   }
 }

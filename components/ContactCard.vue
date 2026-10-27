@@ -9,21 +9,24 @@
       <IconPlaceholder :name="card.icon" />
       {{ card.title }}
     </h3>
-    <p class="flex-1 text-sm leading-relaxed text-muted-foreground">{{ card.description }}</p>
+    <p class="flex-1 text-sm leading-relaxed text-muted-foreground">
+      {{ card.description }}
+    </p>
     <span class="text-sm font-bold uppercase">ادامه</span>
   </component>
 </template>
 
 <script setup lang="ts">
-import type { ContactCard as ContactCardType } from '~/data/contact-cards'
+import type { ContactCard as ContactCardType } from "~/data/contact-cards";
 
 const props = defineProps<{
-  card: ContactCardType
-}>()
+  card: ContactCardType;
+}>();
 
-const isExternal = computed(() =>
-  props.card.link.startsWith('http')
-  || props.card.link.startsWith('mailto:')
-  || props.card.link.startsWith('tel:'),
-)
+const isExternal = computed(
+  () =>
+    props.card.link.startsWith("http") ||
+    props.card.link.startsWith("mailto:") ||
+    props.card.link.startsWith("tel:"),
+);
 </script>

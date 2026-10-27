@@ -14,11 +14,11 @@
 
 <script setup lang="ts">
 defineProps<{
-  title: string
-  subtitle?: string
-  backgroundImage?: string
-  fullHeight?: boolean
-  centered?: boolean
-  displayFont?: boolean
-}>()
+  title: string;
+  subtitle?: string;
+  backgroundImage?: string;
+  fullHeight?: boolean;
+  centered?: boolean;
+  displayFont?: boolean;
+}>();
 </script>

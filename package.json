@@ -1,14 +1,27 @@
 {
-  "name": "dgientco-website",
+  "name": "dgientco",
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.33.4",
   "scripts": {
-    "dev": "nuxt dev",
     "build": "nuxt build",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "prepare": "husky",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "spellcheck": "cspell --no-progress --no-summary \"**/*.{ts,js,vue,mjs,cjs,md,css,json,yml,yaml}\"",
+    "check": "pnpm typecheck && pnpm lint && pnpm format && pnpm spellcheck",
+    "check:fix": "pnpm lint:fix && pnpm format:fix && pnpm check",
+    "changeset": "changeset",
+    "changeset:version": "changeset version",
+    "changeset:status": "changeset status --verbose"
   },
   "dependencies": {
     "@nuxt/content": "^2.13.4",
@@ -19,10 +32,42 @@
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
+    "@changesets/cli": "^3.0.3",
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "@eslint/js": "^10.0.1",
     "@fontsource/vazirmatn": "^5.1.0",
     "@iconify-json/heroicons": "^1.2.1",
+    "@nuxt/eslint": "^1.17.0",
     "@types/node": "^22.10.2",
+    "cspell": "^10.4.0",
+    "eslint": "^10.13.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.11.1",
+    "globals": "^17.13.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-tailwindcss": "^0.6.14",
     "puppeteer": "^25.16.0",
-    "typescript": "^5.7.2"
+    "tailwindcss": "~3.4.19",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.72.0",
+    "vue-tsc": "^2.2.12"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "unrs-resolver",
+      "vue-demi"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,json,md,css,yml,yaml}": [
+      "prettier --write"
+    ],
+    "*.{js,ts,vue}": [
+      "eslint --fix"
+    ]
   }
 }

@@ -1,0 +1,7 @@
+---
+description: Developer docs
+globs: AGENTS.md,REVIEW.md,README.md
+alwaysApply: false
+---
+
+Follow @.agents/skills/doc-authoring/SKILL.md.

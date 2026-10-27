@@ -1,16 +1,27 @@
 <template>
-  <header class="fixed inset-x-0 top-0 z-50 h-24 w-full bg-primary text-primary-foreground">
-    <div class="mx-auto flex h-full max-w-7xl items-center justify-between p-4 text-sm md:p-6">
-      <NuxtLink to="/" class="text-2xl font-black tracking-tight lg:text-3xl" aria-label="دجینت‌کو">
+  <header
+    class="fixed inset-x-0 top-0 z-50 h-24 w-full bg-primary text-primary-foreground"
+  >
+    <div
+      class="mx-auto flex h-full max-w-7xl items-center justify-between p-4 text-sm md:p-6"
+    >
+      <NuxtLink
+        to="/"
+        class="text-2xl font-black tracking-tight lg:text-3xl"
+        aria-label="دجینت‌کو"
+      >
         دجینت‌کو
       </NuxtLink>
 
-      <nav class="hidden h-full items-center justify-center gap-x-8 uppercase lg:flex xl:gap-x-12" aria-label="اصلی">
+      <nav
+        class="hidden h-full items-center justify-center gap-x-8 uppercase lg:flex xl:gap-x-12"
+        aria-label="اصلی"
+      >
         <NuxtLink
           v-for="link in navLinks"
           :key="link.path"
           :to="link.path"
-          class="font-bold tracking-wider underline-offset-8 decoration-2 hover:underline"
+          class="font-bold tracking-wider decoration-2 underline-offset-8 hover:underline"
           active-class="underline"
         >
           {{ link.label }}
@@ -29,11 +40,35 @@
           :aria-label="mobileMenuOpen ? 'بستن منو' : 'باز کردن منو'"
           @click="mobileMenuOpen = !mobileMenuOpen"
         >
-          <svg v-if="!mobileMenuOpen" class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <svg
+            v-if="!mobileMenuOpen"
+            class="size-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
-          <svg v-else class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            v-else
+            class="size-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
       </div>
@@ -72,24 +107,25 @@
 </template>
 
 <script setup lang="ts">
-const mobileMenuOpen = ref(false)
-const route = useRoute()
+const mobileMenuOpen = ref(false);
+const route = useRoute();
 
 const navLinks = [
-  { path: '/startups', label: 'استارت‌آپ‌ها' },
-  { path: '/programs', label: 'برنامه‌ها' },
-  { path: '/events', label: 'رویدادها' },
-  { path: '/news', label: 'اخبار' },
-  { path: '/about', label: 'درباره ما' },
-]
+  { path: "/startups", label: "استارت‌آپ‌ها" },
+  { path: "/news", label: "اخبار" },
+  { path: "/about", label: "درباره ما" },
+];
 
 const mobileLinks = [
-  { path: '/', label: 'صفحه اصلی' },
+  { path: "/", label: "صفحه اصلی" },
   ...navLinks,
-  { path: '/contact', label: 'تماس' },
-]
+  { path: "/contact", label: "تماس" },
+];
 
-watch(() => route.path, () => {
-  mobileMenuOpen.value = false
-})
+watch(
+  () => route.path,
+  () => {
+    mobileMenuOpen.value = false;
+  },
+);
 </script>

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <section class="relative flex min-h-[calc(100vh-6rem)] w-full flex-col overflow-hidden text-primary-foreground">
+    <section
+      class="relative flex min-h-[calc(100vh-6rem)] w-full flex-col overflow-hidden text-primary-foreground"
+    >
       <AppImage
         src="/images/unsplash/hero-coworking.webp"
         alt="فضای کاری دجینت‌کو"
@@ -9,31 +11,56 @@
       />
       <div class="absolute inset-0 bg-primary/40"></div>
 
-      <div class="relative z-10 mx-auto flex w-full max-w-7xl grow flex-col gap-y-10 p-4 md:p-6">
-        <div class="flex grow flex-col justify-center gap-y-8 max-lg:items-center max-lg:text-center lg:max-w-4xl">
-          <h1 class="hero-gradient w-fit max-w-full text-pretty text-5xl font-black uppercase leading-[0.95] md:text-6xl lg:text-8xl">
+      <div
+        class="relative z-10 mx-auto flex w-full max-w-7xl grow flex-col gap-y-10 p-4 md:p-6"
+      >
+        <div
+          class="flex grow flex-col justify-center gap-y-8 max-lg:items-center max-lg:text-center lg:max-w-4xl"
+        >
+          <h1
+            class="hero-gradient w-fit max-w-full text-pretty text-5xl font-black uppercase leading-[0.95] md:text-6xl lg:text-8xl"
+          >
             بزرگترین پردیس استارت‌آپی خاورمیانه
           </h1>
           <div class="flex flex-col gap-y-8 max-lg:items-center">
             <p class="text-xl font-semibold leading-8">
-              از ایده تا مقیاس‌پذیری: دجینت‌کو به بیش از ۱۰۰۰ استارت‌آپ دسترسی به اکوسیستم پرتاثیر، شبکه شرکای برتر و سرمایه‌گذاران برجسته را فراهم می‌کند.
+              از ایده تا مقیاس‌پذیری: دجینت‌کو به بیش از ۱۰۰۰ استارت‌آپ دسترسی به
+              اکوسیستم پرتاثیر، شبکه شرکای برتر و سرمایه‌گذاران برجسته را فراهم می‌کند.
             </p>
-            <NuxtLink to="/programs" class="btn-light w-fit self-start">عضویت</NuxtLink>
+            <NuxtLink to="/contact" class="btn-light w-fit self-start">عضویت</NuxtLink>
           </div>
         </div>
 
         <div class="space-y-6">
           <div class="flex justify-center">
-            <div class="flex w-full max-w-3xl items-center justify-between gap-x-4 rounded-xl border border-white/40 bg-white/20 px-6 py-4 backdrop-blur-md lg:px-12 lg:py-6">
-              <div v-for="stat in stats" :key="stat.label" class="flex flex-col items-center gap-y-2">
-                <span class="text-center text-2xl font-bold lg:text-4xl">{{ stat.value }}</span>
-                <span class="text-center text-sm font-semibold lg:text-base">{{ stat.label }}</span>
+            <div
+              class="flex w-full max-w-3xl items-center justify-between gap-x-4 rounded-xl border border-white/40 bg-white/20 px-6 py-4 backdrop-blur-md lg:px-12 lg:py-6"
+            >
+              <div
+                v-for="stat in stats"
+                :key="stat.label"
+                class="flex flex-col items-center gap-y-2"
+              >
+                <span class="text-center text-2xl font-bold lg:text-4xl">{{
+                  stat.value
+                }}</span>
+                <span class="text-center text-sm font-semibold lg:text-base">{{
+                  stat.label
+                }}</span>
               </div>
             </div>
           </div>
-          <div class="flex animate-bounce justify-center max-sm:hidden" aria-hidden="true">
+          <div
+            class="flex animate-bounce justify-center max-sm:hidden"
+            aria-hidden="true"
+          >
             <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
             </svg>
           </div>
         </div>
@@ -46,24 +73,10 @@
           <h2 class="section-title">با افتخار ساخته شده در دجینت‌کو</h2>
           <NuxtLink to="/startups" class="link-more shrink-0">مشاهده بیشتر</NuxtLink>
         </div>
-        <p class="text-muted-foreground">از پردیس ما تا صحنه جهانی؛ با موفق‌ترین استارت‌آپ‌های دجینت‌کو آشنا شوید.</p>
+        <p class="text-muted-foreground">
+          از پردیس ما تا صحنه جهانی؛ با موفق‌ترین استارت‌آپ‌های دجینت‌کو آشنا شوید.
+        </p>
         <LogoCarousel :logos="startupLogos" label="استارت‌آپ‌های دجینت‌کو" />
-      </div>
-    </section>
-
-    <section class="py-8">
-      <div class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-y-6 p-4 text-center md:p-6">
-        <h2 class="section-title">به یکی از بیش از ۳۰ برنامه دجینت‌کو بپیوندید</h2>
-        <p class="text-muted-foreground">پردیس ما میزبان برنامه‌هایی است که توسط دجینت‌کو و شرکای برتر اجرا می‌شود.</p>
-        <div class="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-4 lg:grid-cols-8">
-          <div v-for="logo in programLogos" :key="logo.id" class="flex h-16 max-w-40 items-center justify-center p-2">
-            <span class="text-center text-xs font-bold text-foreground/80">{{ logo.name }}</span>
-          </div>
-        </div>
-        <div class="flex flex-wrap items-center justify-center gap-2">
-          <NuxtLink to="/programs" class="btn-primary">همه برنامه‌ها</NuxtLink>
-          <NuxtLink to="/programs/in-house" class="btn-secondary">برنامه‌های داخلی</NuxtLink>
-        </div>
       </div>
     </section>
 
@@ -79,7 +92,11 @@
             :class="featureTones[index % featureTones.length]"
           >
             <div class="relative size-32 shrink-0 overflow-hidden rounded-xl">
-              <AppImage :src="feature.image" :alt="feature.title" class="aspect-square h-full w-full object-cover" />
+              <AppImage
+                :src="feature.image"
+                :alt="feature.title"
+                class="aspect-square h-full w-full object-cover"
+              />
             </div>
             <div class="space-y-3">
               <h3 class="text-pretty text-lg font-bold">{{ feature.title }}</h3>
@@ -91,12 +108,24 @@
     </section>
 
     <section class="py-8">
-      <div class="mx-auto flex max-w-7xl flex-col items-center gap-y-6 p-4 text-center md:p-6">
+      <div
+        class="mx-auto flex max-w-7xl flex-col items-center gap-y-6 p-4 text-center md:p-6"
+      >
         <h2 class="section-title">همچنین در پردیس حضور دارند</h2>
-        <p class="text-muted-foreground">این شرکا نیروی انسانی و منابع اختصاصی خود را در پردیس دارند.</p>
-        <div class="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-3 lg:grid-cols-6">
-          <div v-for="logo in partnerLogos" :key="logo.id" class="flex h-16 max-w-40 items-center justify-center p-2">
-            <span class="text-center text-xs font-bold text-foreground/80">{{ logo.name }}</span>
+        <p class="text-muted-foreground">
+          این شرکا نیروی انسانی و منابع اختصاصی خود را در پردیس دارند.
+        </p>
+        <div
+          class="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-3 lg:grid-cols-6"
+        >
+          <div
+            v-for="logo in partnerLogos"
+            :key="logo.id"
+            class="flex h-16 max-w-40 items-center justify-center p-2"
+          >
+            <span class="text-center text-xs font-bold text-foreground/80">{{
+              logo.name
+            }}</span>
           </div>
         </div>
       </div>
@@ -108,18 +137,14 @@
           <h2 class="section-title">در دجینت‌کو چه می‌گذرد</h2>
           <NuxtLink to="/news" class="link-more shrink-0">مشاهده بیشتر</NuxtLink>
         </div>
-        <p class="text-muted-foreground">هیچ روزی در پردیس شبیه روز قبل نیست. تازه‌ترین خبرها را بخوانید.</p>
+        <p class="text-muted-foreground">
+          هیچ روزی در پردیس شبیه روز قبل نیست. تازه‌ترین خبرها را بخوانید.
+        </p>
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <NewsCard
             v-for="article in latestNews"
             :key="article._path"
-            :article="{
-              slug: article._path?.split('/').pop() || '',
-              title: article.title,
-              excerpt: article.excerpt,
-              image: article.image,
-              date: article.date,
-            }"
+            :article="toNewsCard(article)"
           />
         </div>
       </div>
@@ -128,32 +153,28 @@
 </template>
 
 <script setup lang="ts">
-import { stats } from '~/data/stats'
-import { partnerLogos } from '~/data/logos'
-import { features } from '~/data/features'
-import { startups } from '~/data/startups'
-import { programs } from '~/data/programs'
+import { stats } from "~/data/stats";
+import { partnerLogos } from "~/data/logos";
+import { features } from "~/data/features";
+import { startups } from "~/data/startups";
+import { toNewsCard } from "~/utils/text";
 
-const featureTones = ['bg-purple-100', 'bg-orange-100', 'bg-pink-100', 'bg-green-100']
+const featureTones = ["bg-purple-100", "bg-orange-100", "bg-pink-100", "bg-green-100"];
 
-const startupLogos = startups.slice(0, 12).map(startup => ({
+const startupLogos = startups.slice(0, 12).map((startup) => ({
   id: startup.id,
   name: startup.name,
   badge: startup.metric || startup.tag,
-}))
+}));
 
-const programLogos = programs.slice(0, 8).map(program => ({
-  id: program.id,
-  name: program.name,
-}))
-
-const { data: latestNews } = await useAsyncData('home-news', () =>
-  queryContent('/news').sort({ date: -1 }).limit(4).find(),
-)
+const { data: latestNews } = await useAsyncData("home-news", () =>
+  queryContent("/news").sort({ date: -1 }).limit(4).find(),
+);
 
 usePageSeo({
-  title: 'دجینت‌کو',
-  description: 'بزرگترین پردیس استارت‌آپی خاورمیانه. از ایده تا مقیاس‌پذیری در کنار دجینت‌کو.',
-  image: '/images/og.webp',
-})
+  title: "دجینت‌کو",
+  description:
+    "بزرگترین پردیس استارت‌آپی خاورمیانه. از ایده تا مقیاس‌پذیری در کنار دجینت‌کو.",
+  image: "/images/og.webp",
+});
 </script>

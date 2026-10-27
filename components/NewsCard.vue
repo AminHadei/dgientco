@@ -16,21 +16,23 @@
         {{ formatJalaliDate(article.date) }}
       </div>
       <h3 class="line-clamp-2 text-lg font-bold">{{ article.title }}</h3>
-      <p v-if="article.excerpt" class="line-clamp-2 text-sm text-muted-foreground">{{ article.excerpt }}</p>
+      <p v-if="article.excerpt" class="line-clamp-2 text-sm text-muted-foreground">
+        {{ article.excerpt }}
+      </p>
     </div>
   </NuxtLink>
 </template>
 
 <script setup lang="ts">
-import { formatJalaliDate } from '~/utils/jalali'
+import { formatJalaliDate } from "~/utils/jalali";
 
 defineProps<{
   article: {
-    slug: string
-    title: string
-    excerpt?: string
-    image?: string
-    date?: Date | string
-  }
-}>()
+    slug: string;
+    title: string;
+    excerpt?: string;
+    image?: string;
+    date?: Date | string;
+  };
+}>();
 </script>

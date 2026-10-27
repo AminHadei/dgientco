@@ -13,10 +13,8 @@ Static corporate website for dgientco, a digital technology and innovation compa
 
 ## Pages
 
-- `/` home: hero, stats, startup logos, programs, partners, and news
+- `/` home: hero, stats, startup logos, partners, and news
 - `/startups` startup profiles
-- `/programs`, `/programs/in-house`, and `/programs/resources`
-- `/events` and `/events/spaces`
 - `/about` timeline and founding principles
 - `/news` and `/news/[slug]`
 - `/contact`, `/contact/visits`, `/contact/sales`, and `/contact/press`
@@ -39,18 +37,19 @@ Image sources are listed in [CREDITS.md](CREDITS.md).
 
 ## Develop
 
-Requires Node.js 18 or newer and npm 9 or newer.
+Requires Node.js 22 (see `.nvmrc`) and pnpm 10.
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 The dev server runs at `http://localhost:3000`.
 
 ```bash
-npm run generate
-npm run preview
+pnpm generate
+pnpm preview
+pnpm check
 ```
 
 `npm run generate` writes the static site to `.output/public`. That folder can be hosted on any static host.

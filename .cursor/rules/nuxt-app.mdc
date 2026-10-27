@@ -1,0 +1,7 @@
+---
+description: Nuxt 3 pages, Vue SFCs, and content-driven routes
+globs: "{pages,components,composables,layouts}/**/*.{vue,ts},nuxt.config.ts"
+alwaysApply: false
+---
+
+Follow @.agents/skills/nuxt-app/SKILL.md.

@@ -1,0 +1,7 @@
+---
+description: RTL campus layout, type, and colour tokens
+globs: "{pages,components,layouts,assets}/**/*.{vue,css},tailwind.config.ts"
+alwaysApply: false
+---
+
+Follow @.agents/skills/design-system/SKILL.md.

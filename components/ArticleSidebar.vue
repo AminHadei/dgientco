@@ -1,74 +1,75 @@
 <template>
   <aside class="space-y-8">
     <!-- Press Contact -->
-    <div class="bg-muted p-6 rounded-lg">
-      <h3 class="font-bold text-lg mb-4">تماس با بخش رسانه</h3>
+    <div class="rounded-lg bg-muted p-6">
+      <h3 class="mb-4 text-lg font-bold">تماس با بخش رسانه</h3>
       <div class="space-y-3 text-sm">
         <div>
-          <div class="text-muted-foreground mb-1">ایمیل</div>
+          <div class="mb-1 text-muted-foreground">ایمیل</div>
           <a href="mailto:press@dgientco.com" class="text-primary hover:underline">
             press@dgientco.com
           </a>
         </div>
         <div>
-          <div class="text-muted-foreground mb-1">تلفن</div>
+          <div class="mb-1 text-muted-foreground">تلفن</div>
           <a href="tel:+982112345678" class="text-primary hover:underline" dir="ltr">
             ۰۲۱-۱۲۳۴۵۶۷۸
           </a>
         </div>
       </div>
-      <NuxtLink to="/contact/press" class="btn-primary w-full mt-4">
+      <NuxtLink to="/contact/press" class="btn-primary mt-4 w-full">
         فرم تماس رسانه
       </NuxtLink>
     </div>
 
     <!-- Share -->
-    <div class="bg-muted p-6 rounded-lg">
-      <h3 class="font-bold text-lg mb-4">اشتراک‌گذاری</h3>
+    <div class="rounded-lg bg-muted p-6">
+      <h3 class="mb-4 text-lg font-bold">اشتراک‌گذاری</h3>
       <div class="flex gap-2">
         <button
-          @click="share('twitter')"
-          class="flex-1 p-2 rounded bg-white hover:bg-primary hover:text-primary-foreground transition-colors"
+          class="flex-1 rounded bg-white p-2 transition-colors hover:bg-primary hover:text-primary-foreground"
           aria-label="اشتراک در توییتر"
+          @click="share('twitter')"
         >
-          <svg class="w-5 h-5 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+          <svg class="mx-auto h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+            />
           </svg>
         </button>
         <button
-          @click="share('linkedin')"
-          class="flex-1 p-2 rounded bg-white hover:bg-primary hover:text-primary-foreground transition-colors"
+          class="flex-1 rounded bg-white p-2 transition-colors hover:bg-primary hover:text-primary-foreground"
           aria-label="اشتراک در لینکدین"
+          @click="share('linkedin')"
         >
-          <svg class="w-5 h-5 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          <svg class="mx-auto h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
           </svg>
         </button>
         <button
-          @click="share('telegram')"
-          class="flex-1 p-2 rounded bg-white hover:bg-primary hover:text-primary-foreground transition-colors"
+          class="flex-1 rounded bg-white p-2 transition-colors hover:bg-primary hover:text-primary-foreground"
           aria-label="اشتراک در تلگرام"
+          @click="share('telegram')"
         >
-          <svg class="w-5 h-5 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+          <svg class="mx-auto h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"
+            />
           </svg>
         </button>
       </div>
     </div>
 
     <!-- More News -->
-    <div v-if="moreNews.length > 0">
-      <h3 class="font-bold text-lg mb-4">اخبار بیشتر</h3>
+    <div v-if="(moreNews || []).length > 0">
+      <h3 class="mb-4 text-lg font-bold">اخبار بیشتر</h3>
       <div class="space-y-4">
         <NewsCardSmall
-          v-for="article in moreNews"
+          v-for="article in moreNews || []"
           :key="article._path"
-          :article="{
-            slug: article._path?.split('/').pop() || '',
-            title: article.title,
-            image: article.image,
-            date: article.date,
-          }"
+          :article="toNewsCard(article)"
         />
       </div>
     </div>
@@ -76,39 +77,40 @@
 </template>
 
 <script setup lang="ts">
+import { toNewsCard } from "~/utils/text";
 interface Props {
-  currentSlug: string
+  currentSlug: string;
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
-const { data: moreNews } = await useAsyncData('more-news', () =>
-  queryContent('/news')
+const { data: moreNews } = await useAsyncData("more-news", () =>
+  queryContent("/news")
     .where({ _path: { $ne: `/news/${props.currentSlug}` } })
     .sort({ date: -1 })
     .limit(5)
-    .find()
-)
+    .find(),
+);
 
 const share = (platform: string) => {
-  const url = window.location.href
-  const title = document.title
-  
-  let shareUrl = ''
+  const url = window.location.href;
+  const title = document.title;
+
+  let shareUrl = "";
   switch (platform) {
-    case 'twitter':
-      shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`
-      break
-    case 'linkedin':
-      shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`
-      break
-    case 'telegram':
-      shareUrl = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`
-      break
+    case "twitter":
+      shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+      break;
+    case "linkedin":
+      shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+      break;
+    case "telegram":
+      shareUrl = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+      break;
   }
-  
+
   if (shareUrl) {
-    window.open(shareUrl, '_blank', 'width=600,height=400')
+    window.open(shareUrl, "_blank", "width=600,height=400");
   }
-}
+};
 </script>

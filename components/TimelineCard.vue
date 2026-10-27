@@ -1,27 +1,27 @@
 <template>
-  <article class="bg-white rounded-lg overflow-hidden border border-border">
+  <article class="overflow-hidden rounded-lg border border-border bg-white">
     <div class="aspect-video bg-muted">
-      <img 
-        v-if="item.image" 
-        :src="item.image" 
+      <img
+        v-if="item.image"
+        :src="item.image"
         :alt="item.title"
-        class="w-full h-full object-cover"
-      >
+        class="h-full w-full object-cover"
+      />
     </div>
     <div class="p-6">
-      <div class="text-3xl font-black text-primary mb-3">{{ item.year }}</div>
-      <h3 class="text-xl font-bold mb-3">{{ item.title }}</h3>
-      <p class="text-muted-foreground leading-relaxed">{{ item.description }}</p>
+      <div class="mb-3 text-3xl font-black text-primary">{{ item.year }}</div>
+      <h3 class="mb-3 text-xl font-bold">{{ item.title }}</h3>
+      <p class="leading-relaxed text-muted-foreground">{{ item.description }}</p>
     </div>
   </article>
 </template>
 
 <script setup lang="ts">
-import type { TimelineItem } from '~/data/timeline'
+import type { TimelineItem } from "~/data/timeline";
 
 interface Props {
-  item: TimelineItem
+  item: TimelineItem;
 }
 
-defineProps<Props>()
+defineProps<Props>();
 </script>
