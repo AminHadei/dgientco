@@ -8,8 +8,8 @@ export const defaultOgImage = "/images/og.png";
 export const newsPageSize = 6;
 
 export function normalizeSiteUrl(value: string | undefined): string {
-  const raw = (value || defaultSiteUrl).trim();
-  return raw.replace(/\/+$/, "");
+  const raw = (value ?? "").trim();
+  return (raw || defaultSiteUrl).replace(/\/+$/, "");
 }
 
 export function absoluteUrl(siteUrl: string, path: string): string {
