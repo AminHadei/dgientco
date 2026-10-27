@@ -45,8 +45,15 @@ function walkHtml(dir: string): string[] {
 
 // GitHub Pages serves a client-only 404 shell, so the page SEO composable
 // never runs for that document. Patch the title and robots tag after prerender.
+// `nuxt prepare` (the install postinstall) also closes Nitro, before generate
+// has created this directory.
 function finalizeHtml() {
   const root = join(process.cwd(), ".output/public");
+  try {
+    if (!statSync(root).isDirectory()) return;
+  } catch {
+    return;
+  }
   for (const file of walkHtml(root)) {
     let html = readFileSync(file, "utf8");
     if (file.endsWith(`${join("public", "404.html")}`) || file.endsWith("/404.html")) {
