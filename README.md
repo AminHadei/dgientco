@@ -31,7 +31,7 @@ The layout follows a campus-site pattern, mirrored for RTL: a start-aligned hero
 - Per-page title, description, canonical URL, Open Graph, and Twitter cards
 - JSON-LD for the organization, the website, news articles, and breadcrumbs
 - Sitemap, `robots.txt`, favicons, and a web manifest
-- Self-hosted font files, with the weights used in the hero preloaded
+- Self-hosted Vazirmatn files with `font-display: swap` and unicode-range subsets
 - Static generation and an internal link check in GitHub Actions
 
 ## Site URL
