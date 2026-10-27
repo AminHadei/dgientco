@@ -8,6 +8,7 @@
         v-if="article.image"
         :src="article.image"
         :alt="article.title"
+        :eager="eager"
         class="absolute inset-0 size-full object-cover"
       />
       <div
@@ -38,5 +39,6 @@ defineProps<{
     image?: string;
     date?: Date | string;
   };
+  eager?: boolean;
 }>();
 </script>

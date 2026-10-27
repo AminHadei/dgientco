@@ -28,6 +28,7 @@
               <AppImage
                 :src="item.image"
                 :alt="item.title"
+                :eager="index === 0"
                 class="absolute inset-0 h-full w-full object-cover"
               />
             </div>
@@ -85,9 +86,16 @@
 <script setup lang="ts">
 import { timeline } from "~/data/timeline";
 
+const aboutLcp = timeline[0]?.image;
+if (aboutLcp) useLcpImage(aboutLcp);
+
 usePageSeo({
   title: "درباره",
   description:
     "داستان دجینت‌کو، از یک بنای تاریخی تا بزرگترین پردیس استارت‌آپی خاورمیانه.",
+  breadcrumbs: [
+    { name: "خانه", path: "/" },
+    { name: "درباره", path: "/about" },
+  ],
 });
 </script>

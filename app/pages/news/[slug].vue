@@ -22,6 +22,7 @@
             <AppImage
               :src="article.image || ''"
               :alt="article.title || ''"
+              eager
               class="absolute inset-0 size-full object-cover"
             />
           </div>
@@ -78,10 +79,22 @@ const { data: relatedArticles } = await useAsyncData(`related-${slug}`, () =>
     .all(),
 );
 
+const articleImage = asText(article.value?.image);
+const articleTitle = article.value?.title || "خبر";
+
+if (articleImage) useLcpImage(articleImage);
+
 usePageSeo({
-  title: article.value?.title || "خبر",
+  title: articleTitle,
   description: asText(article.value?.summary) || "خبر دجینت‌کو",
-  image: asText(article.value?.image),
+  image: articleImage,
+  imageAlt: articleTitle,
   type: "article",
+  publishedTime: asText(article.value?.date),
+  breadcrumbs: [
+    { name: "خانه", path: "/" },
+    { name: "اخبار", path: "/news" },
+    { name: articleTitle, path: route.path },
+  ],
 });
 </script>

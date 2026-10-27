@@ -33,5 +33,9 @@ if (!page.value) {
 usePageSeo({
   title: page.value?.title || "شرایط استفاده",
   description: "شرایط استفاده از وب‌سایت دجینت‌کو.",
+  breadcrumbs: [
+    { name: "خانه", path: "/" },
+    { name: page.value?.title || "شرایط استفاده", path: "/terms" },
+  ],
 });
 </script>

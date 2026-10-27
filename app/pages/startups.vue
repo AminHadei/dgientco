@@ -82,5 +82,9 @@ usePageSeo({
   title: "استارت‌آپ‌ها",
   description:
     "آشنایی با استارت‌آپ‌های ساخته‌شده در دجینت‌کو و شبکه سرمایه‌گذاران پردیس.",
+  breadcrumbs: [
+    { name: "خانه", path: "/" },
+    { name: "استارت‌آپ‌ها", path: "/startups" },
+  ],
 });
 </script>

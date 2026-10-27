@@ -1,6 +1,20 @@
+import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 import { withBase } from "./app/utils/withBase";
+import {
+  defaultDescription,
+  defaultSiteUrl,
+  siteLocale,
+  siteName,
+  themeColor,
+} from "./app/utils/site";
+import { publicPaths } from "./server/utils/publicRoutes";
 
 const baseURL = process.env.NUXT_APP_BASE_URL || "/";
+const siteUrl = (process.env.NUXT_PUBLIC_SITE_URL || defaultSiteUrl).replace(
+  /\/+$/,
+  "",
+);
 
 // Root-absolute font urls are not prefixed by Vite. Apply app.baseURL once here.
 function prefixPublicFontUrls() {
@@ -17,6 +31,41 @@ function prefixPublicFontUrls() {
       );
     },
   };
+}
+
+function walkHtml(dir: string): string[] {
+  const files: string[] = [];
+  for (const entry of readdirSync(dir)) {
+    const path = join(dir, entry);
+    if (statSync(path).isDirectory()) files.push(...walkHtml(path));
+    else if (entry.endsWith(".html")) files.push(path);
+  }
+  return files;
+}
+
+// GitHub Pages serves a client-only 404 shell, so the page SEO composable
+// never runs for that document. Patch the title and robots tag after prerender.
+// `nuxt prepare` (the install postinstall) also closes Nitro, before generate
+// has created this directory.
+function finalizeHtml() {
+  const root = join(process.cwd(), ".output/public");
+  try {
+    if (!statSync(root).isDirectory()) return;
+  } catch {
+    return;
+  }
+  for (const file of walkHtml(root)) {
+    let html = readFileSync(file, "utf8");
+    if (file.endsWith(`${join("public", "404.html")}`) || file.endsWith("/404.html")) {
+      html = html
+        .replace(/<title>[^<]*<\/title>/, `<title>صفحه پیدا نشد | ${siteName}</title>`)
+        .replace(
+          "</head>",
+          '<meta name="robots" content="noindex, nofollow"><meta name="description" content="صفحه‌ای که به دنبال آن هستید وجود ندارد یا منتقل شده است."></head>',
+        );
+    }
+    writeFileSync(file, html);
+  }
 }
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -43,12 +92,49 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [prefixPublicFontUrls()],
+    build: {
+      modulePreload: false,
+    },
   },
 
   postcss: {
     plugins: {
       // Tailwind 3 exposes nesting only as a directory import, which Nuxt cannot load as ESM.
       "tailwindcss/nesting": false,
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      siteUrl,
+      siteName,
+      siteDescription: defaultDescription,
+      siteLocale,
+    },
+  },
+
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        prefetch: false,
+      },
+    },
+  },
+
+  hooks: {
+    "nitro:init"(nitro) {
+      nitro.hooks.hook("close", () => {
+        finalizeHtml();
+      });
+    },
+    "build:manifest": (manifest) => {
+      for (const key of Object.keys(manifest)) {
+        const item = manifest[key];
+        if (!item) continue;
+        item.dynamicImports = [];
+        item.preload = false;
+        item.prefetch = false;
+      }
     },
   },
 
@@ -61,33 +147,27 @@ export default defineNuxtConfig({
       },
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
-      title: "دجینت‌کو - بزرگترین پردیس استارت‌آپی خاورمیانه",
+      title: siteName,
+      // usePageSeo applies the "Page | site name" template and sets this to %s.
+      titleTemplate: "%s",
       meta: [
         {
           name: "description",
-          content:
-            "دجینت‌کو به بیش از ۱۰۰۰ استارت‌آپ دسترسی به اکوسیستم، شرکا و سرمایه‌گذاران می‌دهد.",
+          content: defaultDescription,
         },
-        { name: "theme-color", content: "#1c1917" },
-        { property: "og:site_name", content: "دجینت‌کو" },
-        { property: "og:locale", content: "fa_IR" },
+        { name: "theme-color", content: themeColor },
+        { property: "og:site_name", content: siteName },
+        { property: "og:locale", content: siteLocale },
       ],
       link: [
         { rel: "icon", type: "image/svg+xml", href: withBase(baseURL, "/favicon.svg") },
+        { rel: "icon", href: withBase(baseURL, "/favicon.ico"), sizes: "32x32" },
         {
-          rel: "preload",
-          as: "font",
-          type: "font/woff2",
-          href: withBase(baseURL, "/fonts/vazirmatn-arabic-400-normal.woff2"),
-          crossorigin: "anonymous",
+          rel: "apple-touch-icon",
+          href: withBase(baseURL, "/apple-touch-icon.png"),
+          sizes: "180x180",
         },
-        {
-          rel: "preload",
-          as: "font",
-          type: "font/woff2",
-          href: withBase(baseURL, "/fonts/vazirmatn-arabic-900-normal.woff2"),
-          crossorigin: "anonymous",
-        },
+        { rel: "manifest", href: withBase(baseURL, "/site.webmanifest") },
       ],
     },
   },
@@ -95,26 +175,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: [
-        "/",
-        "/about",
-        "/news",
-        "/news/page/2",
-        "/news/new-ai-platform",
-        "/news/partnership-announcement",
-        "/news/innovation-award",
-        "/news/cloud-expansion",
-        "/news/cybersecurity-summit",
-        "/news/new-office-opening",
-        "/news/training-program",
-        "/news/sustainability-initiative",
-        "/contact",
-        "/legal-information",
-        "/privacy-policy",
-        "/terms",
-        "/startups",
-        "/sitemap.xml",
-      ],
+      routes: [...publicPaths(), "/sitemap.xml", "/robots.txt", "/site.webmanifest"],
     },
   },
 

@@ -65,6 +65,13 @@ unsplash
 ZWNJ
 composables
 favicon
+fetchpriority
+imagesrcset
+imagesizes
+lanczos
+srcset
+webmanifest
+noindex
 og
 FaNum
 dir

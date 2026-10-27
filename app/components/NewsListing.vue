@@ -7,11 +7,13 @@
 
     <section>
       <div class="mx-auto max-w-7xl space-y-6 p-4 md:p-6">
+        <h2 class="sr-only">فهرست اخبار</h2>
         <div class="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <NewsCard
-            v-for="article in articles"
+            v-for="(article, index) in articles"
             :key="article.path"
             :article="toNewsCard(article)"
+            :eager="index === 0"
           />
         </div>
 
@@ -38,6 +40,7 @@
 <script setup lang="ts">
 import { toNewsCard } from "~/utils/text";
 import { pressLogos } from "~/data/logos";
+import { newsPageSize } from "~/utils/site";
 
 const route = useRoute();
 const currentPage = computed(() => {
@@ -45,7 +48,7 @@ const currentPage = computed(() => {
   return page ? parseInt(String(page)) : 1;
 });
 
-const itemsPerPage = 6;
+const itemsPerPage = newsPageSize;
 
 const { data: allArticles } = await useAsyncData("news-all", () =>
   queryCollection("news").order("date", "DESC").all(),
@@ -62,8 +65,15 @@ const articles = computed(() => {
   return allArticles.value.slice(start, end);
 });
 
+const firstImage = articles.value[0] ? toNewsCard(articles.value[0]).image : undefined;
+if (firstImage) useLcpImage(firstImage);
+
 usePageSeo({
   title: currentPage.value > 1 ? `اخبار - صفحه ${currentPage.value}` : "اخبار",
   description: "آخرین اخبار، رویدادها و داستان‌های موفقیت دجینت‌کو.",
+  breadcrumbs: [
+    { name: "خانه", path: "/" },
+    { name: "اخبار", path: "/news" },
+  ],
 });
 </script>

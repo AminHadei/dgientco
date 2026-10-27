@@ -28,10 +28,21 @@ The layout follows a campus-site pattern, mirrored for RTL: a start-aligned hero
 ## Quality
 
 - Resized WebP images with explicit width and height, lazy-loaded below the fold
-- Per-page title, description, and Open Graph tags
-- Sitemap, `robots.txt`, and a favicon
-- Self-hosted font files, with the weights used in the hero preloaded
-- Static generation checked in GitHub Actions on pull requests
+- Per-page title, description, canonical URL, Open Graph, and Twitter cards
+- JSON-LD for the organization, the website, news articles, and breadcrumbs
+- Sitemap, `robots.txt`, favicons, and a web manifest
+- Self-hosted Vazirmatn files with `font-display: swap` and unicode-range subsets
+- Static generation and an internal link check in GitHub Actions
+
+## Site URL
+
+Public URLs (canonical, Open Graph, sitemap, `robots.txt`) use `NUXT_PUBLIC_SITE_URL`. The default is `https://aminhadei.github.io/dgientco` in `app/utils/site.ts`, with no trailing slash. The GitHub Pages prefix stays in `NUXT_APP_BASE_URL` (`/dgientco/` in CI and deploy).
+
+To move the site to a custom domain at the root of that domain, set both values for `pnpm generate`:
+
+```bash
+NUXT_PUBLIC_SITE_URL=https://example.com NUXT_APP_BASE_URL=/ pnpm generate
+```
 
 Image sources are listed in [CREDITS.md](CREDITS.md).
 
@@ -61,7 +72,7 @@ pnpm check
 ├── app/             # Pages, components, data, and CSS
 ├── content/         # Markdown news and legal pages
 ├── public/          # Fonts, images, and static files
-├── server/          # Sitemap route
+├── server/          # Sitemap, robots, and web manifest
 ├── content.config.ts
 └── nuxt.config.ts
 ```

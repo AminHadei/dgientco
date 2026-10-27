@@ -33,5 +33,9 @@ if (!page.value) {
 usePageSeo({
   title: page.value?.title || "حریم خصوصی",
   description: "سیاست حریم خصوصی دجینت‌کو.",
+  breadcrumbs: [
+    { name: "خانه", path: "/" },
+    { name: page.value?.title || "حریم خصوصی", path: "/privacy-policy" },
+  ],
 });
 </script>

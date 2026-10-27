@@ -77,7 +77,13 @@ const errorMessage = computed(() => {
 
 const handleError = () => clearError({ redirect: "/" });
 
-useHead({
-  title: `خطا ${props.error?.statusCode || ""} - دجینت‌کو`,
+const isMissing = props.error?.statusCode === 404;
+
+usePageSeo({
+  title: isMissing ? "صفحه پیدا نشد" : "خطای سرور",
+  description: isMissing
+    ? "صفحه‌ای که به دنبال آن هستید وجود ندارد یا منتقل شده است."
+    : "متاسفانه خطایی رخ داده است. لطفا دوباره تلاش کنید.",
+  noindex: true,
 });
 </script>
