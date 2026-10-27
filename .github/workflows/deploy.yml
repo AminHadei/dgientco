@@ -33,6 +33,7 @@ jobs:
         env:
           HUSKY: "0"
           PUPPETEER_SKIP_DOWNLOAD: "true"
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "true"
 
       - name: Generate static site
         run: pnpm generate

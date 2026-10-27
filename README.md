@@ -65,6 +65,21 @@ pnpm check
 
 `pnpm generate` writes the static site to `.output/public`. GitHub Pages builds that output with `NUXT_APP_BASE_URL=/dgientco/`.
 
+## Tests
+
+```bash
+pnpm test:unit
+NUXT_APP_BASE_URL=/dgientco/ pnpm generate
+pnpm test:e2e
+pnpm test
+```
+
+`pnpm test:unit` runs Vitest: Node tests for Jalali dates, site URLs, and related helpers, plus component tests that need the Nuxt runtime. `pnpm test:e2e` runs Playwright in Chromium against `.output/public`, served under `/dgientco/`. Generate with that base URL first. `pnpm test` runs both. `pre-push` runs the unit tests. End-to-end tests stay out of the git hooks and run in CI after generate.
+
+## Future work
+
+[docs/ROADMAP.md](docs/ROADMAP.md) is the checklist for the real deployment: domain and DNS, a VPS, and approved content. Those tasks wait until that deployment is actually happening.
+
 ## Layout
 
 ```

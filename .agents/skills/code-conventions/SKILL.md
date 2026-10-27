@@ -18,4 +18,5 @@ Read the topic skill before coding:
 - Lint: ESLint flat config via `@nuxt/eslint` (`pnpm lint` / `pnpm lint:fix`). Stylistic rules are off; Prettier owns formatting.
 - Types: `pnpm typecheck` (`nuxt typecheck`).
 - Spelling: `pnpm spellcheck` (cspell). Persian script is ignored. Add project words to `.cspell/project-words.txt`.
+- Unit tests: `pnpm test:unit` (Vitest). End-to-end: generate with `NUXT_APP_BASE_URL=/dgientco/`, then `pnpm test:e2e` (Playwright, Chromium). `pnpm test` runs both.
 - Full gate: `pnpm check`.
