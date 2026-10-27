@@ -24,6 +24,8 @@ The public site URL is `NUXT_PUBLIC_SITE_URL` (default `https://aminhadei.github
 
 Tests live in `tests/`. `pnpm test:unit` is Vitest. `pnpm test:e2e` is Playwright (Chromium) against a generated site served under `/dgientco/`. See the README for the commands.
 
+[docs/ROADMAP.md](docs/ROADMAP.md) is the launch checklist for the real deployment. Do not treat it as current work.
+
 ## Design
 
 Campus layout, mirrored for RTL. Tokens and component rules are in the `design-system` skill: Vazirmatn, pill buttons, a start-aligned gradient hero, and a glass stats bar.
