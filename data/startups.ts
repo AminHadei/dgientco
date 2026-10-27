@@ -98,7 +98,7 @@ export const startups: Startup[] = [
 export const featuredProgram = {
   title: 'به برنامه‌های استارت‌آپی دجینت‌کو بپیوندید',
   description: 'بیش از ۳۰ برنامه تخصصی برای هر مرحله از رشد استارت‌آپ شما. از مرحله ایده تا مقیاس‌پذیری، ما در کنار شما هستیم.',
-  image: '/images/unsplash/team-working.jpg',
+  image: '/images/unsplash/team-working.webp',
   link: '/programs',
 }
 

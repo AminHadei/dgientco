@@ -78,10 +78,8 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'فروش و همکاری - تماس با ما - دجینت‌کو',
-  meta: [
-    { name: 'description', content: 'درخواست همکاری و اطلاعات فروش دجینت‌کو' },
-  ],
+usePageSeo({
+  title: 'فروش و همکاری',
+  description: 'درخواست همکاری و اطلاعات فروش دجینت‌کو.',
 })
 </script>

@@ -1,30 +1,29 @@
 <template>
-  <component 
+  <component
     :is="isExternal ? 'a' : 'NuxtLink'"
     :to="isExternal ? undefined : card.link"
     :href="isExternal ? card.link : undefined"
-    class="block bg-white rounded-lg p-8 border-2 border-border hover:border-primary transition-all hover:shadow-lg"
+    class="flex flex-col gap-4 rounded-xl border bg-secondary px-6 py-6 shadow-sm transition-colors hover:bg-muted"
   >
-    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+    <h3 class="flex items-center gap-2 text-base font-semibold">
       <IconPlaceholder :name="card.icon" />
-    </div>
-    <h3 class="text-xl font-bold mb-3">{{ card.title }}</h3>
-    <p class="text-muted-foreground leading-relaxed">{{ card.description }}</p>
+      {{ card.title }}
+    </h3>
+    <p class="flex-1 text-sm leading-relaxed text-muted-foreground">{{ card.description }}</p>
+    <span class="text-sm font-bold uppercase">ادامه</span>
   </component>
 </template>
 
 <script setup lang="ts">
 import type { ContactCard as ContactCardType } from '~/data/contact-cards'
 
-interface Props {
+const props = defineProps<{
   card: ContactCardType
-}
+}>()
 
-const props = defineProps<Props>()
-
-const isExternal = computed(() => 
-  props.card.link.startsWith('http') || 
-  props.card.link.startsWith('mailto:') || 
-  props.card.link.startsWith('tel:')
+const isExternal = computed(() =>
+  props.card.link.startsWith('http')
+  || props.card.link.startsWith('mailto:')
+  || props.card.link.startsWith('tel:'),
 )
 </script>

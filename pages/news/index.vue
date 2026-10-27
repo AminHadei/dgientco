@@ -2,18 +2,17 @@
   <div>
     <!-- Hero -->
     <PageHero
-      title="اخبار و رویدادها"
-      subtitle="جدیدترین اخبار، رویدادها و دستاوردهای دجینت‌کو"
+      title="اخبار"
+      subtitle="تازه‌ترین خبرها، رویدادها و داستان‌های جامعه دجینت‌کو"
     >
-      <NuxtLink to="/contact/press" class="btn-primary">
-        تماس با بخش رسانه
+      <NuxtLink to="/contact/press" class="btn-secondary">
+        کیت رسانه
       </NuxtLink>
     </PageHero>
 
-    <!-- News Grid -->
-    <section class="py-20 bg-white">
-      <div class="container-custom">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+    <section class="bg-white">
+      <div class="container-custom pb-12">
+        <div class="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <NewsCard
             v-for="article in articles"
             :key="article._path"
@@ -37,10 +36,10 @@
     </section>
 
     <!-- Press Section -->
-    <section class="py-20 bg-muted">
+    <section class="bg-secondary py-8">
       <div class="container-custom">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">رسانه‌های همکار</h2>
+        <div class="mb-8 text-center">
+          <h2 class="section-title mb-2">رسانه‌های همکار</h2>
           <p class="text-muted-foreground text-lg">دجینت‌کو در رسانه‌ها</p>
         </div>
         <LogoGrid :logos="pressLogos" />
@@ -77,10 +76,8 @@ const articles = computed(() => {
   return allArticles.value.slice(start, end)
 })
 
-useHead({
-  title: `اخبار${currentPage.value > 1 ? ` - صفحه ${currentPage.value}` : ''} - دجینت‌کو`,
-  meta: [
-    { name: 'description', content: 'آخرین اخبار و رویدادهای دجینت‌کو' },
-  ],
+usePageSeo({
+  title: currentPage.value > 1 ? `اخبار - صفحه ${currentPage.value}` : 'اخبار',
+  description: 'آخرین اخبار، رویدادها و داستان‌های موفقیت دجینت‌کو.',
 })
 </script>

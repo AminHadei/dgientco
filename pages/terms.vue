@@ -28,7 +28,8 @@ if (!page.value) {
   })
 }
 
-useHead({
-  title: `${page.value?.title} - دجینت‌کو`,
+usePageSeo({
+  title: page.value?.title || 'شرایط استفاده',
+  description: 'شرایط استفاده از وب‌سایت دجینت‌کو.',
 })
 </script>

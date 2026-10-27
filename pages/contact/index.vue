@@ -2,14 +2,13 @@
   <div>
     <!-- Hero -->
     <PageHero
-      title="تماس با ما"
-      subtitle="تیم ما آماده پاسخگویی به سوالات و همکاری با شماست"
+      title="تماس"
+      subtitle="چطور می‌توانیم کمک کنیم؟"
     />
 
-    <!-- Contact Cards -->
-    <section class="py-20 bg-white">
-      <div class="container-custom">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section class="bg-white">
+      <div class="container-custom pb-12">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
           <ContactCard
             v-for="card in contactCards"
             :key="card.id"
@@ -20,10 +19,10 @@
     </section>
 
     <!-- Direct Contact Info -->
-    <section class="py-20 bg-muted">
+    <section class="bg-secondary py-8">
       <div class="container-custom">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">اطلاعات تماس</h2>
+        <div class="mb-8 text-center">
+          <h2 class="section-title mb-2">اطلاعات تماس</h2>
           <p class="text-muted-foreground text-lg">می‌توانید از طریق راه‌های زیر با ما در ارتباط باشید</p>
         </div>
         
@@ -74,10 +73,8 @@
 <script setup lang="ts">
 import { contactCards } from '~/data/contact-cards'
 
-useHead({
-  title: 'تماس با ما - دجینت‌کو',
-  meta: [
-    { name: 'description', content: 'راه‌های ارتباطی با دجینت‌کو' },
-  ],
+usePageSeo({
+  title: 'تماس',
+  description: 'بازدید، فروش، رسانه و پشتیبانی دجینت‌کو.',
 })
 </script>

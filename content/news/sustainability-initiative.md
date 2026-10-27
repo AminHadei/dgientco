@@ -2,7 +2,7 @@
 title: تعهد به پایداری محیط زیست
 excerpt: دجینت‌کو برنامه جامع خود برای کاهش اثرات زیست‌محیطی را اعلام کرد
 date: 2024-09-10
-image: /images/unsplash/startup-team.jpg
+image: /images/unsplash/startup-team.webp
 ---
 
 دجینت‌کو با اعلام برنامه جامع پایداری خود، تعهد خود به حفظ محیط زیست را نشان داد.

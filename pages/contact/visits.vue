@@ -67,10 +67,8 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'بازدید از دفتر - تماس با ما - دجینت‌کو',
-  meta: [
-    { name: 'description', content: 'درخواست وقت بازدید از دفتر دجینت‌کو' },
-  ],
+usePageSeo({
+  title: 'بازدید از پردیس',
+  description: 'درخواست وقت بازدید از پردیس دجینت‌کو.',
 })
 </script>

@@ -1,76 +1,39 @@
 <template>
   <div>
-    <!-- Hero with Tabs -->
-    <section class="section-padding bg-white border-b border-border">
-      <div class="container-custom">
-        <div class="max-w-4xl mb-12">
-          <div class="inline-block mb-6">
-            <span class="badge badge-primary">برنامه‌ها</span>
-          </div>
-          <h1 class="text-display text-display-xl mb-8">
-            برنامه‌های استارت‌آپی دجینت‌کو
-          </h1>
-          <p class="text-2xl md:text-3xl leading-relaxed text-muted-foreground font-medium">
-            بیش از ۳۰ برنامه تخصصی برای هر مرحله از رشد استارت‌آپ شما
-          </p>
-        </div>
-
-        <!-- Tab Navigation -->
-        <div class="flex gap-4 flex-wrap">
-          <NuxtLink to="/programs" class="px-6 py-3 rounded-lg font-bold transition-all bg-primary text-primary-foreground">
-            همه برنامه‌ها
-          </NuxtLink>
-          <NuxtLink to="/programs/in-house" class="px-6 py-3 rounded-lg font-bold transition-all bg-muted text-foreground hover:bg-primary hover:text-primary-foreground">
-            برنامه‌های داخلی
-          </NuxtLink>
-          <NuxtLink to="/programs/resources" class="px-6 py-3 rounded-lg font-bold transition-all bg-muted text-foreground hover:bg-primary hover:text-primary-foreground">
-            منابع و خدمات
-          </NuxtLink>
-        </div>
+    <section>
+      <div class="mx-auto max-w-7xl space-y-4 px-4 py-6 md:px-6">
+        <h1 class="page-title">برنامه‌ها</h1>
+        <p class="max-w-3xl text-muted-foreground">هزاران بنیان‌گذار اینجا ساخته‌اند و نوبت شماست. برنامه‌ای را پیدا کنید که با مرحله رشد شما جور باشد.</p>
       </div>
     </section>
 
-    <!-- Programs Grid -->
-    <section class="section-padding bg-muted">
-      <div class="container-custom">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          <article
-            v-for="program in programs"
-            :key="program.id"
-            class="bg-white rounded-lg p-6 border-2 border-border card-hover group"
-          >
-            <!-- Logo placeholder -->
-            <div class="w-16 h-16 rounded-lg bg-gradient-radial mb-4 flex items-center justify-center">
-              <div class="w-12 h-12 rounded-full bg-accent-blue/10 flex items-center justify-center">
-                <span class="text-xl font-black text-accent-blue">
-                  {{ program.name.charAt(0) }}
-                </span>
-              </div>
-            </div>
+    <section>
+      <div class="mx-auto max-w-7xl px-4 pb-0 md:px-6">
+        <nav class="flex w-full justify-center gap-x-4 border-b pb-4 text-sm font-semibold uppercase" aria-label="بخش‌های برنامه">
+          <NuxtLink to="/programs" class="underline decoration-2 underline-offset-8">همه برنامه‌ها</NuxtLink>
+          <NuxtLink to="/programs/in-house" class="underline-offset-8 hover:underline">برنامه‌های داخلی</NuxtLink>
+          <NuxtLink to="/programs/resources" class="underline-offset-8 hover:underline">منابع</NuxtLink>
+        </nav>
+      </div>
+    </section>
 
-            <!-- Name -->
-            <h3 class="text-lg font-black mb-2 group-hover:text-accent-blue transition-colors">
-              {{ program.name }}
-            </h3>
-
-            <!-- Category -->
-            <div class="mb-3">
-              <span class="badge badge-secondary text-[10px]">
-                {{ program.category }}
-              </span>
-            </div>
-
-            <!-- Description -->
-            <p class="text-sm text-muted-foreground mb-4 line-clamp-3">
-              {{ program.description }}
-            </p>
-
-            <!-- Join button -->
-            <button class="text-sm font-bold text-accent-blue hover:underline uppercase tracking-wider">
-              درخواست عضویت →
-            </button>
-          </article>
-        </div>
+    <section>
+      <div class="mx-auto max-w-7xl space-y-2 px-4 py-6 md:px-6">
+        <article
+          v-for="program in programs"
+          :key="program.id"
+          class="flex flex-wrap items-center gap-4 rounded-md p-4 text-sm transition-colors hover:bg-muted sm:gap-x-8"
+        >
+          <div class="flex h-16 w-28 shrink-0 items-center justify-center rounded-md bg-muted text-xl font-black">
+            {{ program.name.charAt(0) }}
+          </div>
+          <div class="min-w-0 flex-1">
+            <h2 class="text-base font-bold">{{ program.name }}</h2>
+            <p class="text-muted-foreground">{{ program.description }}</p>
+          </div>
+          <span class="badge badge-secondary">{{ program.category }}</span>
+          <a href="https://example.com/join" class="text-sm font-bold uppercase hover:underline" target="_blank" rel="noopener noreferrer">عضویت</a>
+        </article>
       </div>
     </section>
   </div>
@@ -79,10 +42,8 @@
 <script setup lang="ts">
 import { programs } from '~/data/programs'
 
-useHead({
-  title: 'برنامه‌های استارت‌آپی - دجینت‌کو',
-  meta: [
-    { name: 'description', content: 'بیش از ۳۰ برنامه تخصصی برای هر مرحله از رشد استارت‌آپ' },
-  ],
+usePageSeo({
+  title: 'برنامه‌ها',
+  description: 'بیش از ۳۰ برنامه تخصصی دجینت‌کو برای هر مرحله از رشد استارت‌آپ.',
 })
 </script>

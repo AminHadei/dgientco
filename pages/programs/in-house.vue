@@ -1,38 +1,30 @@
 <template>
   <div>
-    <!-- Hero with Tabs -->
-    <section class="section-padding bg-white border-b border-border">
-      <div class="container-custom">
-        <div class="max-w-4xl mb-12">
-          <div class="inline-block mb-6">
-            <span class="badge badge-primary">برنامه‌ها</span>
-          </div>
-          <h1 class="text-display text-display-xl mb-8">
-            برنامه‌های داخلی دجینت‌کو
-          </h1>
-          <p class="text-2xl md:text-3xl leading-relaxed text-muted-foreground font-medium">
-            برنامه‌های اختصاصی طراحی شده و اجرا شده توسط تیم دجینت‌کو
-          </p>
-        </div>
-
-        <!-- Tab Navigation -->
-        <div class="flex gap-4 flex-wrap">
-          <NuxtLink to="/programs" class="px-6 py-3 rounded-lg font-bold transition-all bg-muted text-foreground hover:bg-primary hover:text-primary-foreground">
-            همه برنامه‌ها
-          </NuxtLink>
-          <NuxtLink to="/programs/in-house" class="px-6 py-3 rounded-lg font-bold transition-all bg-primary text-primary-foreground">
-            برنامه‌های داخلی
-          </NuxtLink>
-          <NuxtLink to="/programs/resources" class="px-6 py-3 rounded-lg font-bold transition-all bg-muted text-foreground hover:bg-primary hover:text-primary-foreground">
-            منابع و خدمات
-          </NuxtLink>
-        </div>
+    <section>
+      <div class="mx-auto max-w-7xl space-y-4 px-4 py-6 md:px-6">
+        <h1 class="page-title">برنامه‌ها</h1>
+        <p class="max-w-3xl text-muted-foreground">هزاران بنیان‌گذار اینجا ساخته‌اند و نوبت شماست. برنامه‌ای را پیدا کنید که با مرحله رشد شما جور باشد.</p>
       </div>
     </section>
 
-    <!-- In-House Programs -->
-    <section class="section-padding bg-muted">
-      <div class="container-custom space-y-8">
+    <section>
+      <div class="mx-auto max-w-7xl px-4 pb-0 md:px-6">
+        <nav class="flex w-full justify-center gap-x-4 border-b pb-4 text-sm font-semibold uppercase" aria-label="بخش‌های برنامه">
+          <NuxtLink to="/programs" class="underline-offset-8 hover:underline">همه برنامه‌ها</NuxtLink>
+          <NuxtLink to="/programs/in-house" class="underline decoration-2 underline-offset-8">برنامه‌های داخلی</NuxtLink>
+          <NuxtLink to="/programs/resources" class="underline-offset-8 hover:underline">منابع</NuxtLink>
+        </nav>
+      </div>
+    </section>
+
+    <section>
+      <div class="mx-auto max-w-7xl px-4 py-6 md:px-6">
+        <p class="text-muted-foreground">برنامه‌های داخلی را تیم دجینت‌کو اجرا می‌کند و کارآفرینان را از ایده تا مقیاس همراهی می‌کند.</p>
+      </div>
+    </section>
+
+    <section class="bg-muted py-8">
+      <div class="mx-auto max-w-7xl space-y-8 px-4 md:px-6">
         <article
           v-for="(program, index) in inHousePrograms"
           :key="program.id"
@@ -48,7 +40,7 @@
               </div>
 
               <!-- Name -->
-              <h2 class="text-display text-display-md mb-6">
+              <h2 class="mb-6 text-pretty text-3xl font-black md:text-4xl">
                 {{ program.name }}
               </h2>
 
@@ -109,10 +101,8 @@
 <script setup lang="ts">
 import { inHousePrograms } from '~/data/programs'
 
-useHead({
-  title: 'برنامه‌های داخلی - دجینت‌کو',
-  meta: [
-    { name: 'description', content: 'برنامه‌های اختصاصی طراحی شده توسط دجینت‌کو' },
-  ],
+usePageSeo({
+  title: 'برنامه‌های داخلی',
+  description: 'برنامه‌های داخلی دجینت‌کو برای بنیان‌گذاران، از ایده تا مقیاس و توسعه.',
 })
 </script>

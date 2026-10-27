@@ -2,7 +2,7 @@
 title: افتتاح دفتر جدید در شهر اصفهان
 excerpt: گسترش حضور دجینت‌کو با افتتاح دفتر در دومین شهر بزرگ کشور
 date: 2024-09-20
-image: /images/unsplash/building-exterior.jpg
+image: /images/unsplash/building-exterior.webp
 ---
 
 دجینت‌کو دفتر جدید خود را در شهر اصفهان افتتاح کرد تا خدمات بهتری به مشتریان در مرکز کشور ارائه دهد.
