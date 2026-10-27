@@ -2,21 +2,19 @@
   <header class="fixed top-0 inset-x-0 z-50 bg-primary text-primary-foreground">
     <nav class="container-custom h-24 flex items-center justify-between">
       <!-- Logo -->
-      <NuxtLink to="/" class="flex items-center gap-3 font-bold text-xl">
-        <div class="w-10 h-10 bg-primary-foreground text-primary rounded-lg flex items-center justify-center text-2xl">
-          د
-        </div>
-        <span>دجینت‌کو</span>
+      <NuxtLink to="/" class="font-black text-2xl tracking-tight">
+        دجینت‌کو
       </NuxtLink>
 
       <!-- Desktop Navigation -->
       <div class="hidden lg:flex items-center gap-8">
         <NuxtLink
-          v-for="link in navLinks"
+          v-for="(link, index) in navLinks"
           :key="link.path"
           :to="link.path"
-          class="text-base hover:text-primary-foreground/80 transition-colors"
-          active-class="font-medium"
+          :class="index === navLinks.length - 1 
+            ? 'inline-flex items-center px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-primary hover:bg-white/90 transition-colors' 
+            : 'text-sm font-medium uppercase tracking-wider hover:text-primary-foreground/80 transition-colors'"
         >
           {{ link.label }}
         </NuxtLink>

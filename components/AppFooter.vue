@@ -5,11 +5,8 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
         <!-- Company Info -->
         <div>
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 bg-primary-foreground text-primary rounded-lg flex items-center justify-center text-2xl">
-              د
-            </div>
-            <span class="font-bold text-xl">دجینت‌کو</span>
+          <div class="font-black text-2xl tracking-tight mb-4">
+            دجینت‌کو
           </div>
           <p class="text-primary-foreground/80 text-sm mb-4">
             پیشرو در حوزه فناوری و نوآوری دیجیتال
