@@ -18,7 +18,9 @@ Claude Code reads `CLAUDE.md`, which points here. Other agents read this file di
 | Dev      | `pnpm dev`                                                            |
 | Package  | pnpm. Checks: `pnpm check`. Changelog: Changesets                     |
 
-**Hard constraint:** production is a static host. Prerender every route. Do not add runtime server routes for content that belongs in `content/` or `app/data/`. `server/routes/sitemap.xml.ts` is the exception.
+**Hard constraint:** production is a static host. Prerender every route. Do not add runtime server routes for content that belongs in `content/` or `app/data/`. `server/routes/sitemap.xml.ts`, `server/routes/robots.txt.ts`, and `server/routes/site.webmanifest.ts` are the exceptions.
+
+The public site URL is `NUXT_PUBLIC_SITE_URL` (default `https://aminhadei.github.io/dgientco` in `app/utils/site.ts`, no trailing slash). Page paths are appended to it. `NUXT_APP_BASE_URL` stays `/dgientco/` for GitHub Pages. For a custom domain served at `/`, change both.
 
 ## Design
 

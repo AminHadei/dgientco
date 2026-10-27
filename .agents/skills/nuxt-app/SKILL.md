@@ -42,7 +42,7 @@ nuxt.config.ts
 
 - `app.head.htmlAttrs` stays `{ lang: 'fa', dir: 'rtl' }`.
 - Static output is `nuxt generate` (`nitro.prerender.crawlLinks` plus the explicit route list).
-- New routes must be linked from a crawled page and added to `nuxt.config.ts` and `server/routes/sitemap.xml.ts`.
+- New routes must be linked from a crawled page and added to `server/utils/publicRoutes.ts`. That list feeds prerender and `server/routes/sitemap.xml.ts`. News slugs are read from `content/news`.
 
 ## Don't
 

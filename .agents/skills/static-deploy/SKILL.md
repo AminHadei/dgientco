@@ -30,7 +30,7 @@ GitHub Pages serves this project site at `/dgientco/`. CI and deploy set `NUXT_A
 
 Stylesheet URLs written as root paths are not prefixed by Vite. `fonts.css` uses `/fonts/...`, and the Vite plugin in `nuxt.config.ts` applies `withBase` once so those urls pick up `NUXT_APP_BASE_URL`.
 
-The public site URL in `usePageSeo` and the sitemap stays `https://dgientco.com`.
+The public site URL comes from `NUXT_PUBLIC_SITE_URL`. The default is `https://aminhadei.github.io/dgientco` in `app/utils/site.ts` (no trailing slash). Canonical URLs, Open Graph URLs, the sitemap, and `robots.txt` all use that value plus the page path, so the `/dgientco` prefix is part of the site URL while `NUXT_APP_BASE_URL` is still `/dgientco/`. For a custom domain at the root, set `NUXT_PUBLIC_SITE_URL` to that origin and `NUXT_APP_BASE_URL` to `/`.
 
 ## Don't
 

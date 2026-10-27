@@ -15,7 +15,7 @@ Defined in `tailwind.config.ts` and `app/assets/css/main.css`.
 | `primary-foreground` | `#fafaf9` | Text on primary           |
 | `foreground`         | `#0c0a09` | Body text                 |
 | `muted`              | `#f5f5f4` | Panels and quiet fills    |
-| `muted-foreground`   | `#79716b` | Secondary text            |
+| `muted-foreground`   | `#6b6560` | Secondary text            |
 | `border`             | `#e7e5e4` | Hairlines                 |
 | `accent-blue`        | `#024a70` | Focus ring and emphasis   |
 | `accent-blue-light`  | `#eff6ff` | Soft blue fill            |
