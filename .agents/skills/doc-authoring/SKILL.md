@@ -10,7 +10,7 @@ description: Use when writing developer docs. Single source of truth, current-re
 1. One source of truth. Skills point at it; they do not restate it.
 2. Current reality only.
 3. Terse: tables and bullets.
-4. Site copy stays Persian in `content/`, `data/`, and pages. Developer docs, skills, and `CHANGELOG.md` stay English.
+4. Site copy stays Persian in `content/`, `app/data/`, and pages. Developer docs, skills, and `CHANGELOG.md` stay English.
 
 ## After adding a doc
 

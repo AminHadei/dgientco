@@ -1,6 +1,6 @@
 ---
 description: Vue and TypeScript conventions plus format, lint, and typecheck
-globs: "{pages,components,composables,layouts,utils,data}/**/*.{vue,ts},*.{js,ts}"
+globs: app/**/*.{vue,ts},*.{js,ts}
 alwaysApply: false
 ---
 

@@ -68,7 +68,7 @@
       <div class="space-y-4">
         <NewsCardSmall
           v-for="article in moreNews || []"
-          :key="article._path"
+          :key="article.path"
           :article="toNewsCard(article)"
         />
       </div>
@@ -85,11 +85,11 @@ interface Props {
 const props = defineProps<Props>();
 
 const { data: moreNews } = await useAsyncData("more-news", () =>
-  queryContent("/news")
-    .where({ _path: { $ne: `/news/${props.currentSlug}` } })
-    .sort({ date: -1 })
+  queryCollection("news")
+    .where("path", "<>", `/news/${props.currentSlug}`)
+    .order("date", "DESC")
     .limit(5)
-    .find(),
+    .all(),
 );
 
 const share = (platform: string) => {

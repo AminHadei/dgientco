@@ -7,9 +7,9 @@ alwaysApply: true
 
 ## Stack
 
-- Nuxt 3 and Vue 3. Only `<script setup lang="ts">`.
-- Routes live in `pages/`. Components live in `components/` and are auto-imported.
-- News and legal copy come from `content/` via `@nuxt/content`. Other lists live in `data/*.ts`.
+- Nuxt 4 and Vue 3. Only `<script setup lang="ts">`.
+- Routes live in `app/pages/`. Components live in `app/components/` and are auto-imported.
+- News and legal copy come from `content/` via `@nuxt/content` collections. Other lists live in `app/data/*.ts`.
 - Images use `AppImage` with width, height, and lazy loading.
 - Static output with `nuxt generate`.
 
@@ -34,7 +34,7 @@ Campus layout mirrored for RTL. Do not invent a second visual system.
 - Hero is start-aligned from `lg`, centered below that. The title uses `.hero-gradient`. One `.btn-light` pill. Stats sit in a glass bar.
 - Section rhythm is `py-8`. Titles use `.section-title` and `.page-title`. Container is `max-w-7xl`.
 - Colours: primary `#1c1917`, accent blue `#024a70`, muted `#f5f5f4`, border `#e7e5e4`, warm fill `#fff7ed`, blue fill `#eff6ff`.
-- Type is Vazirmatn. The woff2 files live in `public/fonts/` and are declared in `assets/css/fonts.css`.
+- Type is Vazirmatn. The woff2 files live in `public/fonts/` and are declared in `app/assets/css/fonts.css`.
 - Display dates are Jalali with Persian digits (`formatJalaliDate`). Keep dates as ISO in content.
 
 ## Content and SEO

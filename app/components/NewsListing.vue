@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Hero -->
     <PageHero
       title="اخبار"
       subtitle="تازه‌ترین خبرها، رویدادها و داستان‌های جامعه دجینت‌کو"
@@ -13,12 +12,11 @@
         <div class="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <NewsCard
             v-for="article in articles"
-            :key="article._path"
+            :key="article.path"
             :article="toNewsCard(article)"
           />
         </div>
 
-        <!-- Pagination -->
         <Pagination
           :current-page="currentPage"
           :total-pages="totalPages"
@@ -27,7 +25,6 @@
       </div>
     </section>
 
-    <!-- Press Section -->
     <section class="bg-secondary py-8">
       <div class="container-custom">
         <div class="mb-8 text-center">
@@ -47,13 +44,13 @@ import { pressLogos } from "~/data/logos";
 const route = useRoute();
 const currentPage = computed(() => {
   const page = route.params.page;
-  return page ? parseInt(page as string) : 1;
+  return page ? parseInt(String(page)) : 1;
 });
 
 const itemsPerPage = 6;
 
 const { data: allArticles } = await useAsyncData("news-all", () =>
-  queryContent("/news").sort({ date: -1 }).find(),
+  queryCollection("news").order("date", "DESC").all(),
 );
 
 const totalPages = computed(() =>

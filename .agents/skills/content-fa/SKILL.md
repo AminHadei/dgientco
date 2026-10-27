@@ -1,21 +1,21 @@
 ---
 name: content-fa
-description: Use when writing or editing Persian copy in content/ or data/. Covers voice, orthography, and Jalali dates.
+description: Use when writing or editing Persian copy in content/ or app/data/. Covers voice, orthography, and Jalali dates.
 ---
 
 # Persian content — dgientco
 
 ## Where copy lives
 
-| Kind            | Path                             | Role                              |
-| --------------- | -------------------------------- | --------------------------------- |
-| News            | `content/news/*.md`              | Articles                          |
-| Legal           | `content/legal/*.md`             | Legal information, privacy, terms |
-| Startups        | `data/startups.ts`               | Startup cards and investors       |
-| Home features   | `data/features.ts`               | Campus benefit cards              |
-| Logos and stats | `data/logos.ts`, `data/stats.ts` | Partner names and hero stats      |
-| Timeline        | `data/timeline.ts`               | About-page history                |
-| Contact         | `data/contact-cards.ts`          | Contact hub cards                 |
+| Kind            | Path                                     | Role                              |
+| --------------- | ---------------------------------------- | --------------------------------- |
+| News            | `content/news/*.md`                      | Articles                          |
+| Legal           | `content/legal/*.md`                     | Legal information, privacy, terms |
+| Startups        | `app/data/startups.ts`                   | Startup cards and investors       |
+| Home features   | `app/data/features.ts`                   | Campus benefit cards              |
+| Logos and stats | `app/data/logos.ts`, `app/data/stats.ts` | Partner names and hero stats      |
+| Timeline        | `app/data/timeline.ts`                   | About-page history                |
+| Contact         | `app/data/contact-cards.ts`              | Contact hub cards                 |
 
 Interface strings that are not in those files are written in the Vue page, in Persian.
 

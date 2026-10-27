@@ -18,7 +18,7 @@ Read [`REVIEW.md`](../../../REVIEW.md) in full. It overrides default review beha
 ## Focus
 
 - RTL logical properties
-- Copy in `content/` and `data/`
+- Copy in `content/` and `app/data/`
 - `usePageSeo` on pages
 - Jalali dates
 - `pnpm generate` still prerenders linked routes

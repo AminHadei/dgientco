@@ -19,8 +19,8 @@
 <script setup lang="ts">
 import { formatJalaliDate } from "~/utils/jalali";
 
-const { data: page } = await useAsyncData("legal-information", () =>
-  queryContent("/legal/legal-information").findOne(),
+const { data: page } = await useAsyncData("privacy-policy", () =>
+  queryCollection("legal").path("/legal/privacy-policy").first(),
 );
 
 if (!page.value) {
@@ -31,7 +31,7 @@ if (!page.value) {
 }
 
 usePageSeo({
-  title: page.value?.title || "اطلاعات قانونی",
-  description: "اطلاعات قانونی دجینت‌کو.",
+  title: page.value?.title || "حریم خصوصی",
+  description: "سیاست حریم خصوصی دجینت‌کو.",
 });
 </script>

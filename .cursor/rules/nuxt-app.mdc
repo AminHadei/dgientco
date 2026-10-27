@@ -1,6 +1,6 @@
 ---
-description: Nuxt 3 pages, Vue SFCs, and content-driven routes
-globs: "{pages,components,composables,layouts}/**/*.{vue,ts},nuxt.config.ts"
+description: Nuxt 4 app layout, Vue SFCs, and content collections
+globs: app/**/*.{vue,ts},nuxt.config.ts,content.config.ts
 alwaysApply: false
 ---
 

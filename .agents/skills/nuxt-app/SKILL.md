@@ -1,6 +1,6 @@
 ---
 name: nuxt-app
-description: Use when editing pages, components, composables, layouts, or nuxt.config.ts. Covers Nuxt 3, Vue 3, and script setup.
+description: Use when editing app/pages, app/components, app/composables, app/layouts, or nuxt.config.ts. Covers Nuxt 4, Vue 3, and script setup.
 ---
 
 # Nuxt app — dgientco
@@ -8,14 +8,18 @@ description: Use when editing pages, components, composables, layouts, or nuxt.c
 ## Layout
 
 ```
-pages/              # file routes
-components/         # auto-imported
-composables/        # auto-imported use*
-layouts/
-utils/
-data/               # typed lists
+app/
+  app.vue
+  error.vue
+  pages/            # file routes
+  components/       # auto-imported
+  composables/      # auto-imported use*
+  layouts/
+  utils/
+  data/             # typed lists
+  assets/css/
 content/            # news and legal markdown
-assets/css/
+content.config.ts
 server/routes/      # sitemap only
 nuxt.config.ts
 ```
@@ -29,8 +33,8 @@ nuxt.config.ts
 
 ## Data
 
-- News and legal pages use `queryContent`.
-- Lists that are not markdown live in `data/*.ts`.
+- News and legal pages use `queryCollection` (`news` and `legal` in `content.config.ts`).
+- Lists that are not markdown live in `app/data/*.ts`.
 - Images go through `AppImage`.
 - Every page calls `usePageSeo` (Persian title, description, `ogLocale: fa_IR`).
 
@@ -42,5 +46,5 @@ nuxt.config.ts
 
 ## Don't
 
-- Don't add server routes for content that belongs in `content/` or `data/`.
+- Don't add server routes for content that belongs in `content/` or `app/data/`.
 - Don't introduce a UI kit for layout this site already builds with Tailwind.

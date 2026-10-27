@@ -17,7 +17,7 @@ If lint or format failed on something auto-fixable:
 pnpm check:fix
 ```
 
-Also run `pnpm generate` when the change touches `pages/`, `components/`, `content/`, `data/`, `nuxt.config.ts`, or `.github/workflows/`.
+Also run `pnpm generate` when the change touches `app/`, `content/`, `content.config.ts`, `nuxt.config.ts`, or `.github/workflows/`.
 
 ## Report
 

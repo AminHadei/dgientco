@@ -49,7 +49,7 @@
         <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
           <NewsCard
             v-for="related in relatedArticles"
-            :key="related._path"
+            :key="related.path"
             :article="toNewsCard(related)"
           />
         </div>
@@ -66,7 +66,7 @@ const route = useRoute();
 const slug = route.params.slug as string;
 
 const { data: article } = await useAsyncData(`news-${slug}`, () =>
-  queryContent(`/news/${slug}`).findOne(),
+  queryCollection("news").path(`/news/${slug}`).first(),
 );
 
 if (!article.value) {
@@ -77,11 +77,11 @@ if (!article.value) {
 }
 
 const { data: relatedArticles } = await useAsyncData(`related-${slug}`, () =>
-  queryContent("/news")
-    .where({ _path: { $ne: `/news/${slug}` } })
-    .sort({ date: -1 })
+  queryCollection("news")
+    .where("path", "<>", `/news/${slug}`)
+    .order("date", "DESC")
     .limit(3)
-    .find(),
+    .all(),
 );
 
 usePageSeo({

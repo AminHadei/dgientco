@@ -4,7 +4,7 @@
 const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
 
 export function toPersianDigits(num: number | string): string {
-  return String(num).replace(/\d/g, (digit) => persianDigits[parseInt(digit)]);
+  return String(num).replace(/\d/g, (digit) => persianDigits[parseInt(digit)] ?? digit);
 }
 
 function div(a: number, b: number): number {
@@ -29,7 +29,7 @@ function gregorianToJalali(
     div(gy2 + 399, 400) -
     80 +
     gd +
-    g_d_m[gm - 1];
+    (g_d_m[gm - 1] ?? 0);
 
   jy += 33 * div(days, 12053);
   days %= 12053;
@@ -79,7 +79,7 @@ export function formatJalaliDate(date: Date | string, includeYear = true): strin
   );
 
   const day = toPersianDigits(jd);
-  const month = jalaliMonthNames[jm - 1];
+  const month = jalaliMonthNames[jm - 1] ?? "";
   const year = includeYear ? ` ${toPersianDigits(jy)}` : "";
 
   return `${day} ${month}${year}`;

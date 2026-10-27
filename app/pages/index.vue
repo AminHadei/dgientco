@@ -143,7 +143,7 @@
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <NewsCard
             v-for="article in latestNews"
-            :key="article._path"
+            :key="article.path"
             :article="toNewsCard(article)"
           />
         </div>
@@ -168,7 +168,7 @@ const startupLogos = startups.slice(0, 12).map((startup) => ({
 }));
 
 const { data: latestNews } = await useAsyncData("home-news", () =>
-  queryContent("/news").sort({ date: -1 }).limit(4).find(),
+  queryCollection("news").order("date", "DESC").limit(4).all(),
 );
 
 usePageSeo({

@@ -7,7 +7,7 @@ description: Use when changing layout, spacing, typography, colour, or component
 
 ## Tokens
 
-Defined in `tailwind.config.ts` and `assets/css/main.css`.
+Defined in `tailwind.config.ts` and `app/assets/css/main.css`.
 
 | Token                | Value     | Role                      |
 | -------------------- | --------- | ------------------------- |
@@ -21,7 +21,7 @@ Defined in `tailwind.config.ts` and `assets/css/main.css`.
 | `accent-blue-light`  | `#eff6ff` | Soft blue fill            |
 | `accent-orange`      | `#fff7ed` | Soft warm fill            |
 
-- Type: Vazirmatn (`font-sans`, `font-display`). Files are in `public/fonts/` and declared in `assets/css/fonts.css`.
+- Type: Vazirmatn (`font-sans`, `font-display`). Files are in `public/fonts/` and declared in `app/assets/css/fonts.css`.
 - Buttons: `.btn`, `.btn-primary`, `.btn-secondary`, `.btn-light` are pills (`rounded-full`).
 - Page titles: `.page-title`. Section titles: `.section-title`.
 - Container: `max-w-7xl`. Section rhythm: `py-8`.

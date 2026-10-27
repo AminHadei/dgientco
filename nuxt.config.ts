@@ -1,4 +1,4 @@
-import { withBase } from "./utils/withBase";
+import { withBase } from "./app/utils/withBase";
 
 const baseURL = process.env.NUXT_APP_BASE_URL || "/";
 
@@ -21,7 +21,7 @@ function prefixPublicFontUrls() {
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2024-10-27",
+  compatibilityDate: "2026-10-27",
 
   ssr: true,
 
@@ -34,8 +34,7 @@ export default defineNuxtConfig({
   },
 
   content: {
-    documentDriven: false,
-    markdown: {
+    renderer: {
       anchorLinks: false,
     },
   },
@@ -44,6 +43,13 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [prefixPublicFontUrls()],
+  },
+
+  postcss: {
+    plugins: {
+      // Tailwind 3 exposes nesting only as a directory import, which Nuxt cannot load as ESM.
+      "tailwindcss/nesting": false,
+    },
   },
 
   app: {
@@ -93,6 +99,15 @@ export default defineNuxtConfig({
         "/",
         "/about",
         "/news",
+        "/news/page/2",
+        "/news/new-ai-platform",
+        "/news/partnership-announcement",
+        "/news/innovation-award",
+        "/news/cloud-expansion",
+        "/news/cybersecurity-summit",
+        "/news/new-office-opening",
+        "/news/training-program",
+        "/news/sustainability-initiative",
         "/contact",
         "/contact/visits",
         "/contact/sales",

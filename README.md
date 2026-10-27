@@ -4,7 +4,7 @@ Static corporate website for dgientco, a digital technology and innovation compa
 
 ## Stack
 
-- **Nuxt 3** for a statically generated Vue site
+- **Nuxt 4** for a statically generated Vue site
 - **Tailwind CSS** with logical properties for RTL layout
 - **Nuxt Content** for news articles and legal pages
 - **Embla Carousel** with RTL support
@@ -52,22 +52,17 @@ pnpm preview
 pnpm check
 ```
 
-`npm run generate` writes the static site to `.output/public`. That folder can be hosted on any static host.
+`pnpm generate` writes the static site to `.output/public`. GitHub Pages builds that output with `NUXT_APP_BASE_URL=/dgientco/`.
 
 ## Layout
 
 ```
 .
-├── assets/          # CSS
-├── components/      # Shared Vue components
-├── composables/     # Page SEO
+├── app/             # Pages, components, data, and CSS
 ├── content/         # Markdown news and legal pages
-├── data/            # Typed site data
-├── layouts/         # Page layouts
-├── pages/           # Routes
 ├── public/          # Fonts, images, and static files
 ├── server/          # Sitemap route
-├── utils/           # Jalali dates and image sizes
+├── content.config.ts
 └── nuxt.config.ts
 ```
 

@@ -3,7 +3,7 @@ export function asText(value: unknown): string | undefined {
 }
 
 export function toNewsCard(article: {
-  _path?: string;
+  path?: string;
   title?: string;
   excerpt?: unknown;
   image?: unknown;
@@ -15,7 +15,7 @@ export function toNewsCard(article: {
       : undefined;
 
   return {
-    slug: article._path?.split("/").pop() || "",
+    slug: article.path?.split("/").pop() || "",
     title: article.title || "",
     excerpt: asText(article.excerpt),
     image: asText(article.image),

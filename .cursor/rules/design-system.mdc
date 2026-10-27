@@ -1,6 +1,6 @@
 ---
 description: RTL campus layout, type, and colour tokens
-globs: "{pages,components,layouts,assets}/**/*.{vue,css},tailwind.config.ts"
+globs: app/**/*.{vue,css},tailwind.config.ts
 alwaysApply: false
 ---
 
