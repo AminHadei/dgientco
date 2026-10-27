@@ -1,33 +1,11 @@
 <template>
   <aside class="space-y-8">
-    <!-- Press Contact -->
-    <div class="rounded-lg bg-muted p-6">
-      <h3 class="mb-4 text-lg font-bold">تماس با بخش رسانه</h3>
-      <div class="space-y-3 text-sm">
-        <div>
-          <div class="mb-1 text-muted-foreground">ایمیل</div>
-          <a href="mailto:press@dgientco.com" class="text-primary hover:underline">
-            press@dgientco.com
-          </a>
-        </div>
-        <div>
-          <div class="mb-1 text-muted-foreground">تلفن</div>
-          <a href="tel:+982112345678" class="text-primary hover:underline" dir="ltr">
-            ۰۲۱-۱۲۳۴۵۶۷۸
-          </a>
-        </div>
-      </div>
-      <NuxtLink to="/contact/press" class="btn-primary mt-4 w-full">
-        فرم تماس رسانه
-      </NuxtLink>
-    </div>
-
     <!-- Share -->
     <div class="rounded-lg bg-muted p-6">
       <h3 class="mb-4 text-lg font-bold">اشتراک‌گذاری</h3>
       <div class="flex gap-2">
         <button
-          class="flex-1 rounded bg-white p-2 transition-colors hover:bg-primary hover:text-primary-foreground"
+          class="flex-1 rounded-lg bg-white p-2 transition-colors hover:bg-primary hover:text-primary-foreground"
           aria-label="اشتراک در توییتر"
           @click="share('twitter')"
         >
@@ -38,7 +16,7 @@
           </svg>
         </button>
         <button
-          class="flex-1 rounded bg-white p-2 transition-colors hover:bg-primary hover:text-primary-foreground"
+          class="flex-1 rounded-lg bg-white p-2 transition-colors hover:bg-primary hover:text-primary-foreground"
           aria-label="اشتراک در لینکدین"
           @click="share('linkedin')"
         >
@@ -49,7 +27,7 @@
           </svg>
         </button>
         <button
-          class="flex-1 rounded bg-white p-2 transition-colors hover:bg-primary hover:text-primary-foreground"
+          class="flex-1 rounded-lg bg-white p-2 transition-colors hover:bg-primary hover:text-primary-foreground"
           aria-label="اشتراک در تلگرام"
           @click="share('telegram')"
         >
