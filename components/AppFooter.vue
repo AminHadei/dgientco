@@ -20,9 +20,31 @@
           </address>
         </div>
 
-        <!-- Links - About -->
+        <!-- Links - Ecosystem -->
         <div>
-          <h3 class="font-bold text-lg mb-4">درباره شرکت</h3>
+          <h3 class="font-bold text-lg mb-4">اکوسیستم</h3>
+          <ul class="space-y-3">
+            <li>
+              <NuxtLink to="/startups" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
+                استارت‌آپ‌ها
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/programs" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
+                برنامه‌ها
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/events" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
+                رویدادها
+              </NuxtLink>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Links - Company -->
+        <div>
+          <h3 class="font-bold text-lg mb-4">شرکت</h3>
           <ul class="space-y-3">
             <li>
               <NuxtLink to="/about" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
@@ -31,34 +53,12 @@
             </li>
             <li>
               <NuxtLink to="/news" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
-                اخبار و رویدادها
+                اخبار
               </NuxtLink>
             </li>
             <li>
               <NuxtLink to="/contact" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
                 تماس با ما
-              </NuxtLink>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Links - Services -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">خدمات</h3>
-          <ul class="space-y-3">
-            <li>
-              <NuxtLink to="/contact/sales" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
-                فروش و همکاری
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/contact/press" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
-                رسانه و مطبوعات
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/contact/visits" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
-                بازدید از دفتر
               </NuxtLink>
             </li>
           </ul>
