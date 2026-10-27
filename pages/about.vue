@@ -1,110 +1,100 @@
 <template>
   <div>
     <!-- Hero -->
-    <PageHero
-      title="درباره دجینت‌کو"
-      subtitle="ما با هدف ایجاد تحول در صنعت فناوری اطلاعات ایران و ارائه راهکارهای نوآورانه به کسب‌وکارها آغاز به کار کردیم"
-    >
-      <NuxtLink to="/contact" class="btn-primary">
-        با ما همکاری کنید
-      </NuxtLink>
-    </PageHero>
-
-    <!-- Story Section -->
-    <section class="py-20 bg-white">
+    <section class="section-padding bg-white">
       <div class="container-custom">
-        <div class="max-w-3xl mx-auto text-center">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">داستان ما</h2>
-          <div class="text-lg text-muted-foreground leading-relaxed space-y-4">
-            <p>
-              دجینت‌کو در سال ۱۳۹۵ با هدف ایجاد تحولی بنیادین در صنعت فناوری اطلاعات ایران تاسیس شد. 
-              ما باور داریم که فناوری می‌تواند نقش کلیدی در رشد و توسعه کسب‌وکارها ایفا کند.
-            </p>
-            <p>
-              امروز با بیش از ۲۰۰ متخصص حرفه‌ای، به بیش از ۵۰۰ شرکت و سازمان در سراسر کشور خدمات می‌دهیم
-              و افتخار همکاری با برترین برندهای داخلی و بین‌المللی را داریم.
-            </p>
+        <div class="max-w-4xl">
+          <div class="inline-block mb-6">
+            <span class="badge badge-primary">درباره ما</span>
           </div>
+          <h1 class="text-display text-display-xl mb-8">
+            درباره
+          </h1>
+          <p class="text-2xl md:text-3xl leading-relaxed text-muted-foreground font-medium">
+            مدت‌ها قبل از اینکه خانه استارت‌آپ‌ها باشد، دجینت‌کو از قبل محلی برای نوآوری بود.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Timeline Section -->
-    <section class="py-20 bg-muted">
+    <section class="section-padding bg-muted">
       <div class="container-custom">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">مسیر رشد ما</h2>
-          <p class="text-muted-foreground text-lg">نگاهی به مهم‌ترین دستاوردهای دجینت‌کو</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <TimelineCard
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+          <article
             v-for="item in timeline"
             :key="item.year"
-            :item="item"
-          />
+            class="space-y-6"
+          >
+            <div class="aspect-[4/3] overflow-hidden rounded-lg">
+              <img 
+                :src="item.image" 
+                :alt="item.title"
+                class="w-full h-full object-cover"
+              >
+            </div>
+            <div>
+              <div class="text-5xl md:text-6xl font-black text-accent-blue mb-4">
+                {{ item.year }}
+              </div>
+              <h3 class="text-2xl font-black mb-4">{{ item.title }}</h3>
+              <p class="text-muted-foreground leading-relaxed">{{ item.description }}</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section class="section-padding bg-white">
+      <div class="container-custom">
+        <div class="max-w-4xl">
+          <h2 class="text-display text-display-md mb-8">
+            تحول اکوسیستم فناوری ایران
+          </h2>
+          <div class="prose prose-lg prose-stone max-w-none">
+            <p class="text-xl leading-relaxed text-muted-foreground mb-6">
+              از زمان افتتاح، دجینت‌کو نقش کلیدی در تغییر شکل اکوسیستم فناوری ایران داشته است. قبل از آن، چشم‌انداز استارت‌آپی در ایران پراکنده، منزوی و تا حد زیادی ناشناخته بود.
+            </p>
+            <p class="text-xl leading-relaxed text-muted-foreground">
+              با گرد هم آوردن برترین استارت‌آپ‌ها و شرکای نوآوری پیشرو، دجینت‌کو به سرعت به یک مرکز اصلی برای فناوری در منطقه تبدیل شد. امروز، دجینت‌کو میزبان بزرگترین جامعه استارت‌آپی هوش مصنوعی در خاورمیانه است.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Principles Section -->
-    <section class="py-20 bg-white">
+    <section class="section-padding bg-accent-orange">
       <div class="container-custom">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">اصول و ارزش‌های ما</h2>
-            <div class="space-y-6">
-              <div>
-                <h3 class="text-xl font-bold mb-2">نوآوری مستمر</h3>
-                <p class="text-muted-foreground leading-relaxed">
-                  ما همواره به دنبال راه‌حل‌های جدید و خلاقانه برای چالش‌های فناوری هستیم و با استفاده از
-                  آخرین دستاوردهای علم و فناوری، بهترین خدمات را ارائه می‌دهیم.
-                </p>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-2">کیفیت بالا</h3>
-                <p class="text-muted-foreground leading-relaxed">
-                  کیفیت محصولات و خدمات ما در اولویت قرار دارد. ما با استانداردهای بین‌المللی کار می‌کنیم
-                  و همواره به دنبال بهبود و ارتقای کیفیت هستیم.
-                </p>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-2">مشتری‌مداری</h3>
-                <p class="text-muted-foreground leading-relaxed">
-                  رضایت مشتریان ما مهم‌ترین معیار موفقیت است. ما به صدای مشتریان گوش می‌دهیم و
-                  راهکارهای متناسب با نیازهای آن‌ها ارائه می‌دهیم.
-                </p>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-2">تعهد به اخلاق</h3>
-                <p class="text-muted-foreground leading-relaxed">
-                  ما به اصول اخلاقی در کسب‌وکار پایبند هستیم و با صداقت، شفافیت و مسئولیت‌پذیری
-                  با همکاران و مشتریان خود رفتار می‌کنیم.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="aspect-square bg-muted rounded-lg overflow-hidden">
-              <img 
-                src="/images/timeline-1.jpg" 
-                alt="تیم دجینت‌کو"
-                class="w-full h-full object-cover"
-              >
-            </div>
+        <div class="max-w-4xl">
+          <h2 class="text-display text-display-md mb-8">
+            اصول بنیادی
+          </h2>
+          <div class="prose prose-lg prose-stone max-w-none space-y-6">
+            <p class="text-xl leading-relaxed">
+              ایده‌های عالی هرگز کافی نیستند. آنچه تفاوت ایجاد می‌کند، اجرا، سرعت و محیط مناسب است. در دجینت‌کو، ما به کارآفرینان آنچه را که برای رفتن به جلو و سریع‌تر نیاز دارند، می‌دهیم.
+            </p>
+            <p class="text-xl leading-relaxed">
+              ما شرط‌های جسورانه را زود حمایت می‌کنیم، موانع را پاک می‌کنیم و به بنیان‌گذاران کمک می‌کنیم تا روی آنچه واقعاً اهمیت دارد تمرکز کنند.
+            </p>
+            <p class="text-xl leading-relaxed">
+              این فقط یک پردیس نیست. این یک سکوی پرتاب، یک منطقه آزمایش و خانه‌ای برای کسانی است که آینده را می‌سازند.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-primary text-primary-foreground">
+    <section class="section-padding bg-primary text-primary-foreground">
       <div class="container-custom text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">آماده همکاری با ما هستید؟</h2>
-        <p class="text-xl mb-8 text-primary-foreground/90">
-          با تیم ما تماس بگیرید و پروژه بعدی خود را شروع کنید
+        <h2 class="text-display text-display-lg mb-8">آماده ساختن آینده هستید؟</h2>
+        <p class="text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
+          با تیم ما تماس بگیرید و بخشی از اکوسیستم نوآوری دجینت‌کو شوید
         </p>
-        <NuxtLink to="/contact" class="btn-secondary">
-          تماس با ما
+        <NuxtLink to="/contact" class="btn-primary bg-white text-primary hover:bg-white/90">
+          شروع کنید
         </NuxtLink>
       </div>
     </section>
