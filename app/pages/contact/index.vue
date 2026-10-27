@@ -1,44 +1,52 @@
 <template>
   <div>
-    <PageHero title="تماس" subtitle="چطور می‌توانیم کمک کنیم؟" />
+    <PageHero title="تماس" :subtitle="siteIntroName" />
 
     <section>
       <div
-        class="mx-auto grid max-w-7xl grid-cols-1 gap-4 p-4 md:grid-cols-2 md:gap-8 md:p-6 lg:grid-cols-3"
+        class="mx-auto grid max-w-7xl grid-cols-1 gap-4 p-4 md:grid-cols-2 md:gap-8 md:p-6"
       >
         <article class="rounded-xl bg-secondary p-6 ring-1 ring-foreground/10">
           <h2 class="mb-2 text-base font-semibold">تلفن</h2>
           <a
-            href="tel:+982112345678"
+            :href="`tel:${companyPhoneTel}`"
             class="text-muted-foreground hover:text-primary"
             dir="ltr"
           >
-            ۰۲۱-۱۲۳۴۵۶۷۸
+            {{ companyPhoneDisplay }}
           </a>
+          <p class="mt-2 text-muted-foreground">داخلی {{ companyExtensions }}</p>
         </article>
 
         <article class="rounded-xl bg-secondary p-6 ring-1 ring-foreground/10">
           <h2 class="mb-2 text-base font-semibold">ایمیل</h2>
           <a
-            href="mailto:info@dgientco.com"
-            class="block text-muted-foreground hover:text-primary"
+            :href="`mailto:${companyEmail}`"
+            class="text-muted-foreground hover:text-primary"
+            dir="ltr"
           >
-            info@dgientco.com
-          </a>
-          <a
-            href="mailto:support@dgientco.com"
-            class="mt-2 block text-muted-foreground hover:text-primary"
-          >
-            support@dgientco.com
+            {{ companyEmail }}
           </a>
         </article>
 
         <article class="rounded-xl bg-secondary p-6 ring-1 ring-foreground/10">
-          <h2 class="mb-2 text-base font-semibold">آدرس</h2>
+          <h2 class="mb-2 text-base font-semibold">نشانی</h2>
           <address class="not-italic text-muted-foreground">
-            تهران، خیابان ولیعصر<br />
-            پلاک ۱۲۳۴
+            <a
+              :href="companyMapsUrl"
+              class="hover:text-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ companyAddress }}
+              <span class="sr-only">(باز شدن در زبانه جدید)</span>
+            </a>
           </address>
+        </article>
+
+        <article class="rounded-xl bg-secondary p-6 ring-1 ring-foreground/10">
+          <h2 class="mb-2 text-base font-semibold">پیام‌رسان</h2>
+          <MessengerLinks />
         </article>
       </div>
     </section>
@@ -46,9 +54,19 @@
 </template>
 
 <script setup lang="ts">
+import {
+  companyAddress,
+  companyEmail,
+  companyExtensions,
+  companyMapsUrl,
+  companyPhoneDisplay,
+  companyPhoneTel,
+} from "~/data/contact";
+import { siteIntroName, siteName } from "~/utils/site";
+
 usePageSeo({
   title: "تماس",
-  description: "تلفن، ایمیل و نشانی دفتر دجینت‌کو.",
+  description: `نشانی، تلفن و ایمیل ${siteName}.`,
   breadcrumbs: [
     { name: "خانه", path: "/" },
     { name: "تماس", path: "/contact" },

@@ -68,18 +68,18 @@ describe("usePageSeo", () => {
       );
     }) as { href?: string } | undefined;
 
-    expect(seo?.title).toBe("درباره | دجینت‌کو");
+    expect(seo?.title).toBe("درباره | فنصاد");
     expect(seo?.meta.description).toBe("توضیح صفحه");
-    expect(seo?.meta.ogTitle).toBe("درباره | دجینت‌کو");
+    expect(seo?.meta.ogTitle).toBe("درباره | فنصاد");
     expect(seo?.meta.ogDescription).toBe("توضیح صفحه");
     expect(seo?.meta.ogUrl).toBe(`${site}/about`);
     expect(seo?.meta.ogLocale).toBe("fa_IR");
-    expect(seo?.meta.ogSiteName).toBe("دجینت‌کو");
+    expect(seo?.meta.ogSiteName).toBe("فنصاد");
     expect(seo?.meta.ogType).toBe("website");
     expect(seo?.meta.ogImage).toBe(`${site}/images/og.png`);
     expect(seo?.meta.twitterCard).toBe("summary_large_image");
     expect(seo?.meta.robots).toBe("index, follow");
-    expect(head?.title).toBe("درباره | دجینت‌کو");
+    expect(head?.title).toBe("درباره | فنصاد");
     expect(canonical?.href).toBe(`${site}/about`);
     wrapper.unmount();
   });
@@ -92,7 +92,7 @@ describe("usePageSeo", () => {
     const seo = seoEntry();
     const head = latest((input) => Array.isArray(input.link));
 
-    expect(seo?.title).toBe("صفحه پیدا نشد | دجینت‌کو");
+    expect(seo?.title).toBe("صفحه پیدا نشد | فنصاد");
     expect(head?.link).toEqual([]);
     expect(seo?.meta.robots).toBe("noindex, nofollow");
     wrapper.unmount();
@@ -101,7 +101,7 @@ describe("usePageSeo", () => {
   it("adds organization and article structured data", async () => {
     const home = await mountSuspended(
       Page({
-        title: "دجینت‌کو",
+        title: "فنصاد",
         description: "توضیح خانه",
         home: true,
       }),
@@ -110,6 +110,10 @@ describe("usePageSeo", () => {
     const homeScript = scriptText();
     expect(homeScript).toContain("Organization");
     expect(homeScript).toContain("WebSite");
+    expect(homeScript).toContain("فنصاد");
+    expect(homeScript).toContain("فناوری‌های نوین صنعت و انرژی دانش‌گستر (سهامی خاص)");
+    expect(homeScript).toContain("DGIENT");
+    expect(homeScript).toContain("+982144867165");
     home.unmount();
 
     const article = await mountSuspended(

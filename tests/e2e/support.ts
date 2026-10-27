@@ -1,4 +1,10 @@
 import { expect, type Page } from "@playwright/test";
+import {
+  heroTitle,
+  newsDescription,
+  siteMission,
+  siteName,
+} from "../../app/utils/site";
 
 export const siteUrl = (
   process.env.NUXT_PUBLIC_SITE_URL || "https://aminhadei.github.io/dgientco"
@@ -30,69 +36,65 @@ export type PageCase = {
 export const mainPages: PageCase[] = [
   {
     path: "/",
-    h1: "بزرگترین پردیس استارت‌آپی خاورمیانه",
-    title: "دجینت‌کو | بزرگترین پردیس استارت‌آپی خاورمیانه",
-    description:
-      "بزرگترین پردیس استارت‌آپی خاورمیانه. از ایده تا مقیاس‌پذیری در کنار دجینت‌کو.",
+    h1: heroTitle,
+    title: `${heroTitle} | ${siteName}`,
+    description: siteMission,
   },
   {
     path: "/about",
     h1: "درباره",
-    title: "درباره | دجینت‌کو",
-    description:
-      "داستان دجینت‌کو، از یک بنای تاریخی تا بزرگترین پردیس استارت‌آپی خاورمیانه.",
+    title: `درباره | ${siteName}`,
+    description: `ماموریت، مدیران و شرکای ${siteName}.`,
   },
   {
     path: "/news",
     h1: "اخبار",
-    title: "اخبار | دجینت‌کو",
-    description: "آخرین اخبار، رویدادها و داستان‌های موفقیت دجینت‌کو.",
+    title: `اخبار | ${siteName}`,
+    description: newsDescription,
   },
   {
     path: "/news/page/2",
     h1: "اخبار",
-    title: "اخبار - صفحه 2 | دجینت‌کو",
-    description: "آخرین اخبار، رویدادها و داستان‌های موفقیت دجینت‌کو.",
+    title: `اخبار - صفحه 2 | ${siteName}`,
+    description: newsDescription,
   },
   {
     path: "/news/new-ai-platform",
-    h1: "رونمایی از پلتفرم هوش مصنوعی جدید",
-    title: "رونمایی از پلتفرم هوش مصنوعی جدید | دجینت‌کو",
-    description:
-      "دجینت‌کو با معرفی پلتفرم هوش مصنوعی خود، گامی بزرگ در راستای نوآوری برداشت",
+    h1: "نمونه خبر درباره نوآوری",
+    title: `نمونه خبر درباره نوآوری | ${siteName}`,
+    description: "این متن نمونه است و خبر فنصاد نیست.",
     ogType: "article",
     image: "/images/unsplash/tech-ai.webp",
   },
   {
-    path: "/startups",
-    h1: "استارت‌آپ‌ها",
-    title: "استارت‌آپ‌ها | دجینت‌کو",
-    description:
-      "آشنایی با استارت‌آپ‌های ساخته‌شده در دجینت‌کو و شبکه سرمایه‌گذاران پردیس.",
+    path: "/projects",
+    h1: "پروژه‌ها",
+    title: `پروژه‌ها | ${siteName}`,
+    description: `پروژه‌های جاری و آتی ${siteName}.`,
   },
   {
     path: "/contact",
     h1: "تماس",
-    title: "تماس | دجینت‌کو",
-    description: "تلفن، ایمیل و نشانی دفتر دجینت‌کو.",
+    title: `تماس | ${siteName}`,
+    description: `نشانی، تلفن و ایمیل ${siteName}.`,
   },
   {
     path: "/legal-information",
     h1: "اطلاعات قانونی",
-    title: "اطلاعات قانونی | دجینت‌کو",
-    description: "اطلاعات قانونی دجینت‌کو.",
+    title: `اطلاعات قانونی | ${siteName}`,
+    description: `اطلاعات قانونی ${siteName}.`,
   },
   {
     path: "/privacy-policy",
     h1: "حریم خصوصی",
-    title: "حریم خصوصی | دجینت‌کو",
-    description: "سیاست حریم خصوصی دجینت‌کو.",
+    title: `حریم خصوصی | ${siteName}`,
+    description: `سیاست حریم خصوصی ${siteName}.`,
   },
   {
     path: "/terms",
     h1: "شرایط استفاده",
-    title: "شرایط استفاده | دجینت‌کو",
-    description: "شرایط استفاده از وب‌سایت دجینت‌کو.",
+    title: `شرایط استفاده | ${siteName}`,
+    description: `شرایط استفاده از وب‌سایت ${siteName}.`,
   },
 ];
 
@@ -126,9 +128,24 @@ export async function expectFooterShape(page: Page) {
     expect(path).not.toMatch(/\/news(\/|$|\?|#)/);
     expect(path).not.toMatch(/\/about(\/|$|\?|#)/);
     expect(path).not.toMatch(/\/startups(\/|$|\?|#)/);
+    expect(path).not.toMatch(/\/projects(\/|$|\?|#)/);
   }
 
+  await expect(page.locator("footer form, footer #newsletter-email")).toHaveCount(0);
   await expect(page.locator("a", { hasText: "عضویت" })).toHaveCount(0);
+  await expect(
+    page.locator('footer img[alt="فناوری‌های نوین صنعت و انرژی دانش‌گستر"]'),
+  ).toBeVisible();
+  await expect(page.locator("footer")).toContainText("۰۲۱-۴۴۸۶۷۱۶۵");
+  await expect(page.locator("footer")).toContainText("fansad.company@gmail.com");
+  await expect(page.locator("footer")).toContainText("تهران، انتهای ستاری");
+  await expect(page.locator("footer")).toContainText("(سهامی خاص)");
+  const telegram = page.locator('footer a[href="https://t.me/fansad_company"]');
+  await expect(telegram).toHaveAttribute("target", "_blank");
+  await expect(telegram).toHaveAttribute("rel", /noopener/);
+  const bale = page.locator('footer a[href="https://ble.ir/fansad_company"]');
+  await expect(bale).toHaveAttribute("target", "_blank");
+  await expect(bale).toHaveAttribute("rel", /noopener/);
 }
 
 type Box = { x: number; y: number; width: number; height: number };

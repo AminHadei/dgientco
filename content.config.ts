@@ -18,5 +18,15 @@ export default defineContentConfig({
         lastUpdated: z.string(),
       }),
     }),
+    projects: defineCollection({
+      type: "data",
+      source: "projects/*.yml",
+      schema: z.object({
+        title: z.string(),
+        group: z.enum(["current", "upcoming"]),
+        badge: z.string(),
+        position: z.number(),
+      }),
+    }),
   },
 });

@@ -86,7 +86,7 @@ if (articleImage) useLcpImage(articleImage);
 
 usePageSeo({
   title: articleTitle,
-  description: asText(article.value?.summary) || "خبر دجینت‌کو",
+  description: asText(article.value?.summary) || "خبر فنصاد",
   image: articleImage,
   imageAlt: articleTitle,
   type: "article",

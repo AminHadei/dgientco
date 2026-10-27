@@ -19,7 +19,7 @@ export function publicPaths(root = process.cwd()): string[] {
   return [
     "/",
     "/about",
-    "/startups",
+    "/projects",
     "/news",
     ...newsPages,
     ...slugs.map((slug) => `/news/${slug}`),

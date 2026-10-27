@@ -2,13 +2,13 @@ import puppeteer from "puppeteer";
 
 const pages = [
   {
-    url: "http://localhost:3000/startups",
-    name: "startups",
+    url: "http://localhost:3000/projects",
+    name: "projects",
     viewport: { width: 1920, height: 1080 },
   },
   {
-    url: "http://localhost:3000/startups",
-    name: "startups-mobile",
+    url: "http://localhost:3000/projects",
+    name: "projects-mobile",
     viewport: { width: 375, height: 812 },
   },
 ];

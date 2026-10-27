@@ -1,6 +1,12 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 import {
+  siteAlternateName,
+  siteLegalName,
+  siteMission,
+  siteName,
+} from "../../app/utils/site";
+import {
   basePath,
   canonicalUrl,
   expectFooterShape,
@@ -47,11 +53,23 @@ for (const entry of mainPages) {
     );
     expect(await meta(page, 'meta[property="og:image"]')).toBe(image);
     expect(await meta(page, 'meta[property="og:locale"]')).toBe("fa_IR");
-    expect(await meta(page, 'meta[property="og:site_name"]')).toBe("دجینت‌کو");
+    expect(await meta(page, 'meta[property="og:site_name"]')).toBe(siteName);
     expect(await meta(page, 'meta[name="twitter:card"]')).toBe("summary_large_image");
     expect(await meta(page, 'meta[name="robots"]')).toBe("index, follow");
 
     if (entry.path === "/") {
+      await expect(page.locator('header img[alt="فنصاد"]')).toBeVisible();
+      await expect(page.locator("main")).toContainText(siteMission);
+      await expect(page.locator("main")).toContainText("پروژه‌های جاری");
+      await expect(page.locator("main")).toContainText(
+        "سرمایه‌گذاری در تولید هالوفایبر",
+      );
+      const ld = await page.locator('script[type="application/ld+json"]').textContent();
+      expect(ld).toContain(siteName);
+      expect(ld).toContain(siteLegalName);
+      expect(ld).toContain(siteAlternateName);
+      expect(ld).toContain("fansad.company@gmail.com");
+      expect(ld).toContain("+982144867165");
       const stylesheet = await page
         .locator('link[rel="stylesheet"]')
         .first()
@@ -81,8 +99,18 @@ for (const entry of mainPages) {
         0,
       );
       await expect(page.locator('main a[href^="tel:"]')).toHaveCount(1);
-      await expect(page.locator('main a[href^="mailto:"]')).toHaveCount(2);
+      await expect(page.locator('main a[href^="mailto:"]')).toHaveCount(1);
       await expect(page.locator("main address")).toHaveCount(1);
+      await expect(page.locator("main")).toContainText("۰۲۱-۴۴۸۶۷۱۶۵");
+      await expect(page.locator("main")).toContainText("۵۰۴۴");
+      await expect(page.locator("main")).toContainText("۵۰۴۵");
+      await expect(page.locator("main")).toContainText("fansad.company@gmail.com");
+      await expect(
+        page.locator('main a[href="https://t.me/fansad_company"]'),
+      ).toHaveAttribute("rel", /noopener/);
+      await expect(
+        page.locator('main a[href="https://ble.ir/fansad_company"]'),
+      ).toHaveAttribute("target", "_blank");
     }
 
     if (entry.path === "/news") {
@@ -156,6 +184,7 @@ test("sitemap.xml and robots.txt are valid", async ({ request }) => {
   for (const loc of locs) {
     expect(loc.startsWith(`${siteUrl}/`)).toBe(true);
     expect(loc.includes("/dgientco/dgientco")).toBe(false);
+    expect(loc.endsWith("/startups")).toBe(false);
   }
 
   const robots = await request.get(pageUrl("/robots.txt"));
@@ -182,7 +211,7 @@ test("unknown routes show the 404 page", async ({ page }) => {
   await expect(page.locator("header")).toBeVisible();
   await expect(page.locator("footer")).toBeVisible();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("صفحه پیدا نشد");
-  await expect(page).toHaveTitle("صفحه پیدا نشد | دجینت‌کو");
+  await expect(page).toHaveTitle(`صفحه پیدا نشد | ${siteName}`);
 
   const robots = await page.locator('meta[name="robots"]').evaluateAll((nodes) => {
     return nodes.map((node) => node.getAttribute("content") ?? "");
@@ -194,6 +223,20 @@ test("unknown routes show the 404 page", async ({ page }) => {
     /^Failed to load resource: the server responded with a status of 404/,
     /^\[NUXT_E1005\]$/,
   ]);
+});
+
+test("navigation lists projects and omits startups", async ({ page }, testInfo) => {
+  await page.goto(pageUrl("/"), { waitUntil: "networkidle" });
+  if (testInfo.project.name === "mobile") {
+    await page.getByRole("button", { name: "باز کردن منو" }).click();
+  }
+  const header = page.locator("header");
+  await expect(header.getByRole("link", { name: "پروژه‌ها" })).toBeVisible();
+  await expect(header.locator('a[href*="/startups"]')).toHaveCount(0);
+  await page.goto(pageUrl("/projects"), { waitUntil: "networkidle" });
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("پروژه‌ها");
+  await expect(page.getByRole("heading", { name: "پروژه‌های آتی" })).toBeVisible();
+  expectNoConsoleErrors(page);
 });
 
 test("home hero text does not overlap", async ({ page }, testInfo) => {

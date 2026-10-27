@@ -18,6 +18,7 @@
 
 <script setup lang="ts">
 import { formatJalaliDate } from "~/utils/jalali";
+import { siteName } from "~/utils/site";
 
 const { data: page } = await useAsyncData("legal-information", () =>
   queryCollection("legal").path("/legal/legal-information").first(),
@@ -32,7 +33,7 @@ if (!page.value) {
 
 usePageSeo({
   title: page.value?.title || "اطلاعات قانونی",
-  description: "اطلاعات قانونی دجینت‌کو.",
+  description: `اطلاعات قانونی ${siteName}.`,
   breadcrumbs: [
     { name: "خانه", path: "/" },
     { name: page.value?.title || "اطلاعات قانونی", path: "/legal-information" },

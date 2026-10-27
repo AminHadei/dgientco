@@ -1,8 +1,10 @@
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 import { describe, expect, it } from "vitest";
 import AppFooter from "~/components/AppFooter.vue";
+import AppHeader from "~/components/AppHeader.vue";
 import NewsCard from "~/components/NewsCard.vue";
 import PageHero from "~/components/PageHero.vue";
+import { siteFullName, siteName } from "~/utils/site";
 
 const article = {
   slug: "new-ai-platform",
@@ -49,21 +51,36 @@ describe("NewsCard", () => {
   });
 });
 
+describe("AppHeader", () => {
+  it("links to projects and names the logo", async () => {
+    const header = await mountSuspended(AppHeader);
+    const links = header.findAll("a").map((link) => link.attributes("href") || "");
+
+    expect(header.text()).toContain("پروژه‌ها");
+    expect(links.some((href) => href.includes("/projects"))).toBe(true);
+    expect(links.some((href) => href.includes("/startups"))).toBe(false);
+    expect(header.get("img").attributes("alt")).toBe(siteName);
+  });
+});
+
 describe("AppFooter", () => {
-  it("does not link to news, about, startups, or membership", async () => {
+  it("shows the full logo and contact details without a newsletter", async () => {
     const footer = await mountSuspended(AppFooter);
     const links = footer.findAll("a").map((link) => link.attributes("href") || "");
 
     expect(links.some((href) => /\/news(\/|$|\?|#)/.test(href))).toBe(false);
     expect(links.some((href) => /\/about(\/|$|\?|#)/.test(href))).toBe(false);
     expect(links.some((href) => /\/startups(\/|$|\?|#)/.test(href))).toBe(false);
-    expect(footer.findAll("a").some((link) => link.text().includes("عضویت"))).toBe(
-      false,
-    );
-
-    const button = footer.get("button");
-    expect(button.text()).toContain("عضویت");
-    expect(button.attributes("type")).toBe("submit");
+    expect(links.some((href) => /\/projects(\/|$|\?|#)/.test(href))).toBe(false);
+    expect(footer.find("form").exists()).toBe(false);
+    expect(footer.find("button").exists()).toBe(false);
+    expect(footer.text()).not.toContain("عضویت");
+    expect(footer.text()).toContain("۰۲۱-۴۴۸۶۷۱۶۵");
+    expect(footer.text()).toContain("fansad.company@gmail.com");
+    expect(footer.get("img").attributes("alt")).toBe(siteFullName);
+    expect(footer.get("img").attributes("src")).toContain("logo-full");
     expect(links).toContain("/contact");
+    expect(links).toContain("https://t.me/fansad_company");
+    expect(links).toContain("https://ble.ir/fansad_company");
   });
 });
