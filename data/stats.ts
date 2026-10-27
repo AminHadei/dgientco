@@ -4,20 +4,8 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  {
-    value: '۵۰۰+',
-    label: 'شرکت همکار',
-  },
-  {
-    value: '۱۰۰۰+',
-    label: 'پروژه موفق',
-  },
-  {
-    value: '۲۰۰+',
-    label: 'متخصص حرفه‌ای',
-  },
-  {
-    value: '۹۸٪',
-    label: 'رضایت مشتریان',
-  },
+  { value: '۱٬۰۰۰+', label: 'استارت‌آپ' },
+  { value: '۳۰+', label: 'برنامه' },
+  { value: '۷۰۰+', label: 'سرمایه‌گذار' },
+  { value: '۹٬۰۰۰', label: 'عضو جامعه' },
 ]

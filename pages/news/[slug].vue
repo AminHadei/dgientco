@@ -22,12 +22,12 @@
             </div>
 
             <!-- Cover Image -->
-            <div v-if="article?.image" class="mb-8 rounded-lg overflow-hidden">
-              <img 
-                :src="article.image" 
+            <div v-if="article?.image" class="mb-8 overflow-hidden rounded-xl">
+              <AppImage
+                :src="article.image"
                 :alt="article.title"
-                class="w-full"
-              >
+                class="h-auto w-full"
+              />
             </div>
 
             <!-- Article Body -->
@@ -89,10 +89,10 @@ const { data: relatedArticles } = await useAsyncData(`related-${slug}`, () =>
     .find()
 )
 
-useHead({
-  title: `${article.value?.title} - اخبار - دجینت‌کو`,
-  meta: [
-    { name: 'description', content: article.value?.excerpt || '' },
-  ],
+usePageSeo({
+  title: article.value?.title || 'خبر',
+  description: article.value?.excerpt || 'خبر دجینت‌کو',
+  image: article.value?.image,
+  type: 'article',
 })
 </script>

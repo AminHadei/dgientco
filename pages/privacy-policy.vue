@@ -28,7 +28,8 @@ if (!page.value) {
   })
 }
 
-useHead({
-  title: `${page.value?.title} - دجینت‌کو`,
+usePageSeo({
+  title: page.value?.title || 'حریم خصوصی',
+  description: 'سیاست حریم خصوصی دجینت‌کو.',
 })
 </script>

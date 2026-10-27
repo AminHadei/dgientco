@@ -1,140 +1,104 @@
 <template>
   <footer class="bg-primary text-primary-foreground">
-    <div class="container-custom py-16">
-      <!-- Top Section -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-        <!-- Company Info -->
-        <div>
-          <div class="font-black text-2xl tracking-tight mb-4">
-            دجینت‌کو
+    <div class="mx-auto max-w-7xl space-y-4 divide-y divide-white/15 p-4 md:p-6">
+      <div class="flex justify-between gap-x-8 pb-12 text-sm max-lg:flex-col max-lg:gap-y-10">
+        <div class="space-y-6">
+          <div class="flex flex-col items-start gap-y-4 max-lg:items-center">
+            <span class="text-xl font-black tracking-tight">دجینت‌کو</span>
+            <span>بزرگترین پردیس استارت‌آپی خاورمیانه</span>
+            <a
+              class="flex items-center gap-x-1 hover:underline"
+              href="https://maps.google.com/?q=Tehran"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21s7-5.4 7-11a7 7 0 10-14 0c0 5.6 7 11 7 11z" />
+                <circle cx="12" cy="10" r="2.5" stroke-width="2" />
+              </svg>
+              تهران، خیابان ولیعصر، پلاک ۱۲۳۴
+            </a>
           </div>
-          <p class="text-primary-foreground/80 text-sm mb-4">
-            پیشرو در حوزه فناوری و نوآوری دیجیتال
-          </p>
-          <address class="text-primary-foreground/70 text-sm not-italic leading-relaxed">
-            تهران، خیابان ولیعصر، پلاک ۱۲۳۴<br>
-            کدپستی: ۱۹۸۳۷-۱۱۱۱۱
-          </address>
+          <div class="flex flex-col gap-y-4 max-lg:items-center">
+            <h2 class="text-lg font-bold">ما را دنبال کنید</h2>
+            <div class="flex items-center gap-x-4">
+              <a href="https://instagram.com" class="hover:opacity-80" aria-label="اینستاگرام" target="_blank" rel="noopener noreferrer">
+                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4zm5 4.5A4.5 4.5 0 1016.5 12 4.5 4.5 0 0012 7.5zm6.2-.9a1.1 1.1 0 11-1.1-1.1 1.1 1.1 0 011.1 1.1zM12 9.2A2.8 2.8 0 1114.8 12 2.8 2.8 0 0112 9.2z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com" class="hover:opacity-80" aria-label="لینکدین" target="_blank" rel="noopener noreferrer">
+                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 107.5 6a2.5 2.5 0 00-2.52-2.5zM3.5 8.5h3V21h-3zM9.5 8.5h2.9v1.7h.1a3.2 3.2 0 012.9-1.6c3.1 0 3.7 2 3.7 4.7V21h-3v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21h-3z"/></svg>
+              </a>
+              <a href="https://x.com" class="hover:opacity-80" aria-label="ایکس" target="_blank" rel="noopener noreferrer">
+                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 10.3L22 2h-2.2l-6.2 7.1L8.4 2H2l7.7 11.1L2 22h2.2l6.8-7.8L15.4 22H22l-7.3-11.7zM12.1 13l-.8-1.1L5.2 3.5h2.7l5 7.1.8 1.1 6.6 9.3h-2.7z"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
 
-        <!-- Links - Ecosystem -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">اکوسیستم</h3>
-          <ul class="space-y-3">
-            <li>
-              <NuxtLink to="/startups" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
-                استارت‌آپ‌ها
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/programs" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
-                برنامه‌ها
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/events" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
-                رویدادها
-              </NuxtLink>
-            </li>
-          </ul>
+        <div class="flex flex-col gap-y-2 max-lg:items-center">
+          <h2 class="text-lg font-bold"><NuxtLink to="/programs" class="hover:underline">برنامه‌ها</NuxtLink></h2>
+          <NuxtLink to="/programs/in-house" class="hover:underline">برنامه‌های داخلی</NuxtLink>
+          <NuxtLink to="/programs/resources" class="hover:underline">منابع</NuxtLink>
+          <h2 class="mt-2 text-lg font-bold"><NuxtLink to="/events" class="hover:underline">رویدادها</NuxtLink></h2>
+          <NuxtLink to="/events/spaces" class="hover:underline">فضاها</NuxtLink>
+          <h2 class="mt-2 text-lg font-bold"><NuxtLink to="/news" class="hover:underline">اخبار</NuxtLink></h2>
+          <h2 class="text-lg font-bold"><NuxtLink to="/about" class="hover:underline">درباره ما</NuxtLink></h2>
         </div>
 
-        <!-- Links - Company -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">شرکت</h3>
-          <ul class="space-y-3">
-            <li>
-              <NuxtLink to="/about" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
-                درباره ما
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/news" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
-                اخبار
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/contact" class="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
-                تماس با ما
-              </NuxtLink>
-            </li>
-          </ul>
+        <div class="flex flex-col gap-y-2 max-lg:items-center">
+          <h2 class="text-lg font-bold"><NuxtLink to="/contact" class="hover:underline">تماس</NuxtLink></h2>
+          <NuxtLink to="/contact/visits" class="hover:underline">بازدید</NuxtLink>
+          <NuxtLink to="/contact/sales" class="hover:underline">فروش</NuxtLink>
+          <NuxtLink to="/contact/press" class="hover:underline">رسانه</NuxtLink>
+          <h2 class="mt-2 text-lg font-bold"><NuxtLink to="/startups" class="hover:underline">استارت‌آپ‌ها</NuxtLink></h2>
         </div>
 
-        <!-- Newsletter -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">خبرنامه</h3>
-          <p class="text-primary-foreground/80 text-sm mb-4">
-            از آخرین اخبار و رویدادها باخبر شوید
-          </p>
-          <form @submit.prevent="handleNewsletterSubmit" class="space-y-3">
+        <div class="flex w-full max-w-xs flex-col gap-y-3 max-lg:mx-auto max-lg:items-center">
+          <h2 class="text-lg font-bold">خبرنامه</h2>
+          <form class="w-full space-y-3" @submit.prevent="handleNewsletterSubmit">
+            <label class="sr-only" for="newsletter-email">ایمیل</label>
             <input
+              id="newsletter-email"
               v-model="newsletterEmail"
               type="email"
-              placeholder="ایمیل شما"
+              name="email"
               required
-              class="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary-foreground/50 text-sm"
+              placeholder="ایمیل"
+              autocomplete="email"
+              class="h-9 w-full rounded-full border border-white/30 bg-transparent px-4 text-sm text-primary-foreground placeholder:text-primary-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-            <label class="flex items-start gap-2 text-xs text-primary-foreground/70">
-              <input v-model="newsletterConsent" type="checkbox" required class="mt-0.5 rounded">
-              <span>موافقت با شرایط و ضوابط خبرنامه</span>
+            <label class="flex items-start gap-2 text-xs text-primary-foreground/80">
+              <input v-model="newsletterConsent" type="checkbox" required class="mt-0.5">
+              <span>با دریافت خبرنامه موافقم</span>
             </label>
-            <button type="submit" class="w-full btn-secondary">
-              عضویت
-            </button>
+            <button type="submit" class="btn bg-white text-primary hover:bg-white/90">عضویت</button>
+            <p v-if="newsletterMessage" role="status" class="text-xs">{{ newsletterMessage }}</p>
           </form>
         </div>
       </div>
 
-      <!-- Social Links -->
-      <div class="flex justify-center gap-4 mb-12 pt-8 border-t border-white/10">
-        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="اینستاگرام">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-        </a>
-        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="لینکدین">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
-        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="توییتر">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-          </svg>
-        </a>
-      </div>
-
-      <!-- Bottom Bar -->
-      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/70">
-        <p>© ۱۴۰۳ دجینت‌کو. تمامی حقوق محفوظ است.</p>
-        <div class="flex gap-6">
-          <NuxtLink to="/legal-information" class="hover:text-primary-foreground transition-colors">
-            اطلاعات قانونی
-          </NuxtLink>
-          <NuxtLink to="/privacy-policy" class="hover:text-primary-foreground transition-colors">
-            حریم خصوصی
-          </NuxtLink>
-          <NuxtLink to="/terms" class="hover:text-primary-foreground transition-colors">
-            شرایط استفاده
-          </NuxtLink>
+      <div class="flex items-center justify-between pt-4 text-xs uppercase max-lg:flex-col max-lg:gap-y-2">
+        <div class="flex items-center gap-x-4 max-lg:flex-col max-lg:gap-y-2">
+          <NuxtLink to="/legal-information" class="hover:underline">اطلاعات قانونی</NuxtLink>
+          <NuxtLink to="/privacy-policy" class="hover:underline">حریم خصوصی</NuxtLink>
+          <NuxtLink to="/terms" class="hover:underline">شرایط استفاده</NuxtLink>
         </div>
+        <p>© {{ toPersianDigits(1403) }} دجینت‌کو</p>
       </div>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
+import { toPersianDigits } from '~/utils/jalali'
+
 const newsletterEmail = ref('')
 const newsletterConsent = ref(false)
-const toast = ref<{ show: boolean; message: string }>({ show: false, message: '' })
+const newsletterMessage = ref('')
 
 const handleNewsletterSubmit = () => {
-  // Mock newsletter submission
   newsletterEmail.value = ''
   newsletterConsent.value = false
-  
-  // Show success message
-  alert('با موفقیت در خبرنامه عضو شدید!')
+  newsletterMessage.value = 'عضویت شما ثبت شد.'
 }
 </script>

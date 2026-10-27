@@ -81,10 +81,8 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'رسانه و مطبوعات - تماس با ما - دجینت‌کو',
-  meta: [
-    { name: 'description', content: 'ارتباط با بخش رسانه‌ای دجینت‌کو' },
-  ],
+usePageSeo({
+  title: 'رسانه و مطبوعات',
+  description: 'ارتباط با بخش رسانه‌ای دجینت‌کو.',
 })
 </script>

@@ -1,8 +1,4 @@
-@import '@fontsource/vazirmatn/400.css';
-@import '@fontsource/vazirmatn/500.css';
-@import '@fontsource/vazirmatn/600.css';
-@import '@fontsource/vazirmatn/700.css';
-@import '@fontsource/vazirmatn/900.css';
+@import './fonts.css';
 
 @tailwind base;
 @tailwind components;
@@ -13,53 +9,85 @@
     font-family: 'Vazirmatn', sans-serif;
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply text-foreground bg-white antialiased;
+    @apply bg-white text-foreground antialiased;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-black;
+  }
+
+  :focus-visible {
+    outline: 2px solid #024a70;
+    outline-offset: 3px;
   }
 }
 
 @layer components {
+  .btn {
+    @apply inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-full px-4 text-sm font-bold uppercase tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#024a70] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-bold text-primary-foreground transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 uppercase tracking-wider;
+    @apply inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-primary px-4 text-sm font-bold uppercase tracking-wide text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#024a70] focus-visible:ring-offset-2;
   }
-  
+
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-border bg-white px-8 py-3 text-sm font-bold text-primary transition-all hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 uppercase tracking-wider;
+    @apply inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-border bg-white px-4 text-sm font-bold uppercase tracking-wide text-foreground shadow-sm transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#024a70] focus-visible:ring-offset-2;
   }
-  
+
+  .btn-light {
+    @apply inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-white px-6 text-sm font-bold uppercase tracking-wide text-primary transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent;
+  }
+
   .container-custom {
-    @apply mx-auto w-full max-w-container px-6 md:px-12 lg:px-16;
+    @apply mx-auto w-full max-w-7xl px-4 md:px-6;
   }
-  
+
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-8;
   }
-  
+
+  .page-title {
+    @apply text-pretty text-4xl font-black uppercase md:text-5xl;
+  }
+
+  .section-title {
+    @apply text-pretty text-xl font-bold;
+  }
+
+  .link-more {
+    @apply text-sm font-bold uppercase underline-offset-4 hover:underline;
+  }
+
   .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl;
+    @apply transition-shadow duration-300 hover:shadow-md;
   }
-  
+
   .badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider;
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider;
   }
-  
+
   .badge-primary {
     @apply badge bg-accent-blue text-white;
   }
-  
+
   .badge-secondary {
     @apply badge bg-muted text-muted-foreground;
   }
-  
+
   .text-display {
     @apply font-black tracking-tight;
   }
-  
+
+  .hero-gradient {
+    background-image: linear-gradient(to left, #7bf1a8, #ffd7a8, #f5f5f4, #fb64b6, #a685ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   .gradient-radial {
     background: radial-gradient(circle at center, rgba(2, 74, 112, 0.1) 0%, transparent 70%);
   }

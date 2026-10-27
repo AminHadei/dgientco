@@ -1,101 +1,50 @@
 <template>
   <div>
-    <!-- Hero -->
-    <section class="section-padding bg-white">
-      <div class="container-custom">
-        <div class="max-w-4xl">
-          <div class="inline-block mb-6">
-            <span class="badge badge-primary">درباره ما</span>
-          </div>
-          <h1 class="text-display text-display-xl mb-8">
-            درباره
-          </h1>
-          <p class="text-2xl md:text-3xl leading-relaxed text-muted-foreground font-medium">
-            مدت‌ها قبل از اینکه خانه استارت‌آپ‌ها باشد، دجینت‌کو از قبل محلی برای نوآوری بود.
-          </p>
-        </div>
+    <section>
+      <div class="mx-auto max-w-7xl space-y-4 px-4 py-6 md:px-6">
+        <h1 class="page-title">درباره</h1>
+        <p class="text-muted-foreground">مدت‌ها قبل از اینکه خانه استارت‌آپ‌ها باشد، دجینت‌کو محلی برای نوآوری بود.</p>
       </div>
     </section>
 
-    <!-- Timeline Section -->
-    <section class="section-padding bg-muted">
-      <div class="container-custom">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-          <article
-            v-for="item in timeline"
-            :key="item.year"
-            class="space-y-6"
-          >
-            <div class="aspect-[4/3] overflow-hidden rounded-lg">
-              <img 
-                :src="item.image" 
-                :alt="item.title"
-                class="w-full h-full object-cover"
-              >
-            </div>
-            <div>
-              <div class="text-5xl md:text-6xl font-black text-accent-blue mb-4">
-                {{ item.year }}
+    <section>
+      <div class="mx-auto max-w-7xl space-y-4 px-4 py-8 md:px-6 md:py-12">
+        <h2 class="section-title">دجینت‌کو؛ نوآوری از سال ۱۳۹۵</h2>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+          <template v-for="(item, index) in timeline" :key="item.year">
+            <article class="space-y-4 rounded-xl bg-secondary p-8 md:p-12">
+              <div class="space-y-2">
+                <h3 class="text-pretty text-3xl font-bold">{{ item.title }}</h3>
+                <p class="text-muted-foreground">{{ item.year }}</p>
               </div>
-              <h3 class="text-2xl font-black mb-4">{{ item.title }}</h3>
-              <p class="text-muted-foreground leading-relaxed">{{ item.description }}</p>
+              <p>{{ item.description }}</p>
+            </article>
+            <div class="relative min-h-80 overflow-hidden rounded-xl" :class="index === 0 ? 'lg:order-4' : ''">
+              <AppImage :src="item.image" :alt="item.title" class="absolute inset-0 h-full w-full object-cover" />
             </div>
-          </article>
+          </template>
         </div>
       </div>
     </section>
 
-    <!-- Ecosystem Section -->
-    <section class="section-padding bg-white">
-      <div class="container-custom">
-        <div class="max-w-4xl">
-          <h2 class="text-display text-display-md mb-8">
-            تحول اکوسیستم فناوری ایران
-          </h2>
-          <div class="prose prose-lg prose-stone max-w-none">
-            <p class="text-xl leading-relaxed text-muted-foreground mb-6">
-              از زمان افتتاح، دجینت‌کو نقش کلیدی در تغییر شکل اکوسیستم فناوری ایران داشته است. قبل از آن، چشم‌انداز استارت‌آپی در ایران پراکنده، منزوی و تا حد زیادی ناشناخته بود.
-            </p>
-            <p class="text-xl leading-relaxed text-muted-foreground">
-              با گرد هم آوردن برترین استارت‌آپ‌ها و شرکای نوآوری پیشرو، دجینت‌کو به سرعت به یک مرکز اصلی برای فناوری در منطقه تبدیل شد. امروز، دجینت‌کو میزبان بزرگترین جامعه استارت‌آپی هوش مصنوعی در خاورمیانه است.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Principles Section -->
-    <section class="section-padding bg-accent-orange">
-      <div class="container-custom">
-        <div class="max-w-4xl">
-          <h2 class="text-display text-display-md mb-8">
-            اصول بنیادی
-          </h2>
-          <div class="prose prose-lg prose-stone max-w-none space-y-6">
-            <p class="text-xl leading-relaxed">
-              ایده‌های عالی هرگز کافی نیستند. آنچه تفاوت ایجاد می‌کند، اجرا، سرعت و محیط مناسب است. در دجینت‌کو، ما به کارآفرینان آنچه را که برای رفتن به جلو و سریع‌تر نیاز دارند، می‌دهیم.
-            </p>
-            <p class="text-xl leading-relaxed">
-              ما شرط‌های جسورانه را زود حمایت می‌کنیم، موانع را پاک می‌کنیم و به بنیان‌گذاران کمک می‌کنیم تا روی آنچه واقعاً اهمیت دارد تمرکز کنند.
-            </p>
-            <p class="text-xl leading-relaxed">
-              این فقط یک پردیس نیست. این یک سکوی پرتاب، یک منطقه آزمایش و خانه‌ای برای کسانی است که آینده را می‌سازند.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="section-padding bg-primary text-primary-foreground">
-      <div class="container-custom text-center">
-        <h2 class="text-display text-display-lg mb-8">آماده ساختن آینده هستید؟</h2>
-        <p class="text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-          با تیم ما تماس بگیرید و بخشی از اکوسیستم نوآوری دجینت‌کو شوید
+    <section class="bg-white">
+      <div class="mx-auto max-w-7xl space-y-4 px-4 py-8 md:px-6">
+        <h2 class="section-title">تحول اکوسیستم فناوری</h2>
+        <p class="max-w-3xl text-muted-foreground">
+          از زمان افتتاح، دجینت‌کو نقش کلیدی در شکل دادن به اکوسیستم فناوری منطقه داشته است. با گرد هم آوردن استارت‌آپ‌ها و شرکای نوآوری، این پردیس به خانه‌ای برای سازندگان آینده تبدیل شد.
         </p>
-        <NuxtLink to="/contact" class="btn-primary bg-white text-primary hover:bg-white/90">
-          شروع کنید
-        </NuxtLink>
+      </div>
+    </section>
+
+    <section class="bg-accent-orange">
+      <div class="mx-auto max-w-7xl space-y-4 px-4 py-12 md:px-6 md:py-16">
+        <h2 class="section-title">اصول بنیادی</h2>
+        <div class="max-w-3xl space-y-4 text-lg leading-relaxed">
+          <p>ایده‌های عالی به‌تنهایی کافی نیستند. اجرا، سرعت و محیط مناسب تفاوت را می‌سازند.</p>
+          <p>در دجینت‌کو شرط‌های جسورانه را زود حمایت می‌کنیم، موانع را کنار می‌زنیم و به بنیان‌گذاران کمک می‌کنیم روی آنچه مهم است تمرکز کنند.</p>
+          <p>این فقط یک پردیس نیست؛ سکوی پرتاب کسانی است که آینده را می‌سازند.</p>
+        </div>
+        <NuxtLink to="/contact" class="btn-primary mt-4">شروع کنید</NuxtLink>
       </div>
     </section>
   </div>
@@ -104,10 +53,8 @@
 <script setup lang="ts">
 import { timeline } from '~/data/timeline'
 
-useHead({
-  title: 'درباره ما - دجینت‌کو',
-  meta: [
-    { name: 'description', content: 'داستان، مسیر رشد و ارزش‌های دجینت‌کو' },
-  ],
+usePageSeo({
+  title: 'درباره',
+  description: 'داستان دجینت‌کو، از یک بنای تاریخی تا بزرگترین پردیس استارت‌آپی خاورمیانه.',
 })
 </script>

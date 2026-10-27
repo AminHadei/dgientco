@@ -2,7 +2,7 @@
 title: دریافت جایزه نوآوری ملی
 excerpt: دجینت‌کو برنده جایزه نوآوری در جشنواره ملی فناوری شد
 date: 2024-10-10
-image: /images/unsplash/award-celebration.jpg
+image: /images/unsplash/award-celebration.webp
 ---
 
 دجینت‌کو در جشنواره ملی فناوری و نوآوری، برنده جایزه بزرگ نوآوری شد و مورد تقدیر مقامات و کارشناسان قرار گرفت.

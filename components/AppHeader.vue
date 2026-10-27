@@ -1,87 +1,94 @@
 <template>
-  <header class="fixed top-0 inset-x-0 z-50 bg-primary text-primary-foreground">
-    <nav class="container-custom h-24 flex items-center justify-between">
-      <!-- Logo -->
-      <NuxtLink to="/" class="font-black text-2xl tracking-tight">
+  <header class="fixed inset-x-0 top-0 z-50 h-24 w-full bg-primary text-primary-foreground">
+    <div class="mx-auto flex h-full max-w-7xl items-center justify-between p-4 text-sm md:p-6">
+      <NuxtLink to="/" class="text-2xl font-black tracking-tight lg:text-3xl" aria-label="دجینت‌کو">
         دجینت‌کو
       </NuxtLink>
 
-      <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center gap-8">
+      <nav class="hidden h-full items-center justify-center gap-x-8 uppercase lg:flex xl:gap-x-12" aria-label="اصلی">
         <NuxtLink
-          v-for="(link, index) in navLinks"
+          v-for="link in navLinks"
           :key="link.path"
           :to="link.path"
-          :class="index === navLinks.length - 1 
-            ? 'inline-flex items-center px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-primary hover:bg-white/90 transition-colors' 
-            : 'text-sm font-medium uppercase tracking-wider hover:text-primary-foreground/80 transition-colors'"
+          class="font-bold tracking-wider underline-offset-8 decoration-2 hover:underline"
+          active-class="underline"
         >
           {{ link.label }}
         </NuxtLink>
+        <NuxtLink to="/contact" class="btn bg-white text-primary hover:bg-white/90">
+          تماس
+        </NuxtLink>
+      </nav>
+
+      <div class="relative lg:hidden">
+        <button
+          type="button"
+          class="relative z-50 p-2"
+          :aria-expanded="mobileMenuOpen"
+          aria-controls="mobile-nav"
+          :aria-label="mobileMenuOpen ? 'بستن منو' : 'باز کردن منو'"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+        >
+          <svg v-if="!mobileMenuOpen" class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg v-else class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
+    </div>
 
-      <!-- Mobile Menu Button -->
-      <button
-        @click="mobileMenuOpen = !mobileMenuOpen"
-        class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
-        :aria-label="mobileMenuOpen ? 'بستن منو' : 'باز کردن منو'"
-      >
-        <svg v-if="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </nav>
-
-    <!-- Mobile Menu -->
     <Transition
-      enter-active-class="transition-transform duration-300"
+      enter-active-class="transition-transform duration-200"
       enter-from-class="translate-y-full"
       enter-to-class="translate-y-0"
-      leave-active-class="transition-transform duration-300"
+      leave-active-class="transition-transform duration-200"
       leave-from-class="translate-y-0"
       leave-to-class="translate-y-full"
     >
       <div
         v-if="mobileMenuOpen"
-        class="lg:hidden fixed inset-0 top-24 bg-primary z-40 overflow-y-auto"
+        id="mobile-nav"
+        class="fixed inset-0 z-40 mt-24 flex flex-col items-center overflow-y-auto bg-primary text-primary-foreground lg:hidden"
       >
-        <div class="container-custom py-8 flex flex-col gap-6">
+        <nav class="flex w-full flex-col items-center text-lg" aria-label="موبایل">
           <NuxtLink
-            v-for="link in navLinks"
+            v-for="link in mobileLinks"
             :key="link.path"
             :to="link.path"
+            class="w-full py-8 text-center font-semibold uppercase tracking-wider"
+            :class="route.path === link.path ? 'bg-white text-primary' : ''"
             @click="mobileMenuOpen = false"
-            class="text-2xl font-medium hover:text-primary-foreground/80 transition-colors py-3"
           >
             {{ link.label }}
           </NuxtLink>
-        </div>
+        </nav>
       </div>
     </Transition>
   </header>
-  
-  <!-- Spacer for fixed header -->
+
   <div class="h-24"></div>
 </template>
 
 <script setup lang="ts">
 const mobileMenuOpen = ref(false)
+const route = useRoute()
 
 const navLinks = [
-  { path: '/', label: 'صفحه اصلی' },
   { path: '/startups', label: 'استارت‌آپ‌ها' },
   { path: '/programs', label: 'برنامه‌ها' },
   { path: '/events', label: 'رویدادها' },
-  { path: '/about', label: 'درباره ما' },
   { path: '/news', label: 'اخبار' },
-  { path: '/contact', label: 'تماس با ما' },
+  { path: '/about', label: 'درباره ما' },
 ]
 
-// Close mobile menu on route change
-const route = useRoute()
+const mobileLinks = [
+  { path: '/', label: 'صفحه اصلی' },
+  ...navLinks,
+  { path: '/contact', label: 'تماس' },
+]
+
 watch(() => route.path, () => {
   mobileMenuOpen.value = false
 })

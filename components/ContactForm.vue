@@ -7,7 +7,7 @@
         v-model="form.fullName"
         type="text"
         required
-        class="w-full px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+        class="h-10 w-full rounded-full border border-border px-4 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       >
     </div>
 
@@ -18,7 +18,7 @@
         v-model="form.email"
         type="email"
         required
-        class="w-full px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+        class="h-10 w-full rounded-full border border-border px-4 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       >
     </div>
 
@@ -28,7 +28,7 @@
         id="company"
         v-model="form.company"
         type="text"
-        class="w-full px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+        class="h-10 w-full rounded-full border border-border px-4 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       >
     </div>
 
@@ -39,13 +39,14 @@
         v-model="form.message"
         required
         rows="6"
-        class="w-full px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+        class="w-full resize-none rounded-2xl border border-border px-4 py-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       ></textarea>
     </div>
 
     <button type="submit" class="btn-primary w-full">
       ارسال پیام
     </button>
+    <p v-if="submitted" role="status" class="text-sm font-medium">پیام شما ثبت شد. به‌زودی پاسخ می‌دهیم.</p>
   </form>
 </template>
 
@@ -57,11 +58,10 @@ const form = ref({
   message: '',
 })
 
+const submitted = ref(false)
+
 const handleSubmit = () => {
-  // Mock form submission
-  alert(`فرم با موفقیت ارسال شد!\n\nنام: ${form.value.fullName}\nایمیل: ${form.value.email}`)
-  
-  // Reset form
+  submitted.value = true
   form.value = {
     fullName: '',
     email: '',

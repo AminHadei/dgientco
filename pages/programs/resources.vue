@@ -1,86 +1,50 @@
 <template>
   <div>
-    <!-- Hero with Tabs -->
-    <section class="section-padding bg-white border-b border-border">
-      <div class="container-custom">
-        <div class="max-w-4xl mb-12">
-          <div class="inline-block mb-6">
-            <span class="badge badge-primary">برنامه‌ها</span>
-          </div>
-          <h1 class="text-display text-display-xl mb-8">
-            منابع و خدمات
-          </h1>
-          <p class="text-2xl md:text-3xl leading-relaxed text-muted-foreground font-medium">
-            دسترسی به مجموعه کامل منابع، خدمات و ابزارهای مورد نیاز برای رشد استارت‌آپ شما
-          </p>
-        </div>
-
-        <!-- Tab Navigation -->
-        <div class="flex gap-4 flex-wrap">
-          <NuxtLink to="/programs" class="px-6 py-3 rounded-lg font-bold transition-all bg-muted text-foreground hover:bg-primary hover:text-primary-foreground">
-            همه برنامه‌ها
-          </NuxtLink>
-          <NuxtLink to="/programs/in-house" class="px-6 py-3 rounded-lg font-bold transition-all bg-muted text-foreground hover:bg-primary hover:text-primary-foreground">
-            برنامه‌های داخلی
-          </NuxtLink>
-          <NuxtLink to="/programs/resources" class="px-6 py-3 rounded-lg font-bold transition-all bg-primary text-primary-foreground">
-            منابع و خدمات
-          </NuxtLink>
-        </div>
+    <section>
+      <div class="mx-auto max-w-7xl space-y-4 px-4 py-6 md:px-6">
+        <h1 class="page-title">برنامه‌ها</h1>
+        <p class="max-w-3xl text-muted-foreground">هزاران بنیان‌گذار اینجا ساخته‌اند و نوبت شماست. برنامه‌ای را پیدا کنید که با مرحله رشد شما جور باشد.</p>
       </div>
     </section>
 
-    <!-- Resource Groups -->
-    <section class="section-padding bg-muted">
-      <div class="container-custom space-y-20">
-        <div v-for="group in resourceGroups" :key="group.title">
-          <!-- Group Title -->
-          <div class="mb-12">
-            <h2 class="text-display text-display-md">
-              {{ group.title }}
-            </h2>
-          </div>
+    <section>
+      <div class="mx-auto max-w-7xl px-4 pb-0 md:px-6">
+        <nav class="flex w-full justify-center gap-x-4 border-b pb-4 text-sm font-semibold uppercase" aria-label="بخش‌های برنامه">
+          <NuxtLink to="/programs" class="underline-offset-8 hover:underline">همه برنامه‌ها</NuxtLink>
+          <NuxtLink to="/programs/in-house" class="underline-offset-8 hover:underline">برنامه‌های داخلی</NuxtLink>
+          <NuxtLink to="/programs/resources" class="underline decoration-2 underline-offset-8">منابع</NuxtLink>
+        </nav>
+      </div>
+    </section>
 
-          <!-- Resources Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <article
-              v-for="resource in group.resources"
-              :key="resource.id"
-              class="bg-white rounded-lg overflow-hidden border-2 border-border card-hover group"
-            >
-              <!-- Image -->
-              <div class="aspect-video overflow-hidden bg-muted">
-                <img 
-                  :src="resource.image" 
-                  :alt="resource.title"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                >
+    <div>
+      <section v-for="(group, groupIndex) in resourceGroups" :key="group.title" class="py-8" :class="groupTones[groupIndex % groupTones.length]">
+        <div class="mx-auto max-w-7xl space-y-6 px-4 md:px-6">
+          <h2 class="section-title">{{ group.title }}</h2>
+          <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            <article v-for="resource in group.resources" :key="resource.id" class="flex gap-x-4 rounded-xl bg-white/70 p-4">
+              <div class="relative size-32 shrink-0 overflow-hidden rounded-xl">
+                <AppImage :src="resource.image" :alt="resource.title" class="aspect-square h-full w-full object-cover" />
               </div>
-
-              <!-- Content -->
-              <div class="p-6">
-                <h3 class="text-lg font-black mb-3 group-hover:text-accent-blue transition-colors">
-                  {{ resource.title }}
-                </h3>
-                <p class="text-sm text-muted-foreground">
-                  {{ resource.description }}
-                </p>
+              <div class="space-y-3">
+                <h3 class="text-pretty text-lg font-bold">{{ resource.title }}</h3>
+                <p class="text-sm">{{ resource.description }}</p>
               </div>
             </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { resourceGroups } from '~/data/programs'
 
-useHead({
-  title: 'منابع و خدمات - دجینت‌کو',
-  meta: [
-    { name: 'description', content: 'دسترسی به منابع و خدمات مورد نیاز برای رشد استارت‌آپ' },
-  ],
+const groupTones = ['bg-purple-100', 'bg-orange-100', 'bg-pink-100', 'bg-green-100']
+
+usePageSeo({
+  title: 'منابع برنامه‌ها',
+  description: 'خدمات و منابعی که کارآفرینان دجینت‌کو برای ساختن کسب‌وکار خود لازم دارند.',
 })
 </script>

@@ -2,7 +2,7 @@
 title: گسترش خدمات ابری در منطقه
 excerpt: افتتاح دیتاسنتر جدید برای ارائه خدمات سریع‌تر و مطمئن‌تر
 date: 2024-10-05
-image: /images/unsplash/datacenter.jpg
+image: /images/unsplash/datacenter.webp
 ---
 
 دجینت‌کو با افتتاح دیتاسنتر جدید خود در منطقه، خدمات ابری خود را به سطح جدیدی ارتقا داد.
