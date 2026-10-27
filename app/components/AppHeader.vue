@@ -7,14 +7,14 @@
     >
       <NuxtLink
         to="/"
-        class="text-2xl font-black tracking-tight lg:text-3xl"
+        class="text-2xl font-black tracking-tight lg:text-[2rem] lg:leading-none"
         aria-label="دجینت‌کو"
       >
         دجینت‌کو
       </NuxtLink>
 
       <nav
-        class="hidden h-full items-center justify-center gap-x-8 uppercase lg:flex xl:gap-x-12"
+        class="hidden h-full items-center justify-center gap-x-12 uppercase lg:flex"
         aria-label="اصلی"
       >
         <NuxtLink
@@ -26,7 +26,10 @@
         >
           {{ link.label }}
         </NuxtLink>
-        <NuxtLink to="/contact" class="btn bg-white text-primary hover:bg-white/90">
+        <NuxtLink
+          to="/contact"
+          class="btn bg-secondary text-primary hover:bg-secondary/80"
+        >
           تماس
         </NuxtLink>
       </nav>
@@ -93,7 +96,7 @@
             :key="link.path"
             :to="link.path"
             class="w-full py-8 text-center font-semibold uppercase tracking-wider"
-            :class="route.path === link.path ? 'bg-white text-primary' : ''"
+            :class="route.path === link.path ? 'bg-secondary text-primary' : ''"
             @click="mobileMenuOpen = false"
           >
             {{ link.label }}

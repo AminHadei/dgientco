@@ -22,26 +22,28 @@
           <article
             v-for="startup in startups"
             :key="startup.id"
-            class="flex flex-wrap items-center gap-4 rounded-xl border p-4 text-sm"
+            class="flex w-full flex-wrap items-center gap-2.5 rounded-xl border border-border px-3 py-2.5 text-sm transition-colors hover:bg-muted"
           >
             <div
-              class="flex h-16 w-28 shrink-0 items-center justify-center overflow-hidden rounded-sm bg-muted text-2xl font-black"
+              class="flex h-16 w-28 shrink-0 items-center justify-center self-center overflow-hidden rounded-sm bg-muted text-xl font-black lg:w-24 xl:w-20"
             >
               {{ startup.name.charAt(0) }}
             </div>
-            <div class="min-w-0 flex-1 space-y-1">
-              <h3 class="text-base font-bold">{{ startup.name }}</h3>
-              <p class="text-xs uppercase tracking-wide text-muted-foreground">
-                {{ startup.backedBy }}
+            <div class="flex h-full min-w-0 flex-1 flex-col gap-y-3">
+              <div class="flex flex-col gap-y-1">
+                <h3 class="line-clamp-1 text-xl font-semibold">{{ startup.name }}</h3>
+                <p class="text-xs text-muted-foreground">{{ startup.backedBy }}</p>
+              </div>
+              <p class="line-clamp-3 shrink-0 text-sm leading-normal">
+                {{ startup.description }}
               </p>
-              <p class="text-muted-foreground">{{ startup.description }}</p>
+              <p
+                v-if="startup.metric || startup.tag"
+                class="text-xs font-semibold text-muted-foreground"
+              >
+                {{ startup.metric || startup.tag }}
+              </p>
             </div>
-            <span
-              v-if="startup.metric || startup.tag"
-              class="rounded-full bg-muted px-3 py-1 text-xs font-bold"
-            >
-              {{ startup.metric || startup.tag }}
-            </span>
           </article>
         </div>
       </div>

@@ -1,13 +1,15 @@
 <template>
-  <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
-    <div v-for="logo in logos" :key="logo.id" class="flex items-center justify-center">
-      <div
-        class="flex aspect-video w-full items-center justify-center rounded-lg border border-border bg-muted p-4 text-muted-foreground transition-colors hover:border-foreground/20"
-      >
-        <div class="text-center">
-          <div class="text-xs font-medium">{{ logo.name }}</div>
-        </div>
-      </div>
+  <div
+    class="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-3 lg:grid-cols-6"
+  >
+    <div
+      v-for="logo in logos"
+      :key="logo.id"
+      class="flex h-16 max-w-40 items-center justify-center p-2"
+    >
+      <span class="text-center text-xs font-bold text-foreground/80">{{
+        logo.name
+      }}</span>
     </div>
   </div>
 </template>
@@ -15,9 +17,7 @@
 <script setup lang="ts">
 import type { Logo } from "~/data/logos";
 
-interface Props {
+defineProps<{
   logos: Logo[];
-}
-
-defineProps<Props>();
+}>();
 </script>

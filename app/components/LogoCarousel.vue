@@ -39,7 +39,7 @@
     <div class="flex gap-2">
       <button
         type="button"
-        class="flex size-8 items-center justify-center rounded-full border bg-white shadow-sm hover:bg-muted disabled:opacity-40"
+        class="flex size-8 items-center justify-center rounded-lg border bg-white hover:bg-muted disabled:opacity-40"
         :disabled="!canScrollPrev"
         aria-label="اسلاید قبلی"
         @click="scrollPrev"
@@ -61,7 +61,7 @@
       </button>
       <button
         type="button"
-        class="flex size-8 items-center justify-center rounded-full border bg-white shadow-sm hover:bg-muted disabled:opacity-40"
+        class="flex size-8 items-center justify-center rounded-lg border bg-white hover:bg-muted disabled:opacity-40"
         :disabled="!canScrollNext"
         aria-label="اسلاید بعدی"
         @click="scrollNext"

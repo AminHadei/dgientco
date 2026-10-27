@@ -3,50 +3,44 @@
     <!-- Hero with Title -->
     <PageHero :title="article?.title || ''" />
 
-    <!-- Article Content -->
-    <section class="bg-white py-12 md:py-20">
-      <div class="container-custom">
-        <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
-          <!-- Main Content -->
-          <article class="lg:col-span-2">
-            <!-- Meta Info -->
-            <div class="mb-8 border-b border-border pb-8">
-              <div class="mb-2 text-muted-foreground">
-                منتشر شده در {{ article?.date ? formatJalaliDate(article.date) : "" }}
-              </div>
-              <p v-if="article?.excerpt" class="text-xl leading-relaxed">
-                {{ article.excerpt }}
-              </p>
-            </div>
-
-            <!-- Cover Image -->
-            <div v-if="article?.image" class="mb-8 overflow-hidden rounded-xl">
-              <AppImage
-                :src="article.image || ''"
-                :alt="article.title || ''"
-                class="h-auto w-full"
-              />
-            </div>
-
-            <!-- Article Body -->
-            <div
-              class="prose prose-lg prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:leading-relaxed prose-p:mb-4 prose-ul:mb-4 prose-li:mb-2 max-w-none"
-            >
-              <ContentRenderer v-if="article" :value="article" />
-            </div>
-          </article>
-
-          <!-- Sidebar -->
-          <ArticleSidebar :current-slug="slug" />
-        </div>
+    <section class="bg-white">
+      <div class="mx-auto max-w-7xl space-y-4 px-4 pb-2 md:px-6">
+        <p v-if="article?.excerpt" class="text-pretty text-xl">{{ article.excerpt }}</p>
+        <p class="text-muted-foreground">
+          منتشر شده در {{ article?.date ? formatJalaliDate(article.date) : "" }}
+        </p>
       </div>
     </section>
 
-    <!-- Related Articles -->
-    <section class="bg-muted py-12 md:py-20">
-      <div class="container-custom">
-        <h2 class="mb-8 text-2xl font-bold md:text-3xl">اخبار مرتبط</h2>
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+    <section class="bg-white py-8">
+      <div class="mx-auto flex max-w-7xl gap-6 px-4 max-lg:flex-col md:px-6">
+        <article class="min-w-0 flex-1 space-y-6">
+          <div
+            v-if="article?.image"
+            class="relative aspect-video overflow-hidden rounded-xl bg-muted"
+          >
+            <AppImage
+              :src="article.image || ''"
+              :alt="article.title || ''"
+              class="absolute inset-0 size-full object-cover"
+            />
+          </div>
+
+          <div
+            class="prose prose-lg prose-headings:font-bold prose-h2:mb-4 prose-h2:mt-8 prose-h2:text-2xl prose-h3:mb-3 prose-h3:mt-6 prose-h3:text-xl prose-li:mb-2 prose-p:mb-4 prose-p:leading-relaxed prose-ul:mb-4 max-w-none"
+          >
+            <ContentRenderer v-if="article" :value="article" />
+          </div>
+        </article>
+
+        <ArticleSidebar :current-slug="slug" class="w-full shrink-0 lg:w-80" />
+      </div>
+    </section>
+
+    <section class="bg-secondary py-8">
+      <div class="mx-auto max-w-7xl space-y-6 px-4 md:px-6">
+        <h2 class="section-title">اخبار مرتبط</h2>
+        <div class="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3">
           <NewsCard
             v-for="related in relatedArticles"
             :key="related.path"
