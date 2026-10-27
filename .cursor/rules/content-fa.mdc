@@ -1,0 +1,7 @@
+---
+description: Persian copy, Jalali dates, and content files
+globs: content/**/*.{md,yml,yaml},app/data/**/*.ts,content.config.ts
+alwaysApply: false
+---
+
+Follow @.agents/skills/content-fa/SKILL.md.

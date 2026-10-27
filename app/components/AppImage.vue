@@ -1,0 +1,25 @@
+<template>
+  <img
+    :src="resolvedSrc"
+    :alt="alt"
+    :width="width"
+    :height="height"
+    :loading="eager ? 'eager' : 'lazy'"
+    :fetchpriority="eager ? 'high' : 'auto'"
+    decoding="async"
+  />
+</template>
+
+<script setup lang="ts">
+import { sizeOf } from "~/utils/images";
+import { withBase } from "~/utils/withBase";
+
+const props = defineProps<{
+  src: string;
+  alt: string;
+  eager?: boolean;
+}>();
+
+const resolvedSrc = computed(() => withBase(useRuntimeConfig().app.baseURL, props.src));
+const [width, height] = sizeOf(props.src);
+</script>

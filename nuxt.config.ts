@@ -1,72 +1,125 @@
+import { withBase } from "./app/utils/withBase";
+
+const baseURL = process.env.NUXT_APP_BASE_URL || "/";
+
+// Root-absolute font urls are not prefixed by Vite. Apply app.baseURL once here.
+function prefixPublicFontUrls() {
+  return {
+    name: "prefix-public-font-urls",
+    enforce: "pre" as const,
+    transform(code: string, id: string) {
+      if (!id.includes(".css") || !code.includes("/fonts/")) return;
+      return code.replace(
+        /url\(\s*(['"]?)(\/fonts\/[^'")\s]+)\1\s*\)/g,
+        (_match, _quote, path: string) => {
+          return `url("${withBase(baseURL, path)}")`;
+        },
+      );
+    },
+  };
+}
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-10-27',
-  
+  compatibilityDate: "2026-10-27",
+
   ssr: true,
-  
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxt/content',
-  ],
-  
+
+  modules: ["@nuxt/eslint", "@nuxtjs/tailwindcss", "@nuxt/content"],
+
+  eslint: {
+    config: {
+      stylistic: false,
+    },
+  },
+
   content: {
-    documentDriven: false,
-    markdown: {
+    renderer: {
       anchorLinks: false,
     },
   },
-  
-  css: ['~/assets/css/main.css'],
-  
+
+  css: ["~/assets/css/main.css"],
+
+  vite: {
+    plugins: [prefixPublicFontUrls()],
+  },
+
+  postcss: {
+    plugins: {
+      // Tailwind 3 exposes nesting only as a directory import, which Nuxt cannot load as ESM.
+      "tailwindcss/nesting": false,
+    },
+  },
+
   app: {
+    baseURL,
     head: {
       htmlAttrs: {
-        lang: 'fa',
-        dir: 'rtl',
+        lang: "fa",
+        dir: "rtl",
       },
-      charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
-      title: 'دجینت‌کو - بزرگترین پردیس استارت‌آپی خاورمیانه',
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+      title: "دجینت‌کو - بزرگترین پردیس استارت‌آپی خاورمیانه",
       meta: [
-        { name: 'description', content: 'دجینت‌کو به بیش از ۱۰۰۰ استارت‌آپ دسترسی به اکوسیستم، شرکا و سرمایه‌گذاران می‌دهد.' },
-        { name: 'theme-color', content: '#1c1917' },
-        { property: 'og:site_name', content: 'دجینت‌کو' },
-        { property: 'og:locale', content: 'fa_IR' },
+        {
+          name: "description",
+          content:
+            "دجینت‌کو به بیش از ۱۰۰۰ استارت‌آپ دسترسی به اکوسیستم، شرکا و سرمایه‌گذاران می‌دهد.",
+        },
+        { name: "theme-color", content: "#1c1917" },
+        { property: "og:site_name", content: "دجینت‌کو" },
+        { property: "og:locale", content: "fa_IR" },
       ],
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'preload', as: 'font', type: 'font/woff2', href: '/fonts/vazirmatn-arabic-400-normal.woff2', crossorigin: 'anonymous' },
-        { rel: 'preload', as: 'font', type: 'font/woff2', href: '/fonts/vazirmatn-arabic-900-normal.woff2', crossorigin: 'anonymous' },
+        { rel: "icon", type: "image/svg+xml", href: withBase(baseURL, "/favicon.svg") },
+        {
+          rel: "preload",
+          as: "font",
+          type: "font/woff2",
+          href: withBase(baseURL, "/fonts/vazirmatn-arabic-400-normal.woff2"),
+          crossorigin: "anonymous",
+        },
+        {
+          rel: "preload",
+          as: "font",
+          type: "font/woff2",
+          href: withBase(baseURL, "/fonts/vazirmatn-arabic-900-normal.woff2"),
+          crossorigin: "anonymous",
+        },
       ],
     },
   },
-  
-  
+
   nitro: {
-    preset: 'static',
     prerender: {
       crawlLinks: true,
       routes: [
-        '/',
-        '/about',
-        '/news',
-        '/contact',
-        '/contact/visits',
-        '/contact/sales',
-        '/contact/press',
-        '/legal-information',
-        '/privacy-policy',
-        '/terms',
-        '/startups',
-        '/programs',
-        '/programs/in-house',
-        '/programs/resources',
-        '/events',
-        '/events/spaces',
-        '/sitemap.xml',
+        "/",
+        "/about",
+        "/news",
+        "/news/page/2",
+        "/news/new-ai-platform",
+        "/news/partnership-announcement",
+        "/news/innovation-award",
+        "/news/cloud-expansion",
+        "/news/cybersecurity-summit",
+        "/news/new-office-opening",
+        "/news/training-program",
+        "/news/sustainability-initiative",
+        "/contact",
+        "/contact/visits",
+        "/contact/sales",
+        "/contact/press",
+        "/legal-information",
+        "/privacy-policy",
+        "/terms",
+        "/startups",
+        "/sitemap.xml",
       ],
     },
   },
-  
+
   devtools: { enabled: false },
-})
+});

@@ -1,0 +1,43 @@
+---
+description: Standing rules for the stack, RTL, design, and content of the dgientco site
+alwaysApply: true
+---
+
+# dgientco
+
+## Stack
+
+- Nuxt 4 and Vue 3. Only `<script setup lang="ts">`.
+- Routes live in `app/pages/`. Components live in `app/components/` and are auto-imported.
+- News and legal copy come from `content/` via `@nuxt/content` collections. Other lists live in `app/data/*.ts`.
+- Images use `AppImage` with width, height, and lazy loading.
+- Static output with `nuxt generate`.
+
+## RTL
+
+The site is fully right-to-left (`lang=fa` and `dir=rtl` on `html`). Logical properties only.
+
+```html
+<!-- bad -->
+<div class="ml-4 pl-6 text-left left-0">
+<!-- good -->
+<div class="ms-4 ps-6 text-start start-0">
+```
+
+`left`, `right`, `ml`, `mr`, `pl`, `pr`, `text-left`, and `text-right` are forbidden.
+
+## Design
+
+Campus layout mirrored for RTL. Do not invent a second visual system.
+
+- Header is `bg-primary`, height `h-24`, wordmark, uppercase nav, contact as a white pill.
+- Hero is start-aligned from `lg`, centered below that. The title uses `.hero-gradient`. One `.btn-light` pill. Stats sit in a glass bar.
+- Section rhythm is `py-8`. Titles use `.section-title` and `.page-title`. Container is `max-w-7xl`.
+- Colours: primary `#1c1917`, accent blue `#024a70`, muted `#f5f5f4`, border `#e7e5e4`, warm fill `#fff7ed`, blue fill `#eff6ff`.
+- Type is Vazirmatn. The woff2 files live in `public/fonts/` and are declared in `app/assets/css/fonts.css`.
+- Display dates are Jalali with Persian digits (`formatJalaliDate`). Keep dates as ISO in content.
+
+## Content and SEO
+
+- Every page calls `usePageSeo` with a Persian title and description and `ogLocale: fa_IR`.
+- There is no programs section and no events section. Do not link to `/programs` or `/events`.
