@@ -1,11 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
-import {
-  siteAlternateName,
-  siteLegalName,
-  siteMission,
-  siteName,
-} from "../../app/utils/site";
+import { siteAlternateName, siteLegalName, siteName } from "../../app/utils/site";
 import {
   basePath,
   canonicalUrl,
@@ -59,7 +54,7 @@ for (const entry of mainPages) {
 
     if (entry.path === "/") {
       await expect(page.locator('header img[alt="فنصاد"]')).toBeVisible();
-      await expect(page.locator("main")).toContainText(siteMission);
+      await expect(page.locator("main")).not.toContainText("ماموریت شرکت");
       await expect(page.locator("main")).toContainText("پروژه‌های جاری");
       await expect(page.locator("main")).toContainText(
         "سرمایه‌گذاری در تولید هالوفایبر",
@@ -249,29 +244,24 @@ test("home hero text does not overlap", async ({ page }, testInfo) => {
 
     const hero = page.locator("section").first();
     const title = hero.locator("h1");
-    const lead = hero.locator("p").first();
     const stats = hero.locator(".backdrop-blur-md").first();
     const boxes = await Promise.all(
-      [hero, title, lead, stats].map((locator) => {
+      [hero, title, stats].map((locator) => {
         return locator.evaluate((node) => {
           const box = node.getBoundingClientRect();
           return { x: box.x, y: box.y, width: box.width, height: box.height };
         });
       }),
     );
-    const [heroBox, titleBox, leadBox, statsBox] = boxes;
-    expect(heroBox && titleBox && leadBox && statsBox).toBeTruthy();
-    if (!heroBox || !titleBox || !leadBox || !statsBox) continue;
+    const [heroBox, titleBox, statsBox] = boxes;
+    expect(heroBox && titleBox && statsBox).toBeTruthy();
+    if (!heroBox || !titleBox || !statsBox) continue;
 
     expect(titleBox.height).toBeGreaterThan(0);
-    expect(leadBox.height).toBeGreaterThan(0);
     expect(statsBox.height).toBeGreaterThan(0);
     expect(inside(heroBox, titleBox)).toBe(true);
-    expect(inside(heroBox, leadBox)).toBe(true);
     expect(inside(heroBox, statsBox)).toBe(true);
-    expect(overlaps(titleBox, leadBox)).toBe(false);
     expect(overlaps(titleBox, statsBox)).toBe(false);
-    expect(overlaps(leadBox, statsBox)).toBe(false);
     const lineTops = await title.evaluate((node) => {
       const range = document.createRange();
       return [...node.childNodes]

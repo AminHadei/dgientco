@@ -25,9 +25,6 @@
           >
             {{ `${heroTitleLines[0]} ` }}<br />{{ heroTitleLines[1] }}
           </h1>
-          <p class="text-xl font-semibold leading-8">
-            {{ siteMission }}
-          </p>
         </div>
 
         <div class="shrink-0 space-y-10">
