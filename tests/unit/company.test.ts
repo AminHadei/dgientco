@@ -16,6 +16,11 @@ describe("company facts", () => {
     expect(people).toHaveLength(7);
     expect(partners).toHaveLength(3);
     expect(partners.filter((partner) => partner.href).length).toBe(2);
+    expect(partners.map((partner) => partner.logo)).toEqual([
+      "/images/partners/azadfund.webp",
+      "/images/partners/rcnlm.webp",
+      "/images/partners/nikandishan.webp",
+    ]);
   });
 
   it("uses the published phone and email", () => {

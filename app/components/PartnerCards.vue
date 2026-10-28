@@ -5,6 +5,13 @@
       :key="partner.name"
       class="rounded-xl bg-secondary p-6 ring-1 ring-foreground/10"
     >
+      <div class="mb-4 flex h-32 items-center justify-center">
+        <AppImage
+          :src="partner.logo"
+          alt=""
+          class="h-auto max-h-full w-auto max-w-full object-contain"
+        />
+      </div>
       <h3 class="text-pretty text-base font-bold leading-relaxed">
         <a
           v-if="partner.href"
