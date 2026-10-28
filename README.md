@@ -6,7 +6,7 @@ Static corporate website for فناوری‌های نوین صنعت و انرژ
 
 - **Nuxt 4** for a statically generated Vue site
 - **Tailwind CSS** with logical properties for RTL layout
-- **Nuxt Content** for news, legal pages, and projects
+- **Nuxt Content** for news and projects
 - **Vazirmatn** for Persian typography
 - Jalali dates rendered with Persian digits
 
@@ -17,7 +17,6 @@ Static corporate website for فناوری‌های نوین صنعت و انرژ
 - `/about` mission, managers, and partners
 - `/news` and `/news/[slug]`
 - `/contact`
-- `/legal-information`, `/privacy-policy`, and `/terms`
 - Custom 404 page
 
 ## Design
@@ -84,7 +83,7 @@ pnpm test
 ```
 .
 ├── app/             # Pages, components, data, and CSS
-├── content/         # News, legal pages, and projects
+├── content/         # News and projects
 ├── public/          # Fonts, images, and static files
 ├── server/          # Sitemap, robots, and web manifest
 ├── content.config.ts

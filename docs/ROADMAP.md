@@ -44,7 +44,7 @@ The items below are tasks, not decisions already taken. Each note says why it ma
 - [ ] Verify the property in Google Search Console and Bing Webmaster Tools after the domain resolves.
 - [ ] Submit the sitemap. It is `/sitemap.xml` on the new origin. The `Sitemap:` line in `robots.txt` must use the same `NUXT_PUBLIC_SITE_URL`.
 - [ ] Request indexing of the home page once the canonical URLs match the live host.
-- [ ] Choose analytics only if you need it. Prefer a privacy-friendly option (hosted or self-hosted Plausible or Umami are examples, not a requirement). Do not add advertising scripts. If the tool sets cookies, say so on the privacy page.
+- [ ] Choose analytics only if you need it. Prefer a privacy-friendly option (hosted or self-hosted Plausible or Umami are examples, not a requirement). Do not add advertising scripts. If the tool sets cookies, do not add it until the site has a place to say so.
 - [ ] Replace `public/images/og.png` and the icons in `public/` with approved artwork, then regenerate. The tags already point at those files.
 - [ ] If a second language is added later, add `hreflang` and a per-locale `og:locale`. Do not add them for a single Persian site.
 
@@ -55,7 +55,7 @@ The items below are tasks, not decisions already taken. Each note says why it ma
 - [ ] Replace photographs. Keep width and height on `AppImage`, and update [CREDITS.md](../CREDITS.md) for every new source. The hero and news images are still stock photos.
 - [x] Replace startup profiles with the projects page. News dates stay ISO in frontmatter. The site renders them as Jalali with Persian digits.
 - [ ] Replace placeholder news. The current articles are labeled samples and do not state company events.
-- [ ] Have the legal pages reviewed by someone who can approve them before launch: legal information, privacy, and terms. The name and contact details are updated. The privacy and terms text still needs that review.
+- [x] Legal information, privacy, and terms are not on the site. Do not add those pages or links.
 - [x] Remove sample registration numbers, phone numbers, and street addresses wherever they still appear, including the footer.
 
 ## Contact
