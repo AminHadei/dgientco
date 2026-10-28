@@ -1,5 +1,5 @@
 <template>
-  <div class="partner-marquee -mx-4 overflow-hidden md:-mx-6">
+  <div class="partner-marquee -mx-4 overflow-hidden p-0.5 md:-mx-6">
     <div class="partner-marquee-track flex w-max">
       <ul
         v-for="copy in copies"
