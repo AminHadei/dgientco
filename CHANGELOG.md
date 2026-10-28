@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.0
+
+### Minor Changes
+
+- Split the home title, show partner marks, and drop the legal pages from the footer.
+
 ## 1.5.0
 
 ### Minor Changes
