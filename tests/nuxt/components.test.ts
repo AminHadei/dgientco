@@ -60,6 +60,8 @@ describe("AppHeader", () => {
     expect(links.some((href) => href.includes("/projects"))).toBe(true);
     expect(links.some((href) => href.includes("/startups"))).toBe(false);
     expect(header.get("img").attributes("alt")).toBe(siteName);
+    expect(header.get("img").classes()).not.toContain("bg-white");
+    expect(header.get("a span").classes()).not.toContain("bg-white");
   });
 });
 

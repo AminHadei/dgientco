@@ -1,8 +1,5 @@
 <template>
-  <span
-    class="inline-flex items-center justify-center rounded-lg bg-white"
-    :class="variant === 'mark' ? 'p-1.5' : 'max-w-xs p-3'"
-  >
+  <span class="inline-flex items-center justify-center">
     <picture>
       <source :srcset="webp" type="image/webp" />
       <AppImage
