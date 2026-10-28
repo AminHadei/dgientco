@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- Remove the programs and events sections, including their pages, data, and navigation links.
+
 ## 1.0.0
 
 ### Minor Changes
