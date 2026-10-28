@@ -21,6 +21,10 @@ describe("company facts", () => {
       "/images/partners/rcnlm.webp",
       "/images/partners/nikandishan.webp",
     ]);
+    expect(partners[1]?.lines).toEqual([
+      "دانشکده مدیریت و اقتصاد دانشگاه آزاد اسلامی",
+      "(واحد علوم و تحقیقات تهران)",
+    ]);
   });
 
   it("uses the published phone and email", () => {
