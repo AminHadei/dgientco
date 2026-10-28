@@ -9,7 +9,7 @@ alwaysApply: true
 
 - Nuxt 4 and Vue 3. Only `<script setup lang="ts">`.
 - Routes live in `app/pages/`. Components live in `app/components/` and are auto-imported.
-- News and legal copy come from `content/` via `@nuxt/content` collections. Other lists live in `app/data/*.ts`.
+- News copy comes from `content/` via `@nuxt/content` collections. Other lists live in `app/data/*.ts`.
 - Images use `AppImage` with width, height, and lazy loading.
 - Static output with `nuxt generate`.
 

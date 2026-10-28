@@ -18,7 +18,7 @@ app/
   utils/
   data/             # typed lists
   assets/css/
-content/            # news and legal markdown
+content/            # news and project markdown
 content.config.ts
 server/routes/      # sitemap only
 nuxt.config.ts
@@ -33,7 +33,7 @@ nuxt.config.ts
 
 ## Data
 
-- News and legal pages use `queryCollection` (`news` and `legal` in `content.config.ts`).
+- News pages use `queryCollection` (`news` in `content.config.ts`).
 - Projects are a data collection: `content/projects/*.yml`.
 - Partners, management, and contact details live in `app/data/*.ts`.
 - Images go through `AppImage`.

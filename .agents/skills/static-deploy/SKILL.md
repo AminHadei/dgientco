@@ -12,7 +12,7 @@ pnpm generate
 # output: .output/public/
 ```
 
-`nuxt generate` prerenders `/` and every linked route (`nitro.prerender.crawlLinks`, plus the explicit list in `nuxt.config.ts`). A page that is not linked will not be in the output unless it is listed there. News and legal markdown are queried with `queryCollection`, not served as their own routes.
+`nuxt generate` prerenders `/` and every linked route (`nitro.prerender.crawlLinks`, plus the explicit list in `nuxt.config.ts`). A page that is not linked will not be in the output unless it is listed there. News markdown is queried with `queryCollection`, not served as its own routes.
 
 ## CI
 

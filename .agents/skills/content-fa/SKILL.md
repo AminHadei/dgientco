@@ -10,7 +10,6 @@ description: Use when writing or editing Persian copy in content/ or app/data/. 
 | Kind       | Path                     | Role                              |
 | ---------- | ------------------------ | --------------------------------- |
 | News       | `content/news/*.md`      | Articles                          |
-| Legal      | `content/legal/*.md`     | Legal information, privacy, terms |
 | Projects   | `content/projects/*.yml` | Current and upcoming projects     |
 | Partners   | `app/data/partners.ts`   | Organization partners             |
 | Management | `app/data/management.ts` | Board and managers                |
@@ -20,7 +19,7 @@ Interface strings that are not in those files are written in the Vue page, in Pe
 
 ## Voice
 
-The company speaks calmly and specifically. Do not invent facts, numbers, or people. The short name is فنصاد. The legal name with «سهامی خاص» appears only on the legal line, the legal pages, and `legalName`.
+The company speaks calmly and specifically. Do not invent facts, numbers, or people. The short name is فنصاد. The legal name with «سهامی خاص» appears only on the footer line and `legalName`. There are no legal, privacy, or terms pages.
 
 ## Orthography
 
