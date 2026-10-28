@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.0
+
+### Minor Changes
+
+- Show the real messenger marks and let the partner row travel on its own.
+
 ## 1.6.0
 
 ### Minor Changes
