@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0
+
+### Minor Changes
+
+- Upgrade the site to Nuxt 4, with the app directory and Nuxt Content collections.
+
 ## 1.1.0
 
 ### Minor Changes
