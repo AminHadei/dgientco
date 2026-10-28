@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.0
+
+### Minor Changes
+
+- Remove contact forms, membership calls to action, and unused footer links, and align news cards and the home hero with the campus layout.
+
 ## 1.2.0
 
 ### Minor Changes
