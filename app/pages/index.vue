@@ -120,13 +120,7 @@
 import { people } from "~/data/management";
 import { partners } from "~/data/partners";
 import { toPersianDigits } from "~/utils/jalali";
-import {
-  heroTitle,
-  heroTitleLines,
-  siteIntroName,
-  siteMission,
-  siteName,
-} from "~/utils/site";
+import { heroTitleLines, siteIntroName, siteMission, siteName } from "~/utils/site";
 import { toNewsCard } from "~/utils/text";
 
 const { data: projectDocs } = await useAsyncData("home-projects", () =>
@@ -155,7 +149,7 @@ const heroSrcset =
 useLcpImage("/images/unsplash/hero-coworking-960.webp", heroSrcset);
 
 usePageSeo({
-  title: heroTitle,
+  title: "خانه",
   description: siteMission,
   image: "/images/og.png",
   imageAlt: siteName,

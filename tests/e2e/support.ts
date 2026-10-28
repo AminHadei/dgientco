@@ -37,7 +37,7 @@ export const mainPages: PageCase[] = [
   {
     path: "/",
     h1: heroTitle,
-    title: `${heroTitle} | ${siteName}`,
+    title: `خانه | ${siteName}`,
     description: siteMission,
   },
   {
