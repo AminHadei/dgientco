@@ -23,7 +23,7 @@
           <h1
             class="hero-gradient max-w-full text-pretty text-4xl font-black leading-[1.35] max-lg:text-center md:text-5xl lg:text-6xl lg:leading-[1.3]"
           >
-            {{ heroTitle }}
+            {{ `${heroTitleLines[0]} ` }}<br />{{ heroTitleLines[1] }}
           </h1>
           <p class="text-xl font-semibold leading-8">
             {{ siteMission }}
@@ -123,7 +123,13 @@
 import { people } from "~/data/management";
 import { partners } from "~/data/partners";
 import { toPersianDigits } from "~/utils/jalali";
-import { heroTitle, siteIntroName, siteMission, siteName } from "~/utils/site";
+import {
+  heroTitle,
+  heroTitleLines,
+  siteIntroName,
+  siteMission,
+  siteName,
+} from "~/utils/site";
 import { toNewsCard } from "~/utils/text";
 
 const { data: projectDocs } = await useAsyncData("home-projects", () =>

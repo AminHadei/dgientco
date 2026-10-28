@@ -272,6 +272,19 @@ test("home hero text does not overlap", async ({ page }, testInfo) => {
     expect(overlaps(titleBox, leadBox)).toBe(false);
     expect(overlaps(titleBox, statsBox)).toBe(false);
     expect(overlaps(leadBox, statsBox)).toBe(false);
+    const lineTops = await title.evaluate((node) => {
+      const range = document.createRange();
+      return [...node.childNodes]
+        .filter(
+          (child) => child.nodeType === Node.TEXT_NODE && child.textContent?.trim(),
+        )
+        .map((child) => {
+          range.selectNodeContents(child);
+          return range.getBoundingClientRect().top;
+        });
+    });
+    expect(lineTops).toHaveLength(2);
+    expect(lineTops[0]).toBeLessThan(lineTops[1] ?? 0);
   }
 
   expectNoConsoleErrors(page);

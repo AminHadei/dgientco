@@ -5,7 +5,8 @@ export const siteIntroName = `شرکت ${siteFullName} (${siteName})`;
 export const siteAlternateName = "DGIENT";
 export const siteMission =
   "ماموریت شرکت، مولدسازی دارایی‌ها و تجاری‌سازی دستاوردهای دانشگاه علوم و تحقیقات تهران است.";
-export const heroTitle = "مولدسازی دارایی‌ها و تجاری‌سازی دانش";
+export const heroTitleLines = ["مولدسازی دارایی‌ها", "و تجاری‌سازی دانش"] as const;
+export const heroTitle = heroTitleLines.join(" ");
 export const newsDescription = "نمونه‌خبرهای وب‌سایت فنصاد.";
 
 export const siteLocale = "fa_IR";
