@@ -21,7 +21,7 @@ Static corporate website for فناوری‌های نوین صنعت و انرژ
 
 ## Design
 
-The layout follows a campus-site pattern, mirrored for RTL: a start-aligned hero with a gradient title and a glass stats bar. The header uses the logo mark on a light plate, compact uppercase navigation, and a contact button. Sections use a tight rhythm and rounded buttons. The footer shows the full logo, the contact details, and a legal bar.
+The layout follows a campus-site pattern, mirrored for RTL: a start-aligned hero with a gradient title and a glass stats bar. The header uses the logo mark with no plate, compact uppercase navigation, and a contact button. Sections use a tight rhythm and rounded buttons. The footer shows a larger mark, the contact details, and a centered legal line.
 
 ## Quality
 

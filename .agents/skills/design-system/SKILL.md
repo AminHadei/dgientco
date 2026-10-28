@@ -32,7 +32,7 @@ Start-aligned on large screens, centered below `lg`. The `h1` uses `.hero-gradie
 
 ## Header and footer
 
-Fixed `h-24` bar, the mark on a white plate, compact uppercase nav, contact as a secondary rounded button. The footer shows the full logo, the contact details, and a legal bar. There is no newsletter field.
+Fixed `h-24` bar, the mark with no plate, compact uppercase nav, contact as a secondary rounded button. The footer shows a larger mark with no plate, the contact details, and a centered legal line. There is no newsletter field.
 
 ## RTL
 
