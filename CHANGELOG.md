@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.0
+
+### Minor Changes
+
+- Replace the placeholder campus copy with the company profile, projects, partners, managers, and contact details.
+
 ## 1.4.1
 
 ### Patch Changes
