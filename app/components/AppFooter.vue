@@ -48,8 +48,8 @@
           <MessengerLinks class="max-lg:justify-center" />
         </div>
 
-        <div data-brand="logo-full" class="shrink-0">
-          <BrandLogo variant="full" />
+        <div data-brand="logo-mark" class="shrink-0">
+          <BrandLogo variant="mark" large />
         </div>
       </div>
 

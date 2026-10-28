@@ -4,7 +4,7 @@ import AppFooter from "~/components/AppFooter.vue";
 import AppHeader from "~/components/AppHeader.vue";
 import NewsCard from "~/components/NewsCard.vue";
 import PageHero from "~/components/PageHero.vue";
-import { siteFullName, siteName } from "~/utils/site";
+import { siteName } from "~/utils/site";
 
 const article = {
   slug: "new-ai-platform",
@@ -66,7 +66,7 @@ describe("AppHeader", () => {
 });
 
 describe("AppFooter", () => {
-  it("shows the full logo and contact details without a newsletter", async () => {
+  it("shows the mark and contact details without a newsletter", async () => {
     const footer = await mountSuspended(AppFooter);
     const links = footer.findAll("a").map((link) => link.attributes("href") || "");
 
@@ -79,8 +79,12 @@ describe("AppFooter", () => {
     expect(footer.text()).not.toContain("عضویت");
     expect(footer.text()).toContain("۰۲۱-۴۴۸۶۷۱۶۵");
     expect(footer.text()).toContain("fansad.company@gmail.com");
-    expect(footer.get("img").attributes("alt")).toBe(siteFullName);
-    expect(footer.get("img").attributes("src")).toContain("logo-full");
+    expect(footer.get("img").attributes("alt")).toBe(siteName);
+    expect(footer.get("img").attributes("src")).toContain("logo-mark");
+    expect(footer.get("img").classes()).toContain("h-48");
+    expect(footer.get("[data-brand='logo-mark'] span").classes()).not.toContain(
+      "bg-white",
+    );
     expect(links).toContain("/contact");
     expect(links).toContain("https://t.me/fansad_company");
     expect(links).toContain("https://ble.ir/fansad_company");

@@ -133,9 +133,7 @@ export async function expectFooterShape(page: Page) {
 
   await expect(page.locator("footer form, footer #newsletter-email")).toHaveCount(0);
   await expect(page.locator("a", { hasText: "عضویت" })).toHaveCount(0);
-  await expect(
-    page.locator('footer img[alt="فناوری‌های نوین صنعت و انرژی دانش‌گستر"]'),
-  ).toBeVisible();
+  await expect(page.locator(`footer img[alt="${siteName}"]`)).toBeVisible();
   await expect(page.locator("footer")).toContainText("۰۲۱-۴۴۸۶۷۱۶۵");
   await expect(page.locator("footer")).toContainText("fansad.company@gmail.com");
   await expect(page.locator("footer")).toContainText("تهران، انتهای ستاری");
