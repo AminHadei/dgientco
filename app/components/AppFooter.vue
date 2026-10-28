@@ -53,10 +53,9 @@
         </div>
       </div>
 
-      <div class="flex flex-col gap-1 text-xs uppercase max-lg:items-center">
-        <p>{{ siteLegalName }}</p>
-        <p>© {{ toPersianDigits(jalaliYear()) }} {{ siteName }}</p>
-      </div>
+      <p class="pt-4 text-center text-xs">
+        {{ siteLegalName }} © {{ toPersianDigits(jalaliYear()) }} {{ siteName }}
+      </p>
     </div>
   </footer>
 </template>

@@ -4,7 +4,7 @@ import AppFooter from "~/components/AppFooter.vue";
 import AppHeader from "~/components/AppHeader.vue";
 import NewsCard from "~/components/NewsCard.vue";
 import PageHero from "~/components/PageHero.vue";
-import { siteName } from "~/utils/site";
+import { siteLegalName, siteName } from "~/utils/site";
 
 const article = {
   slug: "new-ai-platform",
@@ -66,7 +66,7 @@ describe("AppHeader", () => {
 });
 
 describe("AppFooter", () => {
-  it("shows the mark and contact details without a newsletter", async () => {
+  it("shows the mark, a centered legal line, and contact details", async () => {
     const footer = await mountSuspended(AppFooter);
     const links = footer.findAll("a").map((link) => link.attributes("href") || "");
 
@@ -91,6 +91,8 @@ describe("AppFooter", () => {
     expect(footer.get("[data-brand='logo-mark'] span").classes()).not.toContain(
       "bg-white",
     );
+    expect(footer.text()).toContain(`${siteLegalName} ©`);
+    expect(footer.find("p.text-center").exists()).toBe(true);
     expect(links).toContain("/contact");
     expect(links).toContain("https://t.me/fansad_company");
     expect(links).toContain("https://ble.ir/fansad_company");
