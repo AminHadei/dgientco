@@ -53,20 +53,9 @@
         </div>
       </div>
 
-      <div
-        class="flex items-center justify-between gap-4 text-xs uppercase max-lg:flex-col max-lg:gap-y-2"
-      >
-        <div class="flex items-center gap-x-4 max-lg:flex-col max-lg:gap-y-2">
-          <NuxtLink to="/legal-information" class="hover:underline"
-            >اطلاعات قانونی</NuxtLink
-          >
-          <NuxtLink to="/privacy-policy" class="hover:underline">حریم خصوصی</NuxtLink>
-          <NuxtLink to="/terms" class="hover:underline">شرایط استفاده</NuxtLink>
-        </div>
-        <div class="flex flex-col gap-1 max-lg:items-center">
-          <p>{{ siteLegalName }}</p>
-          <p>© {{ toPersianDigits(jalaliYear()) }} {{ siteName }}</p>
-        </div>
+      <div class="flex flex-col gap-1 text-xs uppercase max-lg:items-center">
+        <p>{{ siteLegalName }}</p>
+        <p>© {{ toPersianDigits(jalaliYear()) }} {{ siteName }}</p>
       </div>
     </div>
   </footer>

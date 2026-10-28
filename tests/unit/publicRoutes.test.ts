@@ -25,9 +25,6 @@ describe("publicPaths", () => {
       "/news/page/2",
       ...articleSlugs.map((slug) => `/news/${slug}`),
       "/contact",
-      "/legal-information",
-      "/privacy-policy",
-      "/terms",
     ]);
     expect(paths).not.toContain("/news/page/3");
   });

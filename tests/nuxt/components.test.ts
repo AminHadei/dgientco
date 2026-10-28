@@ -74,9 +74,15 @@ describe("AppFooter", () => {
     expect(links.some((href) => /\/about(\/|$|\?|#)/.test(href))).toBe(false);
     expect(links.some((href) => /\/startups(\/|$|\?|#)/.test(href))).toBe(false);
     expect(links.some((href) => /\/projects(\/|$|\?|#)/.test(href))).toBe(false);
+    expect(links.some((href) => href.includes("/legal-information"))).toBe(false);
+    expect(links.some((href) => href.includes("/privacy-policy"))).toBe(false);
+    expect(links.some((href) => /\/terms(\/|$|\?|#)/.test(href))).toBe(false);
     expect(footer.find("form").exists()).toBe(false);
     expect(footer.find("button").exists()).toBe(false);
     expect(footer.text()).not.toContain("عضویت");
+    expect(footer.text()).not.toContain("اطلاعات قانونی");
+    expect(footer.text()).not.toContain("حریم خصوصی");
+    expect(footer.text()).not.toContain("شرایط استفاده");
     expect(footer.text()).toContain("۰۲۱-۴۴۸۶۷۱۶۵");
     expect(footer.text()).toContain("fansad.company@gmail.com");
     expect(footer.get("img").attributes("alt")).toBe(siteName);

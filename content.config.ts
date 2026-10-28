@@ -11,13 +11,6 @@ export default defineContentConfig({
         image: z.string(),
       }),
     }),
-    legal: defineCollection({
-      type: "page",
-      source: "legal/*.md",
-      schema: z.object({
-        lastUpdated: z.string(),
-      }),
-    }),
     projects: defineCollection({
       type: "data",
       source: "projects/*.yml",

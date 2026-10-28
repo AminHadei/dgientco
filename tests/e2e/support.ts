@@ -78,24 +78,6 @@ export const mainPages: PageCase[] = [
     title: `تماس | ${siteName}`,
     description: `نشانی، تلفن و ایمیل ${siteName}.`,
   },
-  {
-    path: "/legal-information",
-    h1: "اطلاعات قانونی",
-    title: `اطلاعات قانونی | ${siteName}`,
-    description: `اطلاعات قانونی ${siteName}.`,
-  },
-  {
-    path: "/privacy-policy",
-    h1: "حریم خصوصی",
-    title: `حریم خصوصی | ${siteName}`,
-    description: `سیاست حریم خصوصی ${siteName}.`,
-  },
-  {
-    path: "/terms",
-    h1: "شرایط استفاده",
-    title: `شرایط استفاده | ${siteName}`,
-    description: `شرایط استفاده از وب‌سایت ${siteName}.`,
-  },
 ];
 
 const consoleErrors = new WeakMap<Page, string[]>();
@@ -133,6 +115,9 @@ export async function expectFooterShape(page: Page) {
 
   await expect(page.locator("footer form, footer #newsletter-email")).toHaveCount(0);
   await expect(page.locator("a", { hasText: "عضویت" })).toHaveCount(0);
+  await expect(page.locator('a[href*="/legal-information"]')).toHaveCount(0);
+  await expect(page.locator('a[href*="/privacy-policy"]')).toHaveCount(0);
+  await expect(page.locator('a[href$="/terms"]')).toHaveCount(0);
   await expect(page.locator(`footer img[alt="${siteName}"]`)).toBeVisible();
   await expect(page.locator("footer")).toContainText("۰۲۱-۴۴۸۶۷۱۶۵");
   await expect(page.locator("footer")).toContainText("fansad.company@gmail.com");

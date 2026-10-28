@@ -24,8 +24,5 @@ export function publicPaths(root = process.cwd()): string[] {
     ...newsPages,
     ...slugs.map((slug) => `/news/${slug}`),
     "/contact",
-    "/legal-information",
-    "/privacy-policy",
-    "/terms",
   ];
 }
