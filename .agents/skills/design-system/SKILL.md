@@ -42,4 +42,4 @@ The hero gradient runs `to left` so the green stop sits on the start edge in RTL
 
 ## Homepage shape
 
-Hero, projects, partners, a short management list, and news. Do not add a programs or events block.
+Hero, projects, partners, a short management list, and news. Partner cards are `w-max`, with the caption centered under the logo, and the row travels on its own. Do not add a programs or events block.
