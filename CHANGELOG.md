@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.0
+
+### Minor Changes
+
+- Add site URL configuration, social and structured-data tags, a sitemap, and branded icons.
+
 ## 1.3.0
 
 ### Minor Changes
