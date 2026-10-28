@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.1
+
+### Patch Changes
+
+- Add unit and end-to-end tests, and a roadmap for the production deployment.
+
 ## 1.4.0
 
 ### Minor Changes
