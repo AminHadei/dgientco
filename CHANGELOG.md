@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.1
+
+### Patch Changes
+
+- Keep the partner card outline visible while the row moves.
+
 ## 1.7.0
 
 ### Minor Changes
